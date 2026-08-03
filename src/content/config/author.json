@@ -1,0 +1,16 @@
+{
+  "name": "Maurice Witten",
+  "role": "Founder, BlockSiFr",
+  "shortBio": "Founder of BlockSiFr, defining Identity and Execution Governance: infrastructure to govern what humans, AI agents, software systems, and non-human identities are authorized to execute.",
+  "paragraphs": [
+    "Maurice Witten is the founder of BlockSiFr, the company defining Identity and Execution Governance, a new infrastructure category designed to govern what humans, AI agents, software systems, and non-human identities are authorized to execute.",
+    "His work focuses on a critical architectural problem created by autonomous systems: authentication alone cannot determine whether an action should be allowed at the moment of execution. Through BlockSiFr, Maurice is building the infrastructure required to evaluate identity, authority, trust, consequence, and risk before consequential actions occur, while generating verifiable Execution Receipts after every decision.",
+    "Maurice’s professional background includes enterprise identity, service-account governance, and security operations work at Federated Hermes. That experience exposed the limitations of static access controls in environments where machine identities, automation pipelines, and autonomous software operate continuously across critical systems.",
+    "Under his leadership, BlockSiFr has developed a multi-layer execution-governance architecture spanning runtime authority, AI-agent governance, continuous trust evaluation, non-human identity governance, protected-action enforcement, and cryptographically verifiable execution evidence. The company’s platform strategy is built around CortexTrace and Execution Exchange, supported by technologies including ModelMeter, FrontDesk, Execution Consequence Intelligence, blast-radius analysis, and authority-first execution controls.",
+    "BlockSiFr has filed patent protection for its technology, completed the first version of its trust protocol, brought FrontDesk to market, and established affiliations including Microsoft AI Tier Partner status and participation as a Cloud Security Alliance working-group founding organization.",
+    "Maurice’s vision is to make execution governance a foundational dependency of the autonomous economy. His thesis is direct: as AI systems move from generating information to taking action, every consequential execution must be verified before it happens.",
+    "He is building BlockSiFr to become that verification layer."
+  ],
+  "affiliation": "BlockSiFr LLC",
+  "source": "Owner-provided biography for ieg.blocksifr.com (2026-07-21)"
+}

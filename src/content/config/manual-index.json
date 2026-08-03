@@ -1,0 +1,94 @@
+{
+  "parts": [
+    {
+      "number": 1,
+      "title": "The AI execution stack",
+      "slug": "part-1-the-ai-execution-stack",
+      "chapterNumbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "summary": "Foundations: why AI is not software, the execution stack, and primary failure classes through memory."
+    },
+    {
+      "number": 2,
+      "title": "Input and context attacks",
+      "slug": "part-2-input-and-context-attacks",
+      "chapterNumbers": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "summary": "How untrusted input and retrieved context become control-plane compromise."
+    },
+    {
+      "number": 3,
+      "title": "Planning, autonomy, and orchestration",
+      "slug": "part-3-planning-autonomy-and-orchestration",
+      "chapterNumbers": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "summary": "Planning loops, multi-agent handoffs, and observability failures."
+    },
+    {
+      "number": 4,
+      "title": "Data boundaries, privacy, and compliance",
+      "slug": "part-4-data-boundaries-privacy-and-compliance",
+      "chapterNumbers": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "summary": "Disclosure, privacy attacks, residency, auditability, compliance, and incident response."
+    },
+    {
+      "number": 5,
+      "title": "Model, tool, and supply chain security",
+      "slug": "part-5-model-tool-and-supply-chain-security",
+      "chapterNumbers": [
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "summary": "Poisoning, backdoors, model theft, connectors, runtime compromise, and CI/CD."
+    },
+    {
+      "number": 6,
+      "title": "Countermeasures and safe design patterns",
+      "slug": "part-6-countermeasures-and-safe-design-patterns",
+      "chapterNumbers": [
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "summary": "Deterministic gates, engineering patterns, evaluation, governance, evidence, and fail-safe design."
+    }
+  ],
+  "chapterCount": 40,
+  "partCount": 6
+}

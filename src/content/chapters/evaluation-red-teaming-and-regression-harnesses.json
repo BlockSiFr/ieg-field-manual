@@ -1,0 +1,32 @@
+{
+  "slug": "evaluation-red-teaming-and-regression-harnesses",
+  "number": 37,
+  "title": "Evaluation, Red Teaming, and Regression Harnesses",
+  "partNumber": 6,
+  "partTitle": "Countermeasures and safe design patterns",
+  "executiveSummary": "Continuous regression against ATLAS and OWASP classes.",
+  "thesis": "Continuous regression against ATLAS and OWASP classes.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "MITRE ATLAS",
+    "OWASP LLM Top 10",
+    "NIST AI RMF"
+  ],
+  "executionLayers": [
+    "inference",
+    "execution"
+  ],
+  "riskTypes": [
+    "evaluation"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "evaluation",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

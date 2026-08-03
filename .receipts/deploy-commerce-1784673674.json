@@ -1,0 +1,18 @@
+{
+  "receiptVersion": "DASTOR-BUILD-1.0",
+  "timestamp": "2026-07-21T22:41:14Z",
+  "actor": "agent:cursor",
+  "action": "cloud.deploy",
+  "target": "https://dastor.blocksifr.com",
+  "sourceHash": "029f904c70351be28b75b8f022cb6bf2a40707e3449b9ca3a2ad0a8b29080058",
+  "repositoryCommit": "unknown",
+  "riskTier": "production",
+  "decision": "ALLOW",
+  "executionId": "intent_ccd5be187ab699c7b42907a9",
+  "result": "deployed",
+  "evidence": [
+    "purchase/access/commerce APIs",
+    "viral invite loops",
+    "stripe mcp config"
+  ]
+}

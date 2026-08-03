@@ -1,0 +1,28 @@
+{
+  "receiptVersion": "DASTOR-BUILD-1.0",
+  "timestamp": "2026-07-22T03:28:31Z",
+  "actor": "agent:cursor",
+  "action": "cloud.deploy",
+  "target": "https://dastor.blocksifr.com",
+  "decision": "ALLOW",
+  "executionId": "intent_8dfb49fad957383a685c92e3",
+  "result": "customer_deliverables_live",
+  "evidence": {
+    "chapter1_mode": "azure",
+    "chapter1_bytes": 1704,
+    "manual_bytes": 14864,
+    "assets": {
+      "sample-chapter-1.md": "8910123336ea68d2c7554fb2915f6e650fe0d6b5f31d593f71cc6d5535eb056f",
+      "framework-mapping.md": "30283a8302aac2a4173f6066b26ae0eac519bf6ee89aca41dae9e26e5f571a84",
+      "assessment-checklist.md": "ed0456658341eceb3a43ff9f47d30c5bafe44bf13361bdbeb473c5a394babb98",
+      "threat-briefs.md": "c0995424347d75c9b89452c02ea82eab717b9fe5c57282d5a0011080c2f58334",
+      "dastor-field-manual-digital.md": "a2c483a33ef5d7a79b51b3c2e006fe5056197658aa1e1131103172b867f43a04"
+    },
+    "routes": [
+      "/sample",
+      "/resources",
+      "/purchase",
+      "/access"
+    ]
+  }
+}

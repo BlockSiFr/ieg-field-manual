@@ -1,0 +1,16 @@
+{
+  "number": 6,
+  "title": "Countermeasures and safe design patterns",
+  "slug": "part-6-countermeasures-and-safe-design-patterns",
+  "chapterNumbers": [
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
+  ],
+  "summary": "Deterministic gates, engineering patterns, evaluation, governance, evidence, and fail-safe design."
+}

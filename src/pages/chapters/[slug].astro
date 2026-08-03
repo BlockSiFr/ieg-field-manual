@@ -1,0 +1,86 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getChapters, getChapter, getRelatedChapters } from "@/lib/content";
+
+export function getStaticPaths() {
+  return getChapters().map((c) => ({ params: { slug: c.slug } }));
+}
+
+const { slug } = Astro.params;
+const chapter = getChapter(slug!);
+if (!chapter) {
+  return Astro.redirect("/chapters");
+}
+const related = getRelatedChapters(chapter);
+---
+<BaseLayout title={`Chapter ${chapter.number}: ${chapter.title} | The IEG Field Manual`} description={chapter.executiveSummary} ogType="article">
+  <section class="section">
+    <div class="container">
+      <p class="meta">Chapter {String(chapter.number).padStart(2,"0")} · Part {chapter.partNumber}: {chapter.partTitle}</p>
+      <h1 class="section-title">{chapter.title}</h1>
+      <p class="prose-measure" style="color:var(--dastor-text-muted)">{chapter.executiveSummary}</p>
+      {chapter.scenario && (
+        <div style="margin-top:2rem">
+          <h2 class="eyebrow">Scenario excerpt</h2>
+          <p class="prose-measure">{chapter.scenario}</p>
+        </div>
+      )}
+      {chapter.exploitPaths.length > 0 && (
+        <div style="margin-top:2rem">
+          <h2 class="eyebrow">Exploit-path names</h2>
+          <ul>{chapter.exploitPaths.map((e) => <li><strong>{e.title}</strong>: {e.content}</li>)}</ul>
+        </div>
+      )}
+      {chapter.rootCauses.length > 0 && (
+        <div style="margin-top:1.5rem">
+          <h2 class="eyebrow">Root causes</h2>
+          <ul>{chapter.rootCauses.map((e) => <li><strong>{e.title}</strong>: {e.content}</li>)}</ul>
+        </div>
+      )}
+      {(chapter.impacts.financial || chapter.impacts.operational || chapter.impacts.compliance) && (
+        <div style="margin-top:1.5rem">
+          <h2 class="eyebrow">Impact categories</h2>
+          <ul>
+            {chapter.impacts.financial && <li>Financial: {chapter.impacts.financial}</li>}
+            {chapter.impacts.operational && <li>Operational: {chapter.impacts.operational}</li>}
+            {chapter.impacts.compliance && <li>Compliance: {chapter.impacts.compliance}</li>}
+          </ul>
+        </div>
+      )}
+      {chapter.countermeasureGroups[0] && (
+        <div style="margin-top:1.5rem">
+          <h2 class="eyebrow">Countermeasure preview</h2>
+          <ol>
+            {chapter.countermeasureGroups[0].controls.map((c) => <li>{c.text}</li>)}
+          </ol>
+        </div>
+      )}
+      {chapter.detectionGuidance?.length > 0 && (
+        <div style="margin-top:1.5rem">
+          <h2 class="eyebrow">What to watch for</h2>
+          <ul>{chapter.detectionGuidance.map((d) => <li>{d}</li>)}</ul>
+        </div>
+      )}
+      {chapter.remediationPlaybook?.length > 0 && (
+        <div style="margin-top:1.5rem">
+          <h2 class="eyebrow">Practitioner checklist</h2>
+          <ol>{chapter.remediationPlaybook.map((d) => <li>{d.text}</li>)}</ol>
+        </div>
+      )}
+      <p class="meta" style="margin-top:2rem">Frameworks: {chapter.frameworks.join(" · ")}</p>
+      <p class="meta">Layers: {chapter.executionLayers.join(" · ")}</p>
+      <div class="hero-actions" style="margin-top:2rem">
+        <a class="btn btn-primary" href="/manual">Read the Manual</a>
+        <a class="btn btn-ghost" href="/chapters">Browse Chapters</a>
+        <a class="btn btn-ghost" href="/assessment">Run the Self-Assessment</a>
+      </div>
+      {related.length > 0 && (
+        <div style="margin-top:3rem">
+          <h2 class="eyebrow">Related chapters</h2>
+          <ul>{related.map((r) => <li><a href={`/chapters/${r.slug}`}>{r.number}. {r.title}</a></li>)}</ul>
+        </div>
+      )}
+      <p class="meta" style="margin-top:2rem">Public practitioner doctrine. Free doctrine. Open knowledge. Paid enforcement.</p>
+    </div>
+  </section>
+</BaseLayout>

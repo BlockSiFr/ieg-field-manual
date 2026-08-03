@@ -1,0 +1,15 @@
+{
+  "receiptVersion": "DASTOR-BUILD-1.0",
+  "timestamp": "2026-07-21T23:26:49Z",
+  "actor": "agent:cursor",
+  "action": "production.modify+env.modify+cloud.deploy",
+  "target": "https://dastor.blocksifr.com",
+  "decision": "ALLOW",
+  "result": "commerce_enabled_shared_stripe",
+  "evidence": [
+    "product prod_UveJFfq2SlctSP",
+    "price digital price_1Tvn0bIatu8luc5atOL9RBzM $79",
+    "price team price_1Tvn0cIatu8luc5alUWqSoEN $149",
+    "webhook we_1Tvn0nIatu8luc5ad1SvJvEn"
+  ]
+}

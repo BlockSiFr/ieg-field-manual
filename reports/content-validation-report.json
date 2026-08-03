@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "expected": {
+    "chapters": 40,
+    "parts": 6
+  },
+  "actual": {
+    "chapters": 40,
+    "parts": 6
+  },
+  "issues": [],
+  "generatedAt": "2026-07-21T19:38:48.131181Z",
+  "sourceNote": "catalog-bootstrap"
+}

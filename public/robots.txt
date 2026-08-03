@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Sitemap: https://dastor.blocksifr.com/sitemap-index.xml

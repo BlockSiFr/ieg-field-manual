@@ -1,0 +1,14 @@
+{
+  "number": 4,
+  "title": "Data boundaries, privacy, and compliance",
+  "slug": "part-4-data-boundaries-privacy-and-compliance",
+  "chapterNumbers": [
+    21,
+    22,
+    23,
+    24,
+    25,
+    26
+  ],
+  "summary": "Disclosure, privacy attacks, residency, auditability, compliance, and incident response."
+}

@@ -1,0 +1,30 @@
+{
+  "slug": "deterministic-execution-gates",
+  "number": 33,
+  "title": "Deterministic Execution Gates",
+  "partNumber": 6,
+  "partTitle": "Countermeasures and safe design patterns",
+  "executiveSummary": "No side effects without a check that can be proven.",
+  "thesis": "No side effects without a check that can be proven.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "NIST AI RMF"
+  ],
+  "executionLayers": [
+    "execution",
+    "planning"
+  ],
+  "riskTypes": [
+    "gates"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "gates",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

@@ -1,0 +1,14 @@
+{
+  "number": 2,
+  "title": "Input and context attacks",
+  "slug": "part-2-input-and-context-attacks",
+  "chapterNumbers": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "summary": "How untrusted input and retrieved context become control-plane compromise."
+}

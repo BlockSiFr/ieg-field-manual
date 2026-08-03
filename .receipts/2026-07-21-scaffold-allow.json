@@ -1,0 +1,23 @@
+{
+  "receiptVersion": "DASTOR-BUILD-1.0",
+  "timestamp": "2026-07-21T19:34:09Z",
+  "actor": "agent:cursor",
+  "action": "file.write",
+  "target": "/home/mauricewitten0/blocksifr-workspace/blocksifr-dastor",
+  "sourceHash": "c6cadd151d5efdf9a38f4ae0dbff3d91174b5f1ae093a41027c4a95c9c1c0201",
+  "repositoryCommit": "uninitialized",
+  "riskTier": "local-scaffold",
+  "decision": "ALLOW",
+  "result": "scaffold_started",
+  "evidence": [
+    {
+      "type": "execution_exchange_receipt",
+      "receiptId": "eer_1784662437760900643",
+      "executionId": "intent_e816b64a9ce7b602a6e20b69"
+    },
+    {
+      "type": "approval",
+      "id": "approval_blocksifr_default_fallback-1784662396780694387"
+    }
+  ]
+}

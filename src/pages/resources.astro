@@ -1,0 +1,70 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SampleRequestForm from "@/components/forms/SampleRequestForm";
+
+const resources = [
+  {
+    id: "sample-chapter-1",
+    title: "Sample chapter",
+    access: "Gated",
+    href: "/sample?resource=sample-chapter-1",
+    body: "Chapter 1 - AI Is Not Software",
+  },
+  {
+    title: "Execution-stack reference",
+    access: "Public",
+    href: "/execution-stack",
+    body: "Eight-layer interactive model",
+  },
+  {
+    id: "framework-mapping",
+    title: "Framework mapping",
+    access: "Gated",
+    href: "/sample?resource=framework-mapping",
+    body: "ATLAS · OWASP LLM · NIST AI RMF map",
+  },
+  {
+    id: "assessment-checklist",
+    title: "Assessment checklist",
+    access: "Gated",
+    href: "/sample?resource=assessment-checklist",
+    body: "Worksheet for AI execution security assessment",
+  },
+  {
+    id: "threat-briefs",
+    title: "Threat briefs",
+    access: "Gated",
+    href: "/sample?resource=threat-briefs",
+    body: "Selected practitioner briefs",
+  },
+  {
+    title: "Press kit",
+    access: "Public",
+    href: "/about",
+    body: "Publisher facts and brand-safe descriptions",
+  },
+];
+---
+<BaseLayout title="Resources" description="IEG Field Manual sample chapter, references, checklists, and launch materials.">
+  <section class="section paper-panel">
+    <div class="container">
+      <p class="eyebrow" style="color:#5c574f">Resources</p>
+      <h1 class="section-title" style="color:var(--dastor-ink)">Publication resources</h1>
+      <ul style="list-style:none;padding:0;margin:2rem 0 0">
+        {resources.map((r) => (
+          <li style="border-top:1px solid var(--dastor-line-dark);padding:1rem 0;display:grid;grid-template-columns:1fr auto;gap:1rem;color:var(--dastor-ink)">
+            <div>
+              <h2 style="margin:0;font-size:1.25rem">{r.title}</h2>
+              <p style="margin:.35rem 0;color:#4a463f">{r.body}</p>
+              <p class="meta" style="color:#6a655c">{r.access}</p>
+            </div>
+            <a class="btn btn-ink" href={r.href}>{r.access === "Gated" ? "Request" : "Open"}</a>
+          </li>
+        ))}
+      </ul>
+      <p class="meta" style="margin-top:1.5rem;color:#6a655c">
+        Need implementation support beyond these resources? <a href="/assessment">Request a IEG Assessment</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

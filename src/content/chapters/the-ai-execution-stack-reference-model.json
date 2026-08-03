@@ -1,0 +1,36 @@
+{
+  "slug": "the-ai-execution-stack-reference-model",
+  "number": 2,
+  "title": "The AI Execution Stack Reference Model",
+  "partNumber": 1,
+  "partTitle": "The AI execution stack",
+  "executiveSummary": "Defines the canonical stack used throughout the manual and maps vendor agent abstractions to layers.",
+  "thesis": "Defines the canonical stack used throughout the manual and maps vendor agent abstractions to layers.",
+  "scenario": "The same workflow on multiple platforms exhibits the same failure modes because the stack is shared.",
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "NIST AI RMF"
+  ],
+  "executionLayers": [
+    "input",
+    "tokenization",
+    "context-assembly",
+    "inference",
+    "planning",
+    "tool-selection",
+    "execution",
+    "memory"
+  ],
+  "riskTypes": [
+    "architecture"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "architecture",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

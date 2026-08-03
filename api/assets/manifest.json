@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-07-23T22:22Z",
+  "assets": {
+    "sample-chapter-1": {
+      "file": "sample-chapter-1.pdf",
+      "title": "Chapter 1 - AI Is Not Software",
+      "access": "gated-lead",
+      "markdown": "sample-chapter-1.md"
+    },
+    "framework-mapping": {
+      "file": "framework-mapping.md",
+      "title": "Framework mapping",
+      "access": "gated-lead"
+    },
+    "assessment-checklist": {
+      "file": "assessment-checklist.md",
+      "title": "Assessment checklist",
+      "access": "gated-lead"
+    },
+    "threat-briefs": {
+      "file": "threat-briefs.md",
+      "title": "Selected threat briefs",
+      "access": "gated-lead"
+    },
+    "dastor-field-manual-digital": {
+      "file": "dastor-field-manual-digital.md",
+      "title": "Digital Field Manual",
+      "access": "purchaser"
+    }
+  },
+  "chapterCount": 40,
+  "sampleBytes": 97669,
+  "manualBytes": 14864,
+  "sampleMarkdownBytes": 9949
+}

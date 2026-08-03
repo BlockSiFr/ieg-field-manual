@@ -1,0 +1,23 @@
+{
+  "receiptVersion": "DASTOR-BUILD-1.0",
+  "timestamp": "2026-07-21T19:41:37Z",
+  "actor": "agent:cursor",
+  "action": "build.complete",
+  "target": "blocksifr-dastor",
+  "decision": "ALLOW",
+  "result": "local_build_verified",
+  "evidence": [
+    {
+      "type": "unit_tests",
+      "result": "5 passed"
+    },
+    {
+      "type": "astro_build",
+      "pages": 54
+    },
+    {
+      "type": "leak_scan",
+      "result": "pass"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "initialJavaScriptKbGzip": 150,
+  "initialCssKbGzip": 60,
+  "heroImageKb": 350,
+  "totalInitialTransferKb": 900,
+  "notes": "SVG hero mock used initially; replace with optimized AVIF/WebP book renders without exceeding budget."
+}

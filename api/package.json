@@ -1,0 +1,12 @@
+{
+  "name": "blocksifr-dastor-api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@azure/functions": "^4.6.0",
+    "@azure/storage-blob": "^12.26.0",
+    "@azure/data-tables": "^13.3.0",
+    "zod": "^3.24.1"
+  }
+}

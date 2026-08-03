@@ -1,0 +1,15 @@
+{
+  "receiptVersion": "DASTOR-BUILD-1.0",
+  "timestamp": "2026-07-21T22:48:19Z",
+  "actor": "agent:cursor",
+  "action": "cloud.deploy",
+  "target": "https://dastor.blocksifr.com",
+  "decision": "ALLOW",
+  "executionId": "intent from hotfix await",
+  "result": "deployed",
+  "evidence": [
+    "clientKey header compat",
+    "purchase/access live",
+    "commerce gated until Stripe keys"
+  ]
+}

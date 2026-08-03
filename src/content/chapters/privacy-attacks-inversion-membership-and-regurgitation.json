@@ -1,0 +1,30 @@
+{
+  "slug": "privacy-attacks-inversion-membership-and-regurgitation",
+  "number": 22,
+  "title": "Privacy Attacks: Inversion, Membership, and Regurgitation",
+  "partNumber": 4,
+  "partTitle": "Data boundaries, privacy, and compliance",
+  "executiveSummary": "Model and memory surfaces enable privacy attacks beyond classic appsec.",
+  "thesis": "Model and memory surfaces enable privacy attacks beyond classic appsec.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "NIST AI RMF"
+  ],
+  "executionLayers": [
+    "inference",
+    "memory"
+  ],
+  "riskTypes": [
+    "privacy"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "privacy",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

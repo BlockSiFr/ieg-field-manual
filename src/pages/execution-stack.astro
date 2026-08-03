@@ -1,0 +1,83 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ExecutionStackExplorer from "@/components/stack/ExecutionStackExplorer";
+import { getExecutionStack } from "@/lib/content";
+const layers = getExecutionStack();
+---
+<BaseLayout
+  title="Execution Stack"
+  description="Inspect how information becomes context, context becomes action, and action becomes durable state. Explore attack surfaces, failure propagation, consequences, and countermeasures at every AI execution layer."
+>
+  <section class="section grid-bg stack-hero">
+    <div class="container">
+      <p class="eyebrow">Execution Stack</p>
+      <h1 class="section-title">From input to execution to memory</h1>
+      <p class="prose-measure lead">
+        Inspect how information becomes context, context becomes action, and action becomes durable state.
+        Explore the attack surfaces, failure propagation, consequences, and countermeasures at every layer.
+      </p>
+      <p class="kbd-hint">Keyboard: arrow keys move between layers. Motion is not required.</p>
+      <ExecutionStackExplorer client:load layers={layers} />
+    </div>
+  </section>
+
+  <section class="section grid-bg continue" aria-labelledby="continue-title">
+    <div class="container">
+      <p class="eyebrow">Continue the investigation</p>
+      <h2 id="continue-title" class="section-title">Field manuals and related research</h2>
+      <p class="prose-measure" style="color:var(--dastor-text-muted);margin-bottom:1.5rem">
+        Use these chapters to deepen attack-path analysis, countermeasure design, and incident practice.
+      </p>
+      <ul class="continue-list">
+        <li><a href="/chapters/the-ai-execution-stack-reference-model">AI execution stack reference model</a></li>
+        <li><a href="/chapters/prompt-injection">Prompt injection</a></li>
+        <li><a href="/chapters/tool-exploitation">Tool and MCP security</a></li>
+        <li><a href="/chapters/memory-is-an-attack-surface">Memory security</a></li>
+        <li><a href="/chapters/deterministic-execution-gates">Runtime execution governance</a></li>
+        <li><a href="/chapters/incident-response-for-agents-containment-and-rollback">Incident containment and recovery</a></li>
+        <li><a href="/chapters/the-dastor-evidence-standard-executionreceipt">Evidence standard — execution receipts</a></li>
+        <li><a href="/manual">IEG Field Manual index</a></li>
+      </ul>
+      <p class="attr">The IEG Field Manual is an AI security and countermeasures publication by BlockSiFr.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .stack-hero {
+    padding-block: var(--space-16) var(--space-12);
+    border-bottom: 1px solid var(--dastor-line-light);
+  }
+  .lead {
+    color: var(--dastor-text-muted);
+    margin-bottom: 0.75rem;
+  }
+  .kbd-hint {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--dastor-text-muted);
+    opacity: 0.75;
+    margin: 0 0 1.75rem;
+  }
+  .continue {
+    border-top: 1px solid var(--dastor-line-light);
+  }
+  .continue-list {
+    display: grid;
+    gap: 0.65rem;
+    padding-left: 1.1rem;
+    margin: 0 0 1.75rem;
+    max-width: 42rem;
+  }
+  .continue-list a {
+    color: var(--dastor-paper);
+  }
+  .attr {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--dastor-text-muted);
+    margin: 0;
+  }
+</style>

@@ -1,0 +1,29 @@
+{
+  "slug": "model-theft-and-behavioral-cloning",
+  "number": 29,
+  "title": "Model Theft and Behavioral Cloning",
+  "partNumber": 5,
+  "partTitle": "Model, tool, and supply chain security",
+  "executiveSummary": "Abuse detection and rate limits for extraction.",
+  "thesis": "Abuse detection and rate limits for extraction.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "OWASP LLM Top 10"
+  ],
+  "executionLayers": [
+    "inference"
+  ],
+  "riskTypes": [
+    "model-theft"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "model-theft",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

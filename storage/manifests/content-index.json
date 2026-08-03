@@ -1,0 +1,732 @@
+{
+  "version": 1,
+  "generatedAt": "2026-07-21T19:38:48.131181Z",
+  "entries": [
+    {
+      "id": "ai-is-not-software",
+      "number": 1,
+      "title": "AI Is Not Software",
+      "partNumber": 1,
+      "frameworks": [
+        "MITRE ATLAS",
+        "OWASP LLM Top 10",
+        "NIST AI RMF"
+      ],
+      "executionLayers": [
+        "input",
+        "inference",
+        "planning",
+        "execution"
+      ],
+      "riskTypes": [
+        "prompt-injection-adjacent"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "d7391ae2d5dde4261c759d6c4d6a3e78ee48159967ea011896d67e2c3d1ee422"
+    },
+    {
+      "id": "the-ai-execution-stack-reference-model",
+      "number": 2,
+      "title": "The AI Execution Stack Reference Model",
+      "partNumber": 1,
+      "frameworks": [
+        "NIST AI RMF"
+      ],
+      "executionLayers": [
+        "input",
+        "tokenization",
+        "context-assembly",
+        "inference",
+        "planning",
+        "tool-selection",
+        "execution",
+        "memory"
+      ],
+      "riskTypes": [
+        "architecture"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "9370dd3ad1d7c610b46b71a34e1509363210c043c427815cfbaa17dfd1307467"
+    },
+    {
+      "id": "prompt-injection",
+      "number": 3,
+      "title": "Prompt Injection",
+      "partNumber": 1,
+      "frameworks": [
+        "MITRE ATLAS",
+        "OWASP LLM Top 10"
+      ],
+      "executionLayers": [
+        "input",
+        "context-assembly"
+      ],
+      "riskTypes": [
+        "prompt-injection"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "ed2671a79946041884e006b17d78ff07e18af5df597332d3d280ec597728ab98"
+    },
+    {
+      "id": "context-poisoning",
+      "number": 4,
+      "title": "Context Poisoning",
+      "partNumber": 1,
+      "frameworks": [
+        "MITRE ATLAS",
+        "OWASP LLM Top 10",
+        "NIST AI RMF"
+      ],
+      "executionLayers": [
+        "context-assembly"
+      ],
+      "riskTypes": [
+        "retrieval-poisoning"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "290adcc4ac11a7747cdac73d2eef95f1f15d5e1ab230c2b2cc8aed085b4ecd68"
+    },
+    {
+      "id": "reasoning-failures-and-goal-hijacking",
+      "number": 5,
+      "title": "Reasoning Failures and Goal Hijacking",
+      "partNumber": 1,
+      "frameworks": [
+        "OWASP LLM Top 10",
+        "NIST AI RMF"
+      ],
+      "executionLayers": [
+        "planning",
+        "inference"
+      ],
+      "riskTypes": [
+        "goal-hijack"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "e8c623f644766c8a76510ee43c956693c61ddf14cfad7dcf549cfdd13eb8bcdd"
+    },
+    {
+      "id": "tool-exploitation",
+      "number": 6,
+      "title": "Tool Exploitation",
+      "partNumber": 1,
+      "frameworks": [
+        "MITRE ATLAS",
+        "OWASP LLM Top 10"
+      ],
+      "executionLayers": [
+        "tool-selection",
+        "execution"
+      ],
+      "riskTypes": [
+        "tool-abuse"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "35d0c987b1f158d39ec2a4c20dd7dc6a7053467cd0e0317822ba2fde156153cd"
+    },
+    {
+      "id": "execution-failures-and-side-effects",
+      "number": 7,
+      "title": "Execution Failures and Side Effects",
+      "partNumber": 1,
+      "frameworks": [
+        "NIST AI RMF"
+      ],
+      "executionLayers": [
+        "execution"
+      ],
+      "riskTypes": [
+        "side-effects"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "d0a4225b6a5ebedadb2ab8fa7fcf89aa7f140b85ada477e2dc1debf79cc8125c"
+    },
+    {
+      "id": "memory-is-an-attack-surface",
+      "number": 8,
+      "title": "Memory Is an Attack Surface",
+      "partNumber": 1,
+      "frameworks": [
+        "OWASP LLM Top 10"
+      ],
+      "executionLayers": [
+        "memory",
+        "context-assembly"
+      ],
+      "riskTypes": [
+        "memory-poisoning"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "c7ed24275e9ea080a1945f965273a30b33f00c37eeda5fc6662be093b4e20fe4"
+    },
+    {
+      "id": "indirect-prompt-injection-in-the-wild",
+      "number": 9,
+      "title": "Indirect Prompt Injection in the Wild",
+      "partNumber": 2,
+      "frameworks": [
+        "MITRE ATLAS",
+        "OWASP LLM Top 10"
+      ],
+      "executionLayers": [
+        "input",
+        "context-assembly"
+      ],
+      "riskTypes": [
+        "prompt-injection"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "f701d104a629e6fe40fc671e16c48f5bb365f96ff6c20cc5967ec84150d92503"
+    },
+    {
+      "id": "instruction-smuggling-and-hidden-content",
+      "number": 10,
+      "title": "Instruction Smuggling and Hidden Content",
+      "partNumber": 2,
+      "frameworks": [
+        "MITRE ATLAS"
+      ],
+      "executionLayers": [
+        "input",
+        "tokenization"
+      ],
+      "riskTypes": [
+        "smuggling"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "4f6d48abdb905699e4907cba8f46d1bc7baac0344d8690d0fe8d31d22e87844e"
+    },
+    {
+      "id": "retrieval-poisoning-and-embedding-weaknesses",
+      "number": 11,
+      "title": "Retrieval Poisoning and Embedding Weaknesses",
+      "partNumber": 2,
+      "frameworks": [
+        "MITRE ATLAS",
+        "OWASP LLM Top 10"
+      ],
+      "executionLayers": [
+        "context-assembly"
+      ],
+      "riskTypes": [
+        "retrieval-poisoning"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "cd967b5ff885e407022df0aeb7d17225972872c39326d49d1764d90838025428"
+    },
+    {
+      "id": "cross-tenant-leakage-in-rag-and-memory",
+      "number": 12,
+      "title": "Cross-Tenant Leakage in RAG and Memory",
+      "partNumber": 2,
+      "frameworks": [
+        "NIST AI RMF"
+      ],
+      "executionLayers": [
+        "context-assembly",
+        "memory"
+      ],
+      "riskTypes": [
+        "isolation"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "7a0d59811089e22c82b595787d9b055562705c52f89d3a5a4613604095c3c38c"
+    },
+    {
+      "id": "output-handling-when-text-becomes-code",
+      "number": 13,
+      "title": "Output Handling: When Text Becomes Code",
+      "partNumber": 2,
+      "frameworks": [
+        "OWASP LLM Top 10"
+      ],
+      "executionLayers": [
+        "inference",
+        "execution"
+      ],
+      "riskTypes": [
+        "output-handling"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "7b4f95c4ea6af0f83d9e3cccb4f8fe9724b6d98cbe84d4335c292fab65b81f92"
+    },
+    {
+      "id": "unbounded-consumption-cost-and-availability-attacks",
+      "number": 14,
+      "title": "Unbounded Consumption: Cost and Availability Attacks",
+      "partNumber": 2,
+      "frameworks": [
+        "OWASP LLM Top 10"
+      ],
+      "executionLayers": [
+        "inference",
+        "planning"
+      ],
+      "riskTypes": [
+        "unbounded-consumption"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "2218691ec73f220f930c17dfd54df3f47b3a0bfc773d60ff6ed4ae450f361954"
+    },
+    {
+      "id": "the-planning-loop-as-an-attack-surface",
+      "number": 15,
+      "title": "The Planning Loop as an Attack Surface",
+      "partNumber": 3,
+      "frameworks": [
+        "NIST AI RMF"
+      ],
+      "executionLayers": [
+        "planning"
+      ],
+      "riskTypes": [
+        "planning"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "27260637b9f4a1108704f1736cadfc088d30c917468b5977c3acbf06e1951c18"
+    },
+    {
+      "id": "tool-chaining-and-capability-gravity",
+      "number": 16,
+      "title": "Tool Chaining and Capability Gravity",
+      "partNumber": 3,
+      "frameworks": [
+        "OWASP LLM Top 10"
+      ],
+      "executionLayers": [
+        "tool-selection",
+        "execution"
+      ],
+      "riskTypes": [
+        "tool-abuse"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "3c4a92efbf0a7212f9ad78f73ae224f118a4b6062b63c2dfb75f759ccbbe6097"
+    },
+    {
+      "id": "multi-agent-handoffs-and-delegation-abuse",
+      "number": 17,
+      "title": "Multi-Agent Handoffs and Delegation Abuse",
+      "partNumber": 3,
+      "frameworks": [
+        "NIST AI RMF"
+      ],
+      "executionLayers": [
+        "planning",
+        "execution"
+      ],
+      "riskTypes": [
+        "delegation"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "969bfc7a48b1c3494edc7c834df1b8ded980322687f39f8aac2774523d488645"
+    },
+    {
+      "id": "agent-graph-poisoning-and-workflow-attacks",
+      "number": 18,
+      "title": "Agent Graph Poisoning and Workflow Attacks",
+      "partNumber": 3,
+      "frameworks": [
+        "MITRE ATLAS"
+      ],
+      "executionLayers": [
+        "planning"
+      ],
+      "riskTypes": [
+        "workflow"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "06bd1eedae5b60a6a1b30a9b03c839d75be12aa030bddf00b2ff91fda177fcbd"
+    },
+    {
+      "id": "human-in-the-loop-failure-modes",
+      "number": 19,
+      "title": "Human-in-the-Loop Failure Modes",
+      "partNumber": 3,
+      "frameworks": [
+        "NIST AI RMF"
+      ],
+      "executionLayers": [
+        "planning",
+        "execution"
+      ],
+      "riskTypes": [
+        "hitl"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "bc156ac7b1562be3376ea26cd7ef2b3b5486a1518f9c1413820585ad194f7600"
+    },
+    {
+      "id": "observability-failures-when-you-can-t-reconstruct-why",
+      "number": 20,
+      "title": "Observability Failures: When You Can\u2019t Reconstruct Why",
+      "partNumber": 3,
+      "frameworks": [
+        "NIST AI RMF"
+      ],
+      "executionLayers": [
+        "execution",
+        "memory"
+      ],
+      "riskTypes": [
+        "observability"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "026ae1f1567e9b92abcdf3e921179ac53ef0b67bde7bdebb7610dc49bdfff6a1"
+    },
+    {
+      "id": "sensitive-information-disclosure-in-agentic-systems",
+      "number": 21,
+      "title": "Sensitive Information Disclosure in Agentic Systems",
+      "partNumber": 4,
+      "frameworks": [
+        "OWASP LLM Top 10",
+        "NIST AI RMF"
+      ],
+      "executionLayers": [
+        "inference",
+        "execution"
+      ],
+      "riskTypes": [
+        "disclosure"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "3fec7823a06c53b23a237c479daab38289211bfd4658531e24ba4c768ff61ba3"
+    },
+    {
+      "id": "privacy-attacks-inversion-membership-and-regurgitation",
+      "number": 22,
+      "title": "Privacy Attacks: Inversion, Membership, and Regurgitation",
+      "partNumber": 4,
+      "frameworks": [
+        "NIST AI RMF"
+      ],
+      "executionLayers": [
+        "inference",
+        "memory"
+      ],
+      "riskTypes": [
+        "privacy"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "71c28e8424b2ca48eb3efaca74564f6a4e0ac952c970e0c4ea3eee2b48cc19ec"
+    },
+    {
+      "id": "data-residency-retention-and-right-to-forget",
+      "number": 23,
+      "title": "Data Residency, Retention, and Right to Forget",
+      "partNumber": 4,
+      "frameworks": [
+        "NIST AI RMF"
+      ],
+      "executionLayers": [
+        "memory"
+      ],
+      "riskTypes": [
+        "residency"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "628f4a4854c0a9c66b32170f2529e5b94e0324f2005b9b356848d93c24c477be"
+    },
+    {
+      "id": "auditability-at-scale-traces-logs-and-evidence",
+      "number": 24,
+      "title": "Auditability at Scale: Traces, Logs, and Evidence",
+      "partNumber": 4,
+      "frameworks": [
+        "NIST AI RMF"
+      ],
+      "executionLayers": [
+        "execution"
+      ],
+      "riskTypes": [
+        "evidence"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "bcc7d916aae339b9c6c08220dd08fdaec50f466e7aa6358f615edc762b8d3fad"
+    },
+    {
+      "id": "compliance-mapping-soc-2-iso-27001-hipaa-pci-dss-eu-ai-act",
+      "number": 25,
+      "title": "Compliance Mapping: SOC 2, ISO 27001, HIPAA, PCI DSS, EU AI Act",
+      "partNumber": 4,
+      "frameworks": [
+        "NIST AI RMF"
+      ],
+      "executionLayers": [
+        "execution",
+        "memory"
+      ],
+      "riskTypes": [
+        "compliance"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "f7cfbe69b29d7feaf2f095d514370b96c458c43a0d5e4e2c9c5c7aa44f24ba56"
+    },
+    {
+      "id": "incident-response-for-agents-containment-and-rollback",
+      "number": 26,
+      "title": "Incident Response for Agents: Containment and Rollback",
+      "partNumber": 4,
+      "frameworks": [
+        "NIST AI RMF"
+      ],
+      "executionLayers": [
+        "execution"
+      ],
+      "riskTypes": [
+        "incident-response"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "e2c323707b27fd2d3451c319d710a8652ac75dba6c25ebd9bbc55625c1c781e8"
+    },
+    {
+      "id": "training-and-fine-tuning-poisoning",
+      "number": 27,
+      "title": "Training and Fine-Tuning Poisoning",
+      "partNumber": 5,
+      "frameworks": [
+        "MITRE ATLAS",
+        "OWASP LLM Top 10"
+      ],
+      "executionLayers": [
+        "inference"
+      ],
+      "riskTypes": [
+        "model-poisoning"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "19a5d479caaaa61ccb2b278b248146991fb49dbe032e8284b18de41c65dc0aeb"
+    },
+    {
+      "id": "backdoors-trojan-triggers-and-model-integrity",
+      "number": 28,
+      "title": "Backdoors, Trojan Triggers, and Model Integrity",
+      "partNumber": 5,
+      "frameworks": [
+        "MITRE ATLAS"
+      ],
+      "executionLayers": [
+        "inference"
+      ],
+      "riskTypes": [
+        "backdoor"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "45fb4af7365ad96b34fa96f264307805310e76a5fb2d2316cc75d6dc8d617d3a"
+    },
+    {
+      "id": "model-theft-and-behavioral-cloning",
+      "number": 29,
+      "title": "Model Theft and Behavioral Cloning",
+      "partNumber": 5,
+      "frameworks": [
+        "OWASP LLM Top 10"
+      ],
+      "executionLayers": [
+        "inference"
+      ],
+      "riskTypes": [
+        "model-theft"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "013f997aa5559253bc5d66e77bfba0f2e9acd373a9662683d099369153cee763"
+    },
+    {
+      "id": "tool-marketplace-and-connector-supply-chain",
+      "number": 30,
+      "title": "Tool Marketplace and Connector Supply Chain",
+      "partNumber": 5,
+      "frameworks": [
+        "MITRE ATLAS"
+      ],
+      "executionLayers": [
+        "tool-selection",
+        "execution"
+      ],
+      "riskTypes": [
+        "supply-chain"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "570ff471c2244653d68de88be0d0e2cd4bbe0282703f3241b2aca90dd0cc3254"
+    },
+    {
+      "id": "runtime-compromise-sandboxes-scripts-container-escapes",
+      "number": 31,
+      "title": "Runtime Compromise: Sandboxes, Scripts, Container Escapes",
+      "partNumber": 5,
+      "frameworks": [
+        "MITRE ATLAS"
+      ],
+      "executionLayers": [
+        "execution"
+      ],
+      "riskTypes": [
+        "runtime"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "35cd5847d69391a11da21e43ada3f42791081ce9b4b33f379cee5440bd19a8c7"
+    },
+    {
+      "id": "ci-cd-and-agent-builds-in-production",
+      "number": 32,
+      "title": "CI/CD and Agent Builds in Production",
+      "partNumber": 5,
+      "frameworks": [
+        "NIST AI RMF"
+      ],
+      "executionLayers": [
+        "execution"
+      ],
+      "riskTypes": [
+        "cicd"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "605e3f58271592f2d1347a06b34566de045770246ab6fe58bccbe78a39205899"
+    },
+    {
+      "id": "deterministic-execution-gates",
+      "number": 33,
+      "title": "Deterministic Execution Gates",
+      "partNumber": 6,
+      "frameworks": [
+        "NIST AI RMF"
+      ],
+      "executionLayers": [
+        "execution",
+        "planning"
+      ],
+      "riskTypes": [
+        "gates"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "449e0caa80ed96d2ff30417bf51de20c1ef3a9de3056c12123219879202d6373"
+    },
+    {
+      "id": "tool-security-engineering-patterns",
+      "number": 34,
+      "title": "Tool Security Engineering Patterns",
+      "partNumber": 6,
+      "frameworks": [
+        "OWASP LLM Top 10"
+      ],
+      "executionLayers": [
+        "tool-selection",
+        "execution"
+      ],
+      "riskTypes": [
+        "tool-security"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "7b97b7e6cee21d2a56789ae659d1fa4ada305932ceab7ff00c6d6a2ff8bd2977"
+    },
+    {
+      "id": "retrieval-security-engineering-patterns",
+      "number": 35,
+      "title": "Retrieval Security Engineering Patterns",
+      "partNumber": 6,
+      "frameworks": [
+        "MITRE ATLAS"
+      ],
+      "executionLayers": [
+        "context-assembly"
+      ],
+      "riskTypes": [
+        "retrieval-security"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "ce1d6a003560c872dcb11494b2af35e351d90c7d1ae9e77dfd677b0fa86a2d6d"
+    },
+    {
+      "id": "memory-security-engineering-patterns",
+      "number": 36,
+      "title": "Memory Security Engineering Patterns",
+      "partNumber": 6,
+      "frameworks": [
+        "NIST AI RMF"
+      ],
+      "executionLayers": [
+        "memory"
+      ],
+      "riskTypes": [
+        "memory-security"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "9c76f231e7a637768e45447d8778ebb77e42e71bd8d541710c7172f145b7ae86"
+    },
+    {
+      "id": "evaluation-red-teaming-and-regression-harnesses",
+      "number": 37,
+      "title": "Evaluation, Red Teaming, and Regression Harnesses",
+      "partNumber": 6,
+      "frameworks": [
+        "MITRE ATLAS",
+        "OWASP LLM Top 10",
+        "NIST AI RMF"
+      ],
+      "executionLayers": [
+        "inference",
+        "execution"
+      ],
+      "riskTypes": [
+        "evaluation"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "e070167a0ab7742aeb41af3942d6499941f5db49246fbc3f375b015c6c8554d1"
+    },
+    {
+      "id": "governance-operating-model-and-change-control",
+      "number": 38,
+      "title": "Governance Operating Model and Change Control",
+      "partNumber": 6,
+      "frameworks": [
+        "NIST AI RMF"
+      ],
+      "executionLayers": [
+        "planning",
+        "execution"
+      ],
+      "riskTypes": [
+        "governance"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "84097ee580e2ac1ef1e455ef32a349f2c4a35bae607506255d0f701ac17b8eef"
+    },
+    {
+      "id": "the-dastor-evidence-standard-executionreceipt",
+      "number": 39,
+      "title": "The DASTOR Evidence Standard (ExecutionReceipt)",
+      "partNumber": 6,
+      "frameworks": [
+        "NIST AI RMF"
+      ],
+      "executionLayers": [
+        "execution"
+      ],
+      "riskTypes": [
+        "evidence"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "05baeffa7937b6ba360dce7bb8b4d374f28a2636e6b23431557fab2936116ee0"
+    },
+    {
+      "id": "building-ai-systems-that-fail-safely",
+      "number": 40,
+      "title": "Building AI Systems That Fail Safely",
+      "partNumber": 6,
+      "frameworks": [
+        "NIST AI RMF"
+      ],
+      "executionLayers": [
+        "execution",
+        "planning",
+        "memory"
+      ],
+      "riskTypes": [
+        "fail-safe"
+      ],
+      "publicAccess": "public_excerpt",
+      "contentHash": "dd122e62cac00648aceefefea63b8924378c530ab115a7a9decaf850bf445254"
+    }
+  ]
+}

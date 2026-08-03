@@ -1,0 +1,29 @@
+{
+  "slug": "agent-graph-poisoning-and-workflow-attacks",
+  "number": 18,
+  "title": "Agent Graph Poisoning and Workflow Attacks",
+  "partNumber": 3,
+  "partTitle": "Planning, autonomy, and orchestration",
+  "executiveSummary": "Workflow graphs can be steered, substituted, or poisoned.",
+  "thesis": "Workflow graphs can be steered, substituted, or poisoned.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "MITRE ATLAS"
+  ],
+  "executionLayers": [
+    "planning"
+  ],
+  "riskTypes": [
+    "workflow"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "workflow",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

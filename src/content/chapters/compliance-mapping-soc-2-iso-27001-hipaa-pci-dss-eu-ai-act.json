@@ -1,0 +1,30 @@
+{
+  "slug": "compliance-mapping-soc-2-iso-27001-hipaa-pci-dss-eu-ai-act",
+  "number": 25,
+  "title": "Compliance Mapping: SOC 2, ISO 27001, HIPAA, PCI DSS, EU AI Act",
+  "partNumber": 4,
+  "partTitle": "Data boundaries, privacy, and compliance",
+  "executiveSummary": "Map IEG Field Manual controls and evidence to compliance frameworks.",
+  "thesis": "Map IEG Field Manual controls and evidence to compliance frameworks.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "NIST AI RMF"
+  ],
+  "executionLayers": [
+    "execution",
+    "memory"
+  ],
+  "riskTypes": [
+    "compliance"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "compliance",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

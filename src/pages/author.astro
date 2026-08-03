@@ -1,0 +1,82 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getPublication } from "@/lib/content";
+import author from "@/content/config/author.json";
+
+const pub = getPublication();
+---
+<BaseLayout
+  title={`${author.name}: Author`}
+  description={author.shortBio}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: author.name,
+      jobTitle: author.role,
+      worksFor: { "@type": "Organization", name: author.affiliation },
+      url: "https://ieg.blocksifr.com/author",
+      description: author.shortBio,
+    })} />
+  </Fragment>
+
+  <section class="section">
+    <div class="container author-page">
+      <p class="eyebrow">Author</p>
+      <h1 class="section-title">{author.name}</h1>
+      <p class="role meta">{author.role}</p>
+      <p class="lede">{author.shortBio}</p>
+      <hr class="rule" />
+      <div class="bio">
+        {author.paragraphs.map((p) => <p>{p}</p>)}
+      </div>
+      <p class="meta pub-line">
+        Author of {pub.title}: {pub.subtitle}. Publisher: {pub.publisher}.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-ghost" href="/about">About</a>
+        <a class="btn btn-primary" href="/manual">Field Manual</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .author-page {
+    max-width: 46rem;
+  }
+  .author-page .section-title {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+  }
+  .role {
+    margin: 0 0 1.25rem;
+    color: var(--dastor-signal);
+    font-family: var(--font-mono);
+  }
+  .lede {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--dastor-paper-muted);
+    margin: 0 0 1.5rem;
+    line-height: 1.65;
+  }
+  .bio p {
+    font-family: var(--font-serif);
+    font-size: 1.0625rem;
+    font-weight: 400;
+    color: var(--dastor-text-light);
+    margin: 0 0 1.2rem;
+    line-height: 1.75;
+  }
+  .pub-line {
+    margin: 2rem 0 1.5rem;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+</style>

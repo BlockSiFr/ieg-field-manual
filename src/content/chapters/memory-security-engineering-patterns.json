@@ -1,0 +1,29 @@
+{
+  "slug": "memory-security-engineering-patterns",
+  "number": 36,
+  "title": "Memory Security Engineering Patterns",
+  "partNumber": 6,
+  "partTitle": "Countermeasures and safe design patterns",
+  "executiveSummary": "Separate durable and working memory with approval for durable writes.",
+  "thesis": "Separate durable and working memory with approval for durable writes.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "NIST AI RMF"
+  ],
+  "executionLayers": [
+    "memory"
+  ],
+  "riskTypes": [
+    "memory-security"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "memory-security",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

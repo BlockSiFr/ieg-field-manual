@@ -1,0 +1,29 @@
+{
+  "slug": "execution-failures-and-side-effects",
+  "number": 7,
+  "title": "Execution Failures and Side Effects",
+  "partNumber": 1,
+  "partTitle": "The AI execution stack",
+  "executiveSummary": "Blind execution, races, and missing confirmations convert inference errors into irreversible change.",
+  "thesis": "Blind execution, races, and missing confirmations convert inference errors into irreversible change.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "NIST AI RMF"
+  ],
+  "executionLayers": [
+    "execution"
+  ],
+  "riskTypes": [
+    "side-effects"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "side-effects",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

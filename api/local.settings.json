@@ -1,0 +1,11 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "CRM_ADAPTER": "queue",
+    "CONSENT_VERSION": "1.0",
+    "RESOURCE_LINK_TTL_MINUTES": "30",
+    "COMMERCE_ENABLED": "false"
+  }
+}

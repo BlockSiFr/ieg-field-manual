@@ -1,0 +1,29 @@
+{
+  "slug": "incident-response-for-agents-containment-and-rollback",
+  "number": 26,
+  "title": "Incident Response for Agents: Containment and Rollback",
+  "partNumber": 4,
+  "partTitle": "Data boundaries, privacy, and compliance",
+  "executiveSummary": "Contain, freeze tools, and reverse when evidence allows.",
+  "thesis": "Contain, freeze tools, and reverse when evidence allows.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "NIST AI RMF"
+  ],
+  "executionLayers": [
+    "execution"
+  ],
+  "riskTypes": [
+    "incident-response"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "incident-response",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

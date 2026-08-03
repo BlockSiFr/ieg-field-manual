@@ -1,0 +1,15 @@
+{
+  "receiptVersion": "DASTOR-BUILD-1.0",
+  "timestamp": "2026-07-21T19:39:39Z",
+  "actor": "agent:cursor",
+  "action": "package.install",
+  "target": "/home/mauricewitten0/blocksifr-workspace/blocksifr-dastor",
+  "decision": "ALLOW",
+  "result": "npm_install_starting",
+  "evidence": [
+    {
+      "receiptId": "eer_1784662748851792912",
+      "executionId": "intent_be6784356020b45ecadc08bc"
+    }
+  ]
+}

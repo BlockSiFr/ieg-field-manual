@@ -1,0 +1,11 @@
+{
+  "events": [
+    "dastor_sample_requested",
+    "dastor_sample_downloaded",
+    "dastor_chapter_viewed",
+    "dastor_stack_layer_selected",
+    "dastor_assessment_requested",
+    "dastor_manual_checkout_started"
+  ],
+  "rules": ["No PII", "No manuscript body", "No form field values"]
+}

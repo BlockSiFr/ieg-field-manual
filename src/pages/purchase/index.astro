@@ -1,0 +1,49 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CheckoutButton from "@/components/commerce/CheckoutButton";
+
+const commerceEnabled = import.meta.env.PUBLIC_COMMERCE_ENABLED === "true";
+const invite = Astro.url.searchParams.get("invite") || "";
+const gift = Astro.url.searchParams.get("gift") === "1";
+const canceled = Astro.url.searchParams.get("canceled") === "1";
+---
+<BaseLayout title={gift ? "Gift a IEG Field Manual seat" : "Get Instant Access"} description="Purchase the IEG Field Manual digital field manual. Instant download and magic-link site access after Stripe Checkout.">
+  <section class="section">
+    <div class="container purchase-grid">
+      <div>
+        <p class="eyebrow">{gift ? "Gift seat" : "Digital edition"}</p>
+        <h1 class="section-title">{gift ? "Send access to a teammate" : "Get Instant Access"}</h1>
+        <p class="lede">
+          AI systems do not fail loudly. They fail quietly, and still act.
+          Unlock the digital field manual and site reading access in one Checkout.
+        </p>
+        {canceled && <p class="meta" role="status">Checkout canceled. You can resume when ready: nothing was charged.</p>}
+        <ul class="unlock-list">
+          <li>Time-boxed signed download of the digital manual</li>
+          <li>Magic-link entitlement for protected site reading</li>
+          <li>Personal invite link: progress toward a bonus checklist</li>
+          <li>ExecutionReceipt-aligned evidence language throughout</li>
+        </ul>
+        <CheckoutButton client:load commerceEnabled={commerceEnabled} initialInvite={invite} gift={gift} />
+      </div>
+      <aside class="aside">
+        <img src="/mockups/book-cover.svg" width="640" height="860" alt="IEG Field Manual cover" loading="eager" />
+        <p class="meta">Price is shown on Stripe Checkout. This page never hardcodes a dollar amount.</p>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .purchase-grid {
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: 1.15fr .85fr;
+    align-items: start;
+  }
+  .lede { color: var(--dastor-text-muted); max-width: 48ch; font-size: 1.125rem; }
+  .unlock-list { color: var(--dastor-paper-muted); line-height: 1.7; padding-left: 1.1rem; }
+  .aside { display: grid; gap: 1rem; }
+  @media (max-width: 900px) {
+    .purchase-grid { grid-template-columns: 1fr; }
+  }
+</style>

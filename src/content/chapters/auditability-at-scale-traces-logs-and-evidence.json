@@ -1,0 +1,29 @@
+{
+  "slug": "auditability-at-scale-traces-logs-and-evidence",
+  "number": 24,
+  "title": "Auditability at Scale: Traces, Logs, and Evidence",
+  "partNumber": 4,
+  "partTitle": "Data boundaries, privacy, and compliance",
+  "executiveSummary": "Unify traces and logs into evidence suitable for auditors.",
+  "thesis": "Unify traces and logs into evidence suitable for auditors.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "NIST AI RMF"
+  ],
+  "executionLayers": [
+    "execution"
+  ],
+  "riskTypes": [
+    "evidence"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "evidence",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

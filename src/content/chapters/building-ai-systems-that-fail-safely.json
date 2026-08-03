@@ -1,0 +1,31 @@
+{
+  "slug": "building-ai-systems-that-fail-safely",
+  "number": 40,
+  "title": "Building AI Systems That Fail Safely",
+  "partNumber": 6,
+  "partTitle": "Countermeasures and safe design patterns",
+  "executiveSummary": "When in doubt, stop execution; degrade safely.",
+  "thesis": "When in doubt, stop execution; degrade safely.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "NIST AI RMF"
+  ],
+  "executionLayers": [
+    "execution",
+    "planning",
+    "memory"
+  ],
+  "riskTypes": [
+    "fail-safe"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "fail-safe",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

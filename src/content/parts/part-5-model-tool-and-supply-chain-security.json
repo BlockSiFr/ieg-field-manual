@@ -1,0 +1,14 @@
+{
+  "number": 5,
+  "title": "Model, tool, and supply chain security",
+  "slug": "part-5-model-tool-and-supply-chain-security",
+  "chapterNumbers": [
+    27,
+    28,
+    29,
+    30,
+    31,
+    32
+  ],
+  "summary": "Poisoning, backdoors, model theft, connectors, runtime compromise, and CI/CD."
+}

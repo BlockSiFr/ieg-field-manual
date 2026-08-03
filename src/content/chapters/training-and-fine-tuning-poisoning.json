@@ -1,0 +1,30 @@
+{
+  "slug": "training-and-fine-tuning-poisoning",
+  "number": 27,
+  "title": "Training and Fine-Tuning Poisoning",
+  "partNumber": 5,
+  "partTitle": "Model, tool, and supply chain security",
+  "executiveSummary": "Poisoned data and adapters compromise model integrity.",
+  "thesis": "Poisoned data and adapters compromise model integrity.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "MITRE ATLAS",
+    "OWASP LLM Top 10"
+  ],
+  "executionLayers": [
+    "inference"
+  ],
+  "riskTypes": [
+    "model-poisoning"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "model-poisoning",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

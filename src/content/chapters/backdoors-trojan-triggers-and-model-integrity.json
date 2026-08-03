@@ -1,0 +1,29 @@
+{
+  "slug": "backdoors-trojan-triggers-and-model-integrity",
+  "number": 28,
+  "title": "Backdoors, Trojan Triggers, and Model Integrity",
+  "partNumber": 5,
+  "partTitle": "Model, tool, and supply chain security",
+  "executiveSummary": "Signed artifacts and evaluation gates for model supply chain.",
+  "thesis": "Signed artifacts and evaluation gates for model supply chain.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "MITRE ATLAS"
+  ],
+  "executionLayers": [
+    "inference"
+  ],
+  "riskTypes": [
+    "backdoor"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "backdoor",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

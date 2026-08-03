@@ -1,0 +1,54 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getPublication, getParts, getChapters } from "@/lib/content";
+const pub = getPublication();
+const parts = getParts();
+const chapters = getChapters();
+---
+<BaseLayout title="Manual overview" description="Purpose, table of contents, methodology, and access for the IEG Field Manual.">
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Manual</p>
+      <h1 class="section-title">IEG Field Manual overview</h1>
+      <p class="prose-measure" style="color:var(--dastor-text-muted)">
+        The IEG Field Manual is a practitioner field manual for identifying, testing, containing, governing, remediating, reversing,
+        and proving failures across the AI execution stack. It is doctrine, not a product catalog.
+      </p>
+      <div class="hero-actions" style="margin-top:1.5rem">
+        <a class="btn btn-primary" href="/sample">Download Chapter 1</a>
+        <a class="btn btn-ghost" href="/assessment">Request assessment</a>
+      </div>
+    </div>
+  </section>
+  <section class="section paper-panel">
+    <div class="container">
+      <h2 class="section-title" style="color:var(--dastor-ink)">Table of contents</h2>
+      {parts.map((part) => (
+        <div style="margin:2rem 0">
+          <h3 style="font-family:var(--font-display);letter-spacing:-0.02em;font-weight:600;color:var(--dastor-ink)">
+            Part {part.number}: {part.title}
+          </h3>
+          <p style="color:#4a463f">{part.summary}</p>
+          <ol style="padding-left:1.2rem;color:var(--dastor-ink)">
+            {chapters.filter((c) => c.partNumber === part.number).map((c) => (
+              <li><a href={`/chapters/${c.slug}`}>{c.number}. {c.title}</a></li>
+            ))}
+          </ol>
+        </div>
+      ))}
+      <h2 style="color:var(--dastor-ink)">How to use this manual</h2>
+      <ol style="color:#2a2926">
+        <li>Orient on the eight-layer execution stack.</li>
+        <li>Locate the vulnerability class and related chapter overview.</li>
+        <li>Apply countermeasures and evidence expectations in your environment.</li>
+        <li>Escalate to assessment when systems can execute consequential actions.</li>
+      </ol>
+      <h2 style="color:var(--dastor-ink)">Edition and licensing</h2>
+      <p style="color:#2a2926">
+        Publisher: {pub.publisher}. Verified structure: {pub.verifiedCounts.chapters} chapters across {pub.verifiedCounts.parts} parts
+        from catalog source pending DOCX seal. Licensing terms: see <a href="/licensing">/licensing</a>.
+        Full manual delivery is commercial/protected and is not shipped in the public static bundle.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

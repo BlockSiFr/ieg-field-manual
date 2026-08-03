@@ -1,0 +1,32 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getPublication } from "@/lib/content";
+
+const pub = getPublication();
+const slug = pub.sampleChapterSlug || "ai-is-not-software";
+---
+<BaseLayout
+  title="Open Chapter 1"
+  description="Open Chapter 1 of The IEG Field Manual with no account or email gate."
+>
+  <section class="section">
+    <div class="container" style="display:grid;gap:2rem;grid-template-columns:1.2fr .8fr;align-items:center">
+      <div>
+        <p class="eyebrow">Open access</p>
+        <h1 class="section-title">Chapter 1 is publicly readable</h1>
+        <p class="prose-measure" style="color:var(--dastor-text-muted)">
+          Educational and practitioner content in The IEG Field Manual remains free.
+          No email gate, account, subscription, or unlock step.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem">
+          <a class="btn btn-primary" href={`/chapters/${slug}`}>Open Chapter</a>
+          <a class="btn btn-ghost" href="/manual">Read the Manual</a>
+          <a class="btn btn-ghost" href={pub.githubRepo || "https://github.com/BlockSiFr/ieg-field-manual"} target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        </div>
+      </div>
+      <div>
+        <img src="/mockups/book-cover.svg" width="640" height="860" alt="IEG Field Manual cover preview" loading="lazy" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

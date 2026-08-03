@@ -1,0 +1,30 @@
+{
+  "slug": "cross-tenant-leakage-in-rag-and-memory",
+  "number": 12,
+  "title": "Cross-Tenant Leakage in RAG and Memory",
+  "partNumber": 2,
+  "partTitle": "Input and context attacks",
+  "executiveSummary": "Shared indexes and caches collapse isolation boundaries.",
+  "thesis": "Shared indexes and caches collapse isolation boundaries.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "NIST AI RMF"
+  ],
+  "executionLayers": [
+    "context-assembly",
+    "memory"
+  ],
+  "riskTypes": [
+    "isolation"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "isolation",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

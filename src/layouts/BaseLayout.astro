@@ -1,0 +1,81 @@
+---
+import "@/styles/global.css";
+import SiteHeader from "@/components/ui/SiteHeader.astro";
+import SiteFooter from "@/components/ui/SiteFooter.astro";
+import { getPublication } from "@/lib/content";
+
+interface Props {
+  title: string;
+  description?: string;
+  canonicalPath?: string;
+  ogType?: string;
+}
+
+const pub = getPublication();
+const {
+  title,
+  description = pub.thesisSupporting,
+  canonicalPath = Astro.url.pathname,
+  ogType = "website",
+} = Astro.props;
+
+const site = import.meta.env.PUBLIC_SITE_URL || "https://ieg.blocksifr.com";
+const canonical = new URL(canonicalPath, site).toString();
+const brand = "The IEG Field Manual";
+const fullTitle =
+  title.includes("IEG Field Manual") || title.includes("IEG FIELD MANUAL")
+    ? title
+    : `${title} | ${brand}`;
+const metaDescription =
+  description ||
+  "The public field manual for governing consequential execution across AI agents, machine identities, software systems, tools, and infrastructure.";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <meta name="author" content="BlockSiFr LLC" />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#0e0f0f" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="The IEG Field Manual" />
+    <meta property="og:image" content={`${site}/images/og-dastor.svg`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={metaDescription} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <SiteHeader />
+    <main id="main">
+      <slot />
+    </main>
+    <SiteFooter />
+    <script is:inline>
+      (function () {
+        try {
+          // Legacy domain permanent client redirect (SWA serves both hostnames).
+          if (location.hostname === "dastor.blocksifr.com") {
+            location.replace(
+              "https://ieg.blocksifr.com" + location.pathname + location.search + location.hash
+            );
+            return;
+          }
+          var params = new URLSearchParams(window.location.search);
+          var invite = params.get("invite");
+          if (invite) localStorage.setItem("dastor_invite", String(invite).toUpperCase());
+        } catch (e) {}
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import AccessGate from "@/components/commerce/AccessGate";
+---
+<BaseLayout title="Your IEG Field Manual access" description="Verify your purchase entitlement, download the digital manual, and share your invite link.">
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Entitlement</p>
+      <h1 class="section-title">Reading access</h1>
+      <p style="color:var(--dastor-text-muted);max-width:48ch;margin-bottom:2rem">
+        Command success is not restoration: and a receipt is not a download link.
+        This gate only unlocks what your Stripe-backed entitlement proves.
+      </p>
+      <AccessGate client:load />
+    </div>
+  </section>
+</BaseLayout>

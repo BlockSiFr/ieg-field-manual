@@ -1,0 +1,212 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+:root {
+  --dastor-ink: #0e0f0f;
+  --dastor-carbon: #151616;
+  --dastor-graphite: #242525;
+  --dastor-paper: #eee8dc;
+  --dastor-paper-muted: #d5cec1;
+  --dastor-signal: #a92f27;
+  --dastor-text-light: #f2ede4;
+  --dastor-text-muted: #a9a39a;
+  --dastor-line-dark: rgba(14, 15, 15, 0.18);
+  --dastor-line-light: rgba(242, 237, 228, 0.16);
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --page-gutter: clamp(1rem, 4vw, 3rem);
+  --max-editorial: 72rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--dastor-ink);
+  color: var(--dastor-text-light);
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--dastor-signal);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--dastor-paper);
+  color: var(--dastor-ink);
+  padding: 0.75rem 1rem;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+.container {
+  width: min(100% - 2 * var(--page-gutter), var(--max-editorial));
+  margin-inline: auto;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dastor-text-muted);
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  text-transform: none;
+}
+
+.meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dastor-text-muted);
+}
+
+.paper-panel {
+  background: var(--dastor-paper);
+  color: var(--dastor-ink);
+}
+
+.rule {
+  border: 0;
+  border-top: 1px solid var(--dastor-line-light);
+  margin: 0;
+}
+
+.rule-dark {
+  border-top-color: var(--dastor-line-dark);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.75rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.btn-primary {
+  background: var(--dastor-signal);
+  color: var(--dastor-text-light);
+  border-color: var(--dastor-signal);
+}
+
+.btn-primary:hover {
+  background: #8f271f;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--dastor-text-light);
+  border-color: var(--dastor-line-light);
+}
+
+.btn-ghost:hover {
+  border-color: var(--dastor-paper-muted);
+}
+
+.btn-ink {
+  background: var(--dastor-ink);
+  color: var(--dastor-text-light);
+  border-color: var(--dastor-ink);
+}
+
+.section {
+  padding-block: clamp(3.5rem, 8vw, 7rem);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 4.2vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  text-transform: none;
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+
+.prose-measure {
+  max-width: 68ch;
+}
+
+.reg-mark {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dastor-text-muted);
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(var(--dastor-line-light) 1px, transparent 1px),
+    linear-gradient(90deg, var(--dastor-line-light) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: center top;
+}

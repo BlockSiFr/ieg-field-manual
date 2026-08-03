@@ -1,0 +1,30 @@
+{
+  "slug": "tool-security-engineering-patterns",
+  "number": 34,
+  "title": "Tool Security Engineering Patterns",
+  "partNumber": 6,
+  "partTitle": "Countermeasures and safe design patterns",
+  "executiveSummary": "Allowlists, schemas, least privilege, and pre/post guardrails.",
+  "thesis": "Allowlists, schemas, least privilege, and pre/post guardrails.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "OWASP LLM Top 10"
+  ],
+  "executionLayers": [
+    "tool-selection",
+    "execution"
+  ],
+  "riskTypes": [
+    "tool-security"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "tool-security",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

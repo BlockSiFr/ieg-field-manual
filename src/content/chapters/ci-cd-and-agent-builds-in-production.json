@@ -1,0 +1,29 @@
+{
+  "slug": "ci-cd-and-agent-builds-in-production",
+  "number": 32,
+  "title": "CI/CD and Agent Builds in Production",
+  "partNumber": 5,
+  "partTitle": "Model, tool, and supply chain security",
+  "executiveSummary": "Separate duties when agents can deploy.",
+  "thesis": "Separate duties when agents can deploy.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "NIST AI RMF"
+  ],
+  "executionLayers": [
+    "execution"
+  ],
+  "riskTypes": [
+    "cicd"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "cicd",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

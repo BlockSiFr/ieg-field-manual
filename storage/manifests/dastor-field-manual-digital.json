@@ -1,0 +1,11 @@
+{
+  "resourceId": "dastor-field-manual-digital",
+  "generatedAt": "2026-07-23T15:34:12.832Z",
+  "chapterCount": 40,
+  "includesExecutionStackAppendix": true,
+  "source": "src/content/chapters + src/content/config/execution-stack.json",
+  "paths": [
+    "api/assets/dastor-field-manual-digital.md",
+    "storage/protected/dastor-field-manual-digital.md"
+  ]
+}

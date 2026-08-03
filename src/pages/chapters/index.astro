@@ -1,0 +1,22 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ChapterExplorer from "@/components/manual/ChapterExplorer";
+import { getChapters, getParts } from "@/lib/content";
+const chapters = getChapters();
+const parts = getParts();
+const layers = [...new Set(chapters.flatMap((c) => c.executionLayers))].sort();
+const frameworks = [...new Set(chapters.flatMap((c) => c.frameworks))].sort();
+const risks = [...new Set(chapters.map((c) => c.vulnerabilityClass).filter(Boolean) as string[])].sort();
+---
+<BaseLayout title="Chapter directory" description="Search and filter public IEG Field Manual chapter metadata locally.">
+  <section class="section paper-panel">
+    <div class="container">
+      <p class="eyebrow" style="color:#5c574f">Chapters</p>
+      <h1 class="section-title" style="color:var(--dastor-ink)">Chapter directory</h1>
+      <p class="prose-measure" style="color:#4a463f;margin-bottom:1.5rem">
+        Public metadata only. Full chapter bodies are protected. Search runs in-browser, with no third-party search provider.
+      </p>
+      <ChapterExplorer client:load chapters={chapters} parts={parts} layers={layers} frameworks={frameworks} risks={risks} />
+    </div>
+  </section>
+</BaseLayout>

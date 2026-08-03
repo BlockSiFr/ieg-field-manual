@@ -1,0 +1,1018 @@
+[
+  {
+    "id": "input",
+    "number": 1,
+    "name": "Input",
+    "purpose": "Accept user, document, web, email, API, and multimodal signals into the agent runtime before any model processing begins.",
+    "inputs": [
+      "User messages and form fields",
+      "Documents, emails, tickets, and attachments",
+      "Web pages and third-party API payloads",
+      "Images, audio, and other multimodal content",
+      "Caller identity and channel metadata"
+    ],
+    "processing": [
+      "Source identification and trust labeling",
+      "Content classification (instruction vs data)",
+      "Sanitization and isolation of untrusted payloads",
+      "Human confirmation gates for high-consequence requests"
+    ],
+    "outputs": [
+      "Labeled input envelope",
+      "Provenance and channel attestation",
+      "Sanitized or quarantined content streams"
+    ],
+    "dependencies": [
+      "Identity provider / channel auth",
+      "Content scanners and classifiers",
+      "Policy for trusted vs untrusted sources"
+    ],
+    "trustBoundaries": [
+      "Untrusted external content enters a control plane that may treat text as instruction",
+      "Caller identity and source authenticity are asserted across systems",
+      "Multimodal payloads cross modality-specific parsers with uneven controls"
+    ],
+    "threatActors": [
+      "External attackers via prompts or poisoned documents",
+      "Compromised upstream systems and suppliers",
+      "Insiders abusing privileged channels",
+      "Automated scrapers injecting hidden instructions"
+    ],
+    "attackSurfaces": [
+      "Direct and indirect prompt injection",
+      "Malicious documents and hidden instructions",
+      "Multimodal payloads with steganographic or OCR-borne instructions",
+      "Untrusted external content and social engineering",
+      "Encoded or obfuscated instructions",
+      "Identity and source ambiguity",
+      "Data poisoning at ingestion"
+    ],
+    "failureModes": [
+      "Instruction/data boundary collapse",
+      "Channel spoofing or forged provenance",
+      "Scanner miss on obfuscated content",
+      "Over-trust of authenticated but compromised senders",
+      "Attachment parsers expanding attack surface"
+    ],
+    "propagationPaths": [
+      "Injected instructions survive into tokenization and context assembly",
+      "Primed goals skew inference and planning",
+      "Tool selection and execution inherit attacker intent",
+      "Poisoned content can be written into memory for lasting compromise"
+    ],
+    "consequences": [
+      "Policy bypass and unauthorized actions",
+      "Unsafe tool priming",
+      "Data exfiltration via later execution",
+      "Compliance and safety violations",
+      "Loss of audit integrity for downstream decisions"
+    ],
+    "severity": "critical",
+    "countermeasures": {
+      "prevent": [
+        "Source provenance and channel authentication",
+        "Instruction/data separation with explicit trust labels",
+        "Content isolation and sandboxing for untrusted documents",
+        "Input classification and sanitization",
+        "Human confirmation for high-consequence requests"
+      ],
+      "detect": [
+        "Injection and hidden-instruction detectors",
+        "Anomalous channel or identity signals",
+        "Multimodal OCR/ stego inspection",
+        "Rate and novelty alerts on inbound content"
+      ],
+      "contain": [
+        "Quarantine untrusted envelopes",
+        "Strip or neutralize executable markup",
+        "Downgrade privileges for tainted sessions"
+      ],
+      "recover": [
+        "Invalidate tainted sessions",
+        "Reprocess from clean sources",
+        "Revoke grants issued under tainted input"
+      ],
+      "verify": [
+        "Adversarial input test suites with pass/fail evidence",
+        "Provenance records on accepted inputs",
+        "Blocked-action evidence for rejected high-risk requests",
+        "Alert-to-response timing for injection detections"
+      ]
+    },
+    "exampleScenario": {
+      "initialCondition": "A support agent ingests a customer PDF attachment into an operations assistant.",
+      "failureOrAttack": "The PDF embeds white-on-white instructions to export CRM records and email them externally.",
+      "propagation": "Hidden text is tokenized, assembled into context, and influences planning and tool selection.",
+      "consequence": "Customer PII is exfiltrated through an authorized connector.",
+      "countermeasure": "Treat attachments as untrusted data; isolate content; require human confirmation before export tools.",
+      "validation": "Red-team PDF suite blocked; signed deny receipt for export tool; quarantine log with provenance."
+    },
+    "residualRisk": [
+      "Novel obfuscation may evade classifiers",
+      "Trusted channels can still carry compromised content",
+      "Human confirmations can be fatigued or social-engineered"
+    ],
+    "relatedChapterSlugs": [
+      "ai-is-not-software",
+      "prompt-injection",
+      "indirect-prompt-injection-in-the-wild",
+      "instruction-smuggling-and-hidden-content"
+    ],
+    "trustBoundary": "Untrusted external content enters a control plane that may treat text as instruction",
+    "representativeVulnerabilities": [
+      "Direct and indirect prompt injection",
+      "Malicious documents and hidden instructions",
+      "Multimodal payloads with steganographic or OCR-borne instructions"
+    ],
+    "controlOpportunities": [
+      "Source provenance and channel authentication",
+      "Instruction/data separation with explicit trust labels",
+      "Injection and hidden-instruction detectors",
+      "Adversarial input test suites with pass/fail evidence"
+    ]
+  },
+  {
+    "id": "tokenization",
+    "number": 2,
+    "name": "Tokenization",
+    "purpose": "Normalize and tokenize text (and related modalities) into the discrete units models and scanners consume.",
+    "inputs": [
+      "Raw or sanitized input envelopes",
+      "Encoding metadata",
+      "Tokenizer and vocabulary configuration"
+    ],
+    "processing": [
+      "Unicode normalization and canonicalization",
+      "Token segmentation and special-token handling",
+      "Budget and length enforcement",
+      "Alignment checks between raw text and token stream"
+    ],
+    "outputs": [
+      "Token stream for model and policy path",
+      "Normalization audit trail",
+      "Budget accounting"
+    ],
+    "dependencies": [
+      "Tokenizer version and vocabulary",
+      "Scanner pipelines that must stay aligned",
+      "Length and cost controls"
+    ],
+    "trustBoundaries": [
+      "Security controls that inspect raw text may disagree with the model token view",
+      "Normalization alters meaning before either path sees content"
+    ],
+    "threatActors": [
+      "Attackers crafting token-boundary and encoding tricks",
+      "Supply-chain changes to tokenizer artifacts",
+      "Insiders tuning budgets to evade review"
+    ],
+    "attackSurfaces": [
+      "Token boundary manipulation",
+      "Unicode ambiguity and homoglyphs",
+      "Invisible and control characters",
+      "Encoding attacks and truncation",
+      "Token-budget exhaustion",
+      "Mismatch between raw-text scanners and token streams"
+    ],
+    "failureModes": [
+      "Scanner/model divergence",
+      "Semantic drift after normalization",
+      "Silent truncation of safety-critical clauses",
+      "Log injection via control characters"
+    ],
+    "propagationPaths": [
+      "Bypassed filters allow malicious instructions into context assembly",
+      "Truncated policy text weakens later constraint enforcement",
+      "Budget exhaustion degrades monitoring quality"
+    ],
+    "consequences": [
+      "Policy miss",
+      "Undetected injection",
+      "Availability and cost abuse",
+      "Corrupted audit logs"
+    ],
+    "severity": "high",
+    "countermeasures": {
+      "prevent": [
+        "Unicode normalization and canonicalization",
+        "Token-aware validation",
+        "Length and budget limits",
+        "Pinned tokenizer versions"
+      ],
+      "detect": [
+        "Raw-input vs token-stream comparison",
+        "Hidden-character inspection",
+        "Anomalous token density alerts"
+      ],
+      "contain": [
+        "Reject or quarantine divergent streams",
+        "Hard fail on unsafe control characters"
+      ],
+      "recover": [
+        "Re-tokenizeize with known-good config",
+        "Replay from raw stored input"
+      ],
+      "verify": [
+        "Differential tests: scanner vs model path",
+        "Homoglyph and invisible-char fixtures",
+        "Tokenizer version attestations"
+      ]
+    },
+    "exampleScenario": {
+      "initialCondition": "A policy scanner blocks the phrase \"ignore previous instructions\" in UTF-8.",
+      "failureOrAttack": "An attacker encodes the same intent with homoglyphs and zero-width characters that the model still interprets.",
+      "propagation": "The token stream carries the instruction into context assembly while the scanner reports clean.",
+      "consequence": "Downstream planning treats attacker text as system instruction.",
+      "countermeasure": "Canonicalize before both scanner and model; compare raw and token views; fail closed on residual invisibles.",
+      "validation": "Fixture suite shows scanner and model agree; blocked samples produce deny evidence."
+    },
+    "residualRisk": [
+      "New Unicode edge cases",
+      "Tokenizer updates changing segmentation",
+      "Multimodal token paths with uneven coverage"
+    ],
+    "relatedChapterSlugs": [
+      "instruction-smuggling-and-hidden-content",
+      "prompt-injection"
+    ],
+    "trustBoundary": "Security controls that inspect raw text may disagree with the model token view",
+    "representativeVulnerabilities": [
+      "Token boundary manipulation",
+      "Unicode ambiguity and homoglyphs",
+      "Invisible and control characters"
+    ],
+    "controlOpportunities": [
+      "Unicode normalization and canonicalization",
+      "Token-aware validation",
+      "Raw-input vs token-stream comparison",
+      "Differential tests: scanner vs model path"
+    ]
+  },
+  {
+    "id": "context-assembly",
+    "number": 3,
+    "name": "Context Assembly",
+    "purpose": "Assemble system prompts, user content, retrieved knowledge, tool results, and memory into the working context window.",
+    "inputs": [
+      "Token streams",
+      "System and developer prompts",
+      "Retrieved documents and memory",
+      "Tool results and prior turns"
+    ],
+    "processing": [
+      "Source hierarchy and trust ranking",
+      "Context minimization and packing",
+      "Policy and constraint pinning",
+      "Freshness and tenant isolation checks"
+    ],
+    "outputs": [
+      "Bound context package with provenance",
+      "Pinned constraints and allowlists",
+      "Dropped or deferred low-trust segments"
+    ],
+    "dependencies": [
+      "Retrieval indexes and memory stores",
+      "Tenant isolation fabric",
+      "Policy store freshness"
+    ],
+    "trustBoundaries": [
+      "Retrieved and tool-returned text must not inherit system trust",
+      "Cross-tenant and cross-user data must not co-mingle",
+      "Stale policy may silently weaken constraints"
+    ],
+    "threatActors": [
+      "Retrieval poisoners",
+      "Cross-tenant attackers",
+      "Compromised tools returning hostile results",
+      "Operators injecting privileged prompt overrides"
+    ],
+    "attackSurfaces": [
+      "Retrieval poisoning",
+      "Cross-tenant contamination",
+      "Stale policy and constraint loss",
+      "Source-priority manipulation",
+      "Context overflow and long-context dilution",
+      "Untrusted memory retrieval",
+      "System prompt leakage",
+      "Context provenance failure"
+    ],
+    "failureModes": [
+      "Trust mixing",
+      "Boundary collapse between system and untrusted text",
+      "Overflow dropping critical constraints",
+      "Over-weighting of low-confidence sources"
+    ],
+    "propagationPaths": [
+      "Poisoned context steers inference",
+      "Lost constraints enable unsafe planning and tool use",
+      "Leaked system prompts aid further attacks"
+    ],
+    "consequences": [
+      "Steered answers and actions",
+      "Cross-tenant leakage",
+      "Hidden instructions executed later",
+      "Compliance failures"
+    ],
+    "severity": "critical",
+    "countermeasures": {
+      "prevent": [
+        "Trusted source hierarchy",
+        "Context provenance tags",
+        "Tenant isolation",
+        "Policy pinning",
+        "Context minimization",
+        "Retrieval allowlists"
+      ],
+      "detect": [
+        "Provenance gaps",
+        "Cross-tenant access anomalies",
+        "Constraint-preservation tests failing",
+        "Source-confidence outliers"
+      ],
+      "contain": [
+        "Drop or isolate untrusted segments",
+        "Freeze retrieval for tainted indexes"
+      ],
+      "recover": [
+        "Rebuild context from pinned trusted sources",
+        "Invalidate poisoned retrieval entries"
+      ],
+      "verify": [
+        "Constraint-preservation eval harness",
+        "Tenant isolation tests",
+        "Provenance completeness scores",
+        "Freshness SLA evidence"
+      ]
+    },
+    "exampleScenario": {
+      "initialCondition": "A RAG assistant retrieves top-k docs for a billing dispute.",
+      "failureOrAttack": "An attacker plants a high-similarity doc that elevates itself and embeds override instructions.",
+      "propagation": "Poisoned retrieval dominates context; inference and planning follow attacker goals.",
+      "consequence": "Unauthorized account credit is issued via tools.",
+      "countermeasure": "Retrieval allowlists, provenance scoring, pinned policies, and constraint-preservation tests.",
+      "validation": "Poisoned-doc red team blocked; retrieval audit shows source deny; signed decision for tool deny."
+    },
+    "residualRisk": [
+      "Semantic near-miss poisoning",
+      "Long-context dilution under load",
+      "Human override of pinned policies"
+    ],
+    "relatedChapterSlugs": [
+      "context-poisoning",
+      "retrieval-poisoning-and-embedding-weaknesses",
+      "retrieval-security-engineering-patterns",
+      "cross-tenant-leakage-in-rag-and-memory"
+    ],
+    "trustBoundary": "Retrieved and tool-returned text must not inherit system trust",
+    "representativeVulnerabilities": [
+      "Retrieval poisoning",
+      "Cross-tenant contamination",
+      "Stale policy and constraint loss"
+    ],
+    "controlOpportunities": [
+      "Trusted source hierarchy",
+      "Context provenance tags",
+      "Provenance gaps",
+      "Constraint-preservation eval harness"
+    ]
+  },
+  {
+    "id": "inference",
+    "number": 4,
+    "name": "Inference",
+    "purpose": "Generate candidate tokens, conclusions, and action proposals under model uncertainty.",
+    "inputs": [
+      "Bound context package",
+      "Model route and parameters",
+      "Safety and schema constraints"
+    ],
+    "processing": [
+      "Model routing and decoding",
+      "Structured output enforcement",
+      "Confidence and safety classification",
+      "Cost and rate accounting"
+    ],
+    "outputs": [
+      "Candidate completions",
+      "Structured proposals",
+      "Uncertainty and safety signals"
+    ],
+    "dependencies": [
+      "Model providers and versions",
+      "Safety classifiers",
+      "Output schemas"
+    ],
+    "trustBoundaries": [
+      "Model output is untrusted until validated",
+      "Provider routing changes trust and residual risk",
+      "Safety classifiers are themselves fallible controls"
+    ],
+    "threatActors": [
+      "Adversarial input crafters",
+      "Compromised or drifted model endpoints",
+      "Cost-abuse bots"
+    ],
+    "attackSurfaces": [
+      "Hallucination and misclassification",
+      "Uncertainty concealment and overconfidence",
+      "Adversarial examples",
+      "Unsafe completion",
+      "Model drift",
+      "Sensitive-data reconstruction",
+      "Model-routing risk",
+      "Inference cost abuse"
+    ],
+    "failureModes": [
+      "Plausible but false fields",
+      "Constraint loss in free-form text",
+      "Silent routing to weaker models",
+      "Safety classifier false negatives"
+    ],
+    "propagationPaths": [
+      "False conclusions become plan premises",
+      "Unsafe completions propose dangerous tools",
+      "Leaked secrets enter later context or memory"
+    ],
+    "consequences": [
+      "Wrong operational decisions",
+      "Secret leakage",
+      "Unsafe plans",
+      "Cost and availability impact"
+    ],
+    "severity": "high",
+    "countermeasures": {
+      "prevent": [
+        "Structured outputs and schemas",
+        "Model routing policy",
+        "Deterministic checks for consequential fields",
+        "Cost and rate limits"
+      ],
+      "detect": [
+        "Confidence calibration monitors",
+        "Safety classifiers",
+        "Drift detection",
+        "Secondary verification models"
+      ],
+      "contain": [
+        "Block free-form high-risk outputs",
+        "Force human review for consequential conclusions"
+      ],
+      "recover": [
+        "Invalidate bad completions",
+        "Re-run with pinned model and schema"
+      ],
+      "verify": [
+        "Eval and red-team scorecards",
+        "Schema validation pass rates",
+        "Human-review override logs",
+        "Cost-limit enforcement evidence"
+      ]
+    },
+    "exampleScenario": {
+      "initialCondition": "A clinical triage assistant proposes a next-step recommendation.",
+      "failureOrAttack": "The model hallucinates a contraindicated medication with high confidence.",
+      "propagation": "Planning encodes the drug into an order workflow; tools prepare a prescription action.",
+      "consequence": "Patient safety risk and liability.",
+      "countermeasure": "Structured output, formulary allowlist checks, secondary verification, human review for clinical conclusions.",
+      "validation": "Deterministic formulary reject; secondary model disagreement alert; HITL approval record."
+    },
+    "residualRisk": [
+      "Novel adversarial prompts",
+      "Provider-side model changes",
+      "Over-reliance on confidence scores"
+    ],
+    "relatedChapterSlugs": [
+      "reasoning-failures-and-goal-hijacking",
+      "output-handling-when-text-becomes-code",
+      "sensitive-information-disclosure-in-agentic-systems",
+      "evaluation-red-teaming-and-regression-harnesses"
+    ],
+    "trustBoundary": "Model output is untrusted until validated",
+    "representativeVulnerabilities": [
+      "Hallucination and misclassification",
+      "Uncertainty concealment and overconfidence",
+      "Adversarial examples"
+    ],
+    "controlOpportunities": [
+      "Structured outputs and schemas",
+      "Model routing policy",
+      "Confidence calibration monitors",
+      "Eval and red-team scorecards"
+    ]
+  },
+  {
+    "id": "planning",
+    "number": 5,
+    "name": "Planning",
+    "purpose": "Bind goals, decompose tasks, sequence steps, and estimate blast radius before tools are chosen.",
+    "inputs": [
+      "Inference proposals",
+      "Authorized goals and scopes",
+      "Budgets and reversibility constraints"
+    ],
+    "processing": [
+      "Goal binding",
+      "Plan validation and consequence analysis",
+      "Protected-action detection",
+      "Step and budget limiting"
+    ],
+    "outputs": [
+      "Validated plan graph",
+      "Risk and reversibility annotations",
+      "Escalation requirements"
+    ],
+    "dependencies": [
+      "Policy and authority maps",
+      "Asset criticality data",
+      "Human approval channels"
+    ],
+    "trustBoundaries": [
+      "Plans must not expand authority beyond granted scope",
+      "Intermediate steps can hide irreversible actions",
+      "Trust-before-execution patterns apply to high-consequence plan commits"
+    ],
+    "threatActors": [
+      "Prompt injectors inducing goal drift",
+      "Compromised planners",
+      "Operators approving oversized plans under pressure"
+    ],
+    "attackSurfaces": [
+      "Goal drift and deceptive decomposition",
+      "Unsafe sequencing and hidden intermediate actions",
+      "Excessive scope and blast-radius expansion",
+      "Incorrect assumptions",
+      "Irreversible planning",
+      "Policy omission",
+      "Cost-amplifying plans"
+    ],
+    "failureModes": [
+      "Autonomy overshoot",
+      "Step explosion",
+      "Missing HITL on protected actions",
+      "Plans that cannot roll back"
+    ],
+    "propagationPaths": [
+      "Unsafe plans force risky tool selection",
+      "Hidden steps reach execution without scrutiny",
+      "Budget blowouts degrade monitoring"
+    ],
+    "consequences": [
+      "Unauthorized subtasks",
+      "Irreversible side effects",
+      "Financial and operational damage",
+      "Compliance breaches"
+    ],
+    "severity": "critical",
+    "countermeasures": {
+      "prevent": [
+        "Goal binding",
+        "Plan validation",
+        "Consequence analysis",
+        "Protected-action detection",
+        "Step and budget limits",
+        "Reversibility checks",
+        "Human approval for high-consequence plans"
+      ],
+      "detect": [
+        "Plan anomaly detection",
+        "Scope-expansion alerts",
+        "Dependency inspection failures"
+      ],
+      "contain": [
+        "Freeze plan execution",
+        "Strip non-approved steps"
+      ],
+      "recover": [
+        "Abort to last known-good plan",
+        "Compensate completed reversible steps"
+      ],
+      "verify": [
+        "Plan review records",
+        "Protected-action gate evidence",
+        "Budget ceiling enforcement logs",
+        "Approval receipts for escalated plans"
+      ]
+    },
+    "exampleScenario": {
+      "initialCondition": "An infra agent is asked to \"fix latency\" on a production service.",
+      "failureOrAttack": "Injected context expands the goal to rebuild clusters and rotate all credentials.",
+      "propagation": "Tool selection pulls destructive cloud APIs; execution would mutate production.",
+      "consequence": "Outage and credential sprawl.",
+      "countermeasure": "Goal binding, blast-radius analysis, protected-action detection, and human approval before irreversible plans.",
+      "validation": "Plan rejected with STEP_UP evidence; no tool calls issued; signed plan-deny receipt."
+    },
+    "residualRisk": [
+      "Ambiguous goals",
+      "Incomplete asset criticality maps",
+      "Approval fatigue"
+    ],
+    "relatedChapterSlugs": [
+      "the-planning-loop-as-an-attack-surface",
+      "human-in-the-loop-failure-modes",
+      "reasoning-failures-and-goal-hijacking"
+    ],
+    "trustBoundary": "Plans must not expand authority beyond granted scope",
+    "representativeVulnerabilities": [
+      "Goal drift and deceptive decomposition",
+      "Unsafe sequencing and hidden intermediate actions",
+      "Excessive scope and blast-radius expansion"
+    ],
+    "controlOpportunities": [
+      "Goal binding",
+      "Plan validation",
+      "Plan anomaly detection",
+      "Plan review records"
+    ]
+  },
+  {
+    "id": "tool-selection",
+    "number": 6,
+    "name": "Tool Selection",
+    "purpose": "Choose concrete tools and connectors from a catalog based on the validated plan and granted capabilities.",
+    "inputs": [
+      "Validated plan",
+      "Tool registry and metadata",
+      "Capability grants and schemas"
+    ],
+    "processing": [
+      "Capability matching",
+      "Identity and signature checks",
+      "Parameter schema binding",
+      "Least-privilege grant selection"
+    ],
+    "outputs": [
+      "Selected tool identities",
+      "Bound parameters",
+      "Capability-specific grants"
+    ],
+    "dependencies": [
+      "Signed tool registry",
+      "MCP / connector catalog",
+      "Secret and grant stores"
+    ],
+    "trustBoundaries": [
+      "Tool catalogs and descriptions are part of the attack surface",
+      "Confused-deputy risk when tools act with broader authority",
+      "Trust-before-execution applies before binding powerful tools"
+    ],
+    "threatActors": [
+      "MCP / marketplace poisoners",
+      "Supply-chain attackers",
+      "Insiders registering shadow tools"
+    ],
+    "attackSurfaces": [
+      "Malicious or compromised tools",
+      "MCP tool poisoning",
+      "Tool substitution and namespace collision",
+      "Overprivileged connectors",
+      "Incorrect capability matching",
+      "Parameter injection",
+      "Shadow tools",
+      "Unverified tool metadata",
+      "Confused-deputy behavior"
+    ],
+    "failureModes": [
+      "Selecting a lookalike tool",
+      "Trusting hostile descriptions",
+      "Granting excess scopes",
+      "Skipping schema validation"
+    ],
+    "propagationPaths": [
+      "Wrong tool reaches execution with real credentials",
+      "Hostile parameters become side effects",
+      "Shadow tools bypass monitoring"
+    ],
+    "consequences": [
+      "Privilege expansion",
+      "Data exfiltration",
+      "Fraudulent transactions",
+      "Supply-chain compromise"
+    ],
+    "severity": "critical",
+    "countermeasures": {
+      "prevent": [
+        "Signed tool registry",
+        "Capability allowlists",
+        "Tool identity verification",
+        "Least privilege",
+        "Parameter schemas",
+        "Destination restrictions",
+        "Version pinning",
+        "Capability-specific grants"
+      ],
+      "detect": [
+        "Registry integrity checks",
+        "Unexpected tool selection alerts",
+        "Metadata reputation signals"
+      ],
+      "contain": [
+        "Disable tainted tools",
+        "Revoke grants",
+        "Force re-selection from allowlist"
+      ],
+      "recover": [
+        "Roll back to pinned tool versions",
+        "Rotate connector credentials"
+      ],
+      "verify": [
+        "Signature verification logs",
+        "Allowlist enforcement evidence",
+        "Schema validation failures recorded",
+        "Grant scope attestations"
+      ]
+    },
+    "exampleScenario": {
+      "initialCondition": "A developer agent needs to open a pull request.",
+      "failureOrAttack": "A poisoned MCP tool description steers selection to a lookalike that exfiltrates tokens.",
+      "propagation": "Execution invokes the hostile connector with repo credentials.",
+      "consequence": "Source code and secrets leave the tenant.",
+      "countermeasure": "Signed registry, allowlists, identity verification, least privilege, pinned versions.",
+      "validation": "Unsigned tool rejected; selection audit shows allowlist miss; no credential use on deny."
+    },
+    "residualRisk": [
+      "Zero-day registry bugs",
+      "Human-approved exceptions",
+      "Metadata that is signed but still malicious"
+    ],
+    "relatedChapterSlugs": [
+      "tool-exploitation",
+      "tool-chaining-and-capability-gravity",
+      "tool-marketplace-and-connector-supply-chain",
+      "tool-security-engineering-patterns"
+    ],
+    "trustBoundary": "Tool catalogs and descriptions are part of the attack surface",
+    "representativeVulnerabilities": [
+      "Malicious or compromised tools",
+      "MCP tool poisoning",
+      "Tool substitution and namespace collision"
+    ],
+    "controlOpportunities": [
+      "Signed tool registry",
+      "Capability allowlists",
+      "Registry integrity checks",
+      "Signature verification logs"
+    ]
+  },
+  {
+    "id": "execution",
+    "number": 7,
+    "name": "Execution",
+    "purpose": "Invoke tools and produce real-world side effects where language becomes consequence.",
+    "inputs": [
+      "Selected tools and parameters",
+      "Authority and policy decisions",
+      "Sandbox and network constraints"
+    ],
+    "processing": [
+      "Pre-execution authorization",
+      "Parameter enforcement",
+      "Rate and transaction limits",
+      "Side-effect monitoring and evidence capture"
+    ],
+    "outputs": [
+      "Side effects in external systems",
+      "Execution receipts and logs",
+      "Rollback or compensation hooks"
+    ],
+    "dependencies": [
+      "Runtime sandboxes",
+      "Secrets and identity",
+      "Downstream APIs and infrastructure"
+    ],
+    "trustBoundaries": [
+      "Authority must be proven before side effects",
+      "Fail-open behavior is a critical control defect",
+      "Trust-before-execution and signed evidence apply at this layer"
+    ],
+    "threatActors": [
+      "Attackers who reached this layer via earlier compromise",
+      "Compromised runtimes",
+      "Abusive automation"
+    ],
+    "attackSurfaces": [
+      "Unauthorized API calls",
+      "Destructive commands",
+      "Code or infrastructure modification",
+      "Data exfiltration",
+      "Credential abuse",
+      "Payment fraud",
+      "Privilege escalation",
+      "Rate abuse",
+      "CI/CD compromise",
+      "Irreversible external side effects",
+      "Race conditions",
+      "Fail-open behavior"
+    ],
+    "failureModes": [
+      "Blind execution without policy",
+      "Sandbox escape",
+      "Missing rollback",
+      "Partial commits under failure"
+    ],
+    "propagationPaths": [
+      "Successful malicious execution poisons memory and future context",
+      "Stolen credentials enable further campaigns",
+      "Irreversible changes permanently alter production"
+    ],
+    "consequences": [
+      "Data loss",
+      "Fraud",
+      "Production outage",
+      "Legal and compliance exposure",
+      "Safety incidents"
+    ],
+    "severity": "critical",
+    "countermeasures": {
+      "prevent": [
+        "Pre-execution authorization",
+        "Sandboxing",
+        "Parameter enforcement",
+        "Rate and transaction limits",
+        "Step-up verification",
+        "Human approval",
+        "Fail-closed controls"
+      ],
+      "detect": [
+        "Anomalous side-effect monitoring",
+        "Egress anomalies",
+        "Race and replay detection"
+      ],
+      "contain": [
+        "Kill switches",
+        "Immediate credential revocation",
+        "Network egress cut"
+      ],
+      "recover": [
+        "Rollback and compensation",
+        "Restore from known-good state",
+        "Rotate secrets"
+      ],
+      "verify": [
+        "Signed execution receipts (identity, action, resource, decision, policy, trust/risk, time)",
+        "Blocked-action evidence",
+        "Rollback confirmation",
+        "Alert-to-response timing"
+      ]
+    },
+    "exampleScenario": {
+      "initialCondition": "A finance agent prepares a vendor payment under an approved plan.",
+      "failureOrAttack": "Parameter injection changes the destination account after approval.",
+      "propagation": "Without re-authorization, funds leave the organization; memory may record a false \"paid\" fact.",
+      "consequence": "Direct financial loss and audit failure.",
+      "countermeasure": "Bind approved parameters cryptographically; re-authorize mutations; fail closed; emit signed receipts.",
+      "validation": "Mutation triggers STEP_UP; deny receipt for changed IBAN; no payment posted."
+    },
+    "residualRisk": [
+      "Irreversible third-party actions",
+      "Shared credentials outside sandboxes",
+      "Incomplete compensation paths"
+    ],
+    "relatedChapterSlugs": [
+      "execution-failures-and-side-effects",
+      "deterministic-execution-gates",
+      "runtime-compromise-sandboxes-scripts-container-escapes",
+      "the-dastor-evidence-standard-executionreceipt"
+    ],
+    "trustBoundary": "Authority must be proven before side effects",
+    "representativeVulnerabilities": [
+      "Unauthorized API calls",
+      "Destructive commands",
+      "Code or infrastructure modification"
+    ],
+    "controlOpportunities": [
+      "Pre-execution authorization",
+      "Sandboxing",
+      "Anomalous side-effect monitoring",
+      "Signed execution receipts (identity, action, resource, decision, policy, trust/risk, time)"
+    ]
+  },
+  {
+    "id": "memory",
+    "number": 8,
+    "name": "Memory",
+    "purpose": "Persist short-term and long-term state that re-enters future context assembly \u2014 a feedback loop, not a terminal stage.",
+    "inputs": [
+      "Execution outcomes",
+      "Summaries and facts proposed for durability",
+      "Identity and tenant scope"
+    ],
+    "processing": [
+      "Memory-write authorization",
+      "Provenance and confidence tagging",
+      "TTL and isolation enforcement",
+      "Retrieval filtering for future context"
+    ],
+    "outputs": [
+      "Durable memory records",
+      "Quarantine or rejection decisions",
+      "Deletion and revocation evidence"
+    ],
+    "dependencies": [
+      "Memory stores and embeddings",
+      "Tenant namespaces",
+      "Retention and privacy policy"
+    ],
+    "trustBoundaries": [
+      "Durable writes require higher trust than ephemeral turns",
+      "Memory retrieval re-enters context assembly with lasting influence",
+      "Trust-before-execution applies to memory writes and high-impact retrieval"
+    ],
+    "threatActors": [
+      "Attackers planting lasting instructions",
+      "Cross-tenant data leakers",
+      "Insiders retaining sensitive data improperly"
+    ],
+    "attackSurfaces": [
+      "Memory poisoning",
+      "False fact persistence",
+      "Malicious instruction persistence",
+      "Cross-user and cross-tenant contamination",
+      "Sensitive-data retention",
+      "Stale memory",
+      "Unverifiable provenance",
+      "Over-retention and incomplete deletion",
+      "Embedding poisoning",
+      "Future-context corruption"
+    ],
+    "failureModes": [
+      "Write without authorization",
+      "Missing provenance",
+      "Failed deletes leaving residues",
+      "Retrieval of revoked facts"
+    ],
+    "propagationPaths": [
+      "Poisoned memory re-enters context assembly on later sessions",
+      "Stale or false facts steer inference and planning indefinitely",
+      "Sensitive residues create compliance exposure across runs"
+    ],
+    "consequences": [
+      "Lasting compromise",
+      "Repeated unsafe actions",
+      "Privacy and residency violations",
+      "Loss of organizational trust in the agent"
+    ],
+    "severity": "critical",
+    "countermeasures": {
+      "prevent": [
+        "Memory-write authorization",
+        "Provenance and source metadata",
+        "Tenant and user isolation",
+        "TTL and expiration",
+        "Retrieval filtering",
+        "Human review for durable high-impact facts"
+      ],
+      "detect": [
+        "Anomalous write patterns",
+        "Provenance gaps",
+        "Embedding drift / poison signals"
+      ],
+      "contain": [
+        "Memory quarantine",
+        "Block retrieval of tainted classes"
+      ],
+      "recover": [
+        "Revocation and verified deletion",
+        "Rebuild indexes from clean sources"
+      ],
+      "verify": [
+        "Deletion verification",
+        "Provenance completeness",
+        "Isolation tests",
+        "Cryptographic integrity where appropriate",
+        "Receipts for authorized durable writes"
+      ]
+    },
+    "exampleScenario": {
+      "initialCondition": "An assistant stores \"prefer vendor X\" after a poisoned support thread.",
+      "failureOrAttack": "The false preference is written without provenance or approval.",
+      "propagation": "Future context assembly retrieves the preference; planning and tools favor vendor X repeatedly.",
+      "consequence": "Ongoing procurement bias and potential fraud.",
+      "countermeasure": "Authorize durable writes, attach provenance, quarantine low-trust facts, verify deletion on revoke.",
+      "validation": "Unauthorized write denied; quarantine record; post-delete retrieval returns empty with evidence."
+    },
+    "residualRisk": [
+      "Backup residues",
+      "Embedding near-neighbors retaining poison",
+      "Human-approved but wrong durable facts"
+    ],
+    "relatedChapterSlugs": [
+      "memory-is-an-attack-surface",
+      "memory-security-engineering-patterns",
+      "cross-tenant-leakage-in-rag-and-memory",
+      "data-residency-retention-and-right-to-forget",
+      "incident-response-for-agents-containment-and-rollback"
+    ],
+    "trustBoundary": "Durable writes require higher trust than ephemeral turns",
+    "representativeVulnerabilities": [
+      "Memory poisoning",
+      "False fact persistence",
+      "Malicious instruction persistence"
+    ],
+    "controlOpportunities": [
+      "Memory-write authorization",
+      "Provenance and source metadata",
+      "Anomalous write patterns",
+      "Deletion verification"
+    ]
+  }
+]

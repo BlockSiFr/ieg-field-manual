@@ -1,0 +1,31 @@
+{
+  "slug": "indirect-prompt-injection-in-the-wild",
+  "number": 9,
+  "title": "Indirect Prompt Injection in the Wild",
+  "partNumber": 2,
+  "partTitle": "Input and context attacks",
+  "executiveSummary": "Modern IPI research and defenses for retrieval-mediated instruction hijack.",
+  "thesis": "Modern IPI research and defenses for retrieval-mediated instruction hijack.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "MITRE ATLAS",
+    "OWASP LLM Top 10"
+  ],
+  "executionLayers": [
+    "input",
+    "context-assembly"
+  ],
+  "riskTypes": [
+    "prompt-injection"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "prompt-injection",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

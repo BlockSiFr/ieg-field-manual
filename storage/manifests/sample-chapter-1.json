@@ -1,0 +1,10 @@
+{
+  "resourceId": "sample-chapter-1",
+  "path": "storage/protected/sample-chapter-1.md",
+  "pdfPath": "storage/protected/sample-chapter-1.pdf",
+  "publicBundle": false,
+  "bytes": 9949,
+  "generatedAt": "2026-07-23T15:44:36.346Z",
+  "source": "content/samples/sample-chapter-1.md",
+  "qualityGate": "authored-prose-min-4kb"
+}

@@ -1,0 +1,30 @@
+{
+  "slug": "human-in-the-loop-failure-modes",
+  "number": 19,
+  "title": "Human-in-the-Loop Failure Modes",
+  "partNumber": 3,
+  "partTitle": "Planning, autonomy, and orchestration",
+  "executiveSummary": "Rubber-stamping and incomplete context defeat approval theater.",
+  "thesis": "Rubber-stamping and incomplete context defeat approval theater.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "NIST AI RMF"
+  ],
+  "executionLayers": [
+    "planning",
+    "execution"
+  ],
+  "riskTypes": [
+    "hitl"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "hitl",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

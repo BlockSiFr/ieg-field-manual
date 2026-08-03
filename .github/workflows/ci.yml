@@ -1,0 +1,26 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - run: npm ci
+      - run: npx tsc --noEmit || true
+      - run: npm run validate-content
+      - run: npm run verify-assets
+      - run: npm test
+      - run: npm run build
+      - name: Secret scan (basic)
+        run: |
+          if grep -RInE 'BEGIN (RSA |OPENSSH )?PRIVATE KEY|CLIENT_SECRET=|COMMERCE_WEBHOOK_SECRET=[^$]' --exclude-dir=node_modules --exclude-dir=.git . ; then
+            echo "Potential secret found"; exit 1;
+          fi
+      - run: npm audit --audit-level=high || true

@@ -1,0 +1,30 @@
+{
+  "slug": "governance-operating-model-and-change-control",
+  "number": 38,
+  "title": "Governance Operating Model and Change Control",
+  "partNumber": 6,
+  "partTitle": "Countermeasures and safe design patterns",
+  "executiveSummary": "Risk tolerance, change control, and operating cadence for AI systems.",
+  "thesis": "Risk tolerance, change control, and operating cadence for AI systems.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "NIST AI RMF"
+  ],
+  "executionLayers": [
+    "planning",
+    "execution"
+  ],
+  "riskTypes": [
+    "governance"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "governance",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

@@ -1,0 +1,30 @@
+{
+  "slug": "tool-marketplace-and-connector-supply-chain",
+  "number": 30,
+  "title": "Tool Marketplace and Connector Supply Chain",
+  "partNumber": 5,
+  "partTitle": "Model, tool, and supply chain security",
+  "executiveSummary": "Third-party tools and MCP servers require trust tiers.",
+  "thesis": "Third-party tools and MCP servers require trust tiers.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "MITRE ATLAS"
+  ],
+  "executionLayers": [
+    "tool-selection",
+    "execution"
+  ],
+  "riskTypes": [
+    "supply-chain"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "supply-chain",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

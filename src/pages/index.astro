@@ -1,0 +1,523 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import BookFigure from "@/components/home/BookFigure.astro";
+import { getPublication, getChapters, getParts, getExecutionStack } from "@/lib/content";
+import author from "@/content/config/author.json";
+
+const pub = getPublication();
+const chapters = getChapters().slice(0, 12);
+const parts = getParts();
+const stack = getExecutionStack();
+const counts = pub.verifiedCounts;
+
+const audiences = [
+  {
+    title: "Security architects",
+    body: "Map failure pathways across the AI execution stack and prioritize controls that bind inference to authority.",
+  },
+  {
+    title: "Platform and agent engineers",
+    body: "Treat tool selection, memory, and orchestration as security surfaces, not product features alone.",
+  },
+  {
+    title: "Risk, compliance, and audit",
+    body: "Demand ExecutionReceipt-grade evidence for consequential AI actions under exact conditions.",
+  },
+  {
+    title: "Executives and operators",
+    body: "Shift the question from “is the model safe?” to “is this system authorized to cause this consequence?”",
+  },
+];
+---
+
+<BaseLayout title="The IEG Field Manual | Identity and Execution Governance" description={pub.supportingStatement || pub.thesisSupporting}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Book",
+      name: pub.formalTitle || pub.title,
+      alternateName: ["IEG Field Manual", "IEG Field Manual"],
+      author: { "@type": "Person", name: pub.author },
+      publisher: { "@type": "Organization", name: pub.publisher },
+      url: "https://ieg.blocksifr.com",
+      inLanguage: "en",
+      genre: pub.category,
+      description: pub.thesis,
+      version: pub.version || "1.0",
+    })} />
+  </Fragment>
+
+  <section class="hero grid-bg" aria-labelledby="hero-title">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="reg-mark">Published openly by BlockSiFr · Identity and Execution Governance</p>
+        <h1 id="hero-title" class="display hero-title">THE IEG FIELD MANUAL</h1>
+        <p class="hero-subtitle">Identity and Execution Governance<br />for Autonomous Systems</p>
+        <p class="hero-thesis">{pub.thesis}</p>
+        <p class="hero-support prose-measure">{pub.thesisSupporting}</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/manual">Read the Manual</a>
+          <a class="btn btn-ghost" href="/execution-stack">Explore the Execution Stack</a>
+        </div>
+        <p class="hero-link">
+          <a href={pub.githubRepo || "https://github.com/BlockSiFr/ieg-field-manual"} target="_blank" rel="noopener noreferrer">View the public repository</a>
+        </p>
+        <p class="hero-tagline">{pub.primaryTagline || "Govern what systems may cause."}</p>
+        <ul class="hero-meta" aria-label="Publication metrics">
+          <li>{counts.chapters} chapters</li>
+          <li>{counts.vulnerabilitiesLabel} vulnerabilities</li>
+          <li>Protected Actions</li>
+          <li>practitioner resources</li>
+          <li>publicly accessible</li>
+        </ul>
+      </div>
+      <BookFigure />
+    </div>
+  </section>
+
+  <section class="section paper-panel thesis" aria-labelledby="thesis-title">
+    <div class="container">
+      <p class="eyebrow" style="color: var(--dastor-text-muted)">01 · Thesis</p>
+      <h2 id="thesis-title" class="section-title" style="color: var(--dastor-ink)">The assistant did not merely make a mistake. The assistant executed.</h2>
+      <div class="thesis-grid">
+        <p class="prose-measure">
+          Classical software security assumes deterministic behavior: bounded inputs, explicit logic, and predictable execution paths.
+          Those assumptions break when probabilistic inference systems can call tools, use identities, modify systems, move data,
+          initiate transactions, and alter infrastructure.
+        </p>
+        <blockquote>
+          <p>{pub.governingRules[0]}</p>
+          <p>{pub.governingRules[1]}</p>
+        </blockquote>
+      </div>
+      <p class="shift">
+        Shift from <em>Is the model safe?</em> to
+        <strong> Is this system authorized to cause this consequence under these exact conditions?</strong>
+      </p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="contains-title">
+    <div class="container">
+      <p class="eyebrow">02 · Contents</p>
+      <h2 id="contains-title" class="section-title">What the IEG Field Manual contains</h2>
+      <div class="contains-grid">
+        <article>
+          <h3>Failure pathways</h3>
+          <p>Exploit paths, root causes, and blast-radius analysis across agent runtimes.</p>
+        </article>
+        <article>
+          <h3>Countermeasures</h3>
+          <p>Numbered controls, detection guidance, and remediation playbooks for practitioners.</p>
+        </article>
+        <article>
+          <h3>Evidence artifacts</h3>
+          <p>ExecutionReceipt patterns for proving what executed, under what authority, with what result.</p>
+        </article>
+        <article>
+          <h3>Framework alignment</h3>
+          <p>Cross-walks to MITRE ATLAS, OWASP LLM Top 10, and NIST AI RMF.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section stack-preview" aria-labelledby="stack-title">
+    <div class="container">
+      <p class="eyebrow">03 · Execution stack</p>
+      <h2 id="stack-title" class="section-title">Eight layers from input to memory</h2>
+      <p class="prose-measure" style="color: var(--dastor-text-muted)">
+        An apparently minor input or context failure can propagate into tool selection, execution, and persistent memory.
+      </p>
+      <ol class="stack-rail">
+        {stack.map((layer) => (
+          <li>
+            <a href={`/execution-stack#${layer.id}`}>
+              <span class="meta">{String(layer.number).padStart(2, "0")}</span>
+              <strong>{layer.name}</strong>
+            </a>
+          </li>
+        ))}
+      </ol>
+      <a class="btn btn-ghost" href="/execution-stack">Open the interactive stack</a>
+    </div>
+  </section>
+
+  <section class="section paper-panel" aria-labelledby="chapters-title">
+    <div class="container">
+      <p class="eyebrow" style="color:#5c574f">04 · Chapter explorer</p>
+      <h2 id="chapters-title" class="section-title" style="color:var(--dastor-ink)">Index of the field manual</h2>
+      <div class="part-strip">
+        {parts.map((p) => (
+          <span class="meta" style="color:#5c574f">Part {p.number} · {p.title}</span>
+        ))}
+      </div>
+      <ol class="chapter-index">
+        {chapters.map((c) => (
+          <li>
+            <a href={`/chapters/${c.slug}`}>
+              <span class="num">{String(c.number).padStart(2, "0")}</span>
+              <span class="ttl">{c.title}</span>
+              <span class="part">Part {c.partNumber}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+      <a class="btn btn-ink" href="/chapters">Browse all {counts.chapters} chapters</a>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="audience-title">
+    <div class="container">
+      <p class="eyebrow">05 · Audiences</p>
+      <h2 id="audience-title" class="section-title">Built for practitioners who govern execution</h2>
+      <div class="audience-grid">
+        {audiences.map((a) => (
+          <article>
+            <h3>{a.title}</h3>
+            <p>{a.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section frameworks" aria-labelledby="fw-title">
+    <div class="container">
+      <p class="eyebrow">06 · Frameworks</p>
+      <h2 id="fw-title" class="section-title">Aligned to the references defenders already use</h2>
+      <ul class="fw-list">
+        {counts.frameworks.map((f) => <li>{f}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section paper-panel sample-cta" aria-labelledby="sample-title">
+    <div class="container sample-grid">
+      <div>
+        <p class="eyebrow" style="color:#5c574f">07 · Open chapter</p>
+        <h2 id="sample-title" class="section-title" style="color:var(--dastor-ink)">Chapter 1: AI Is Not Software</h2>
+        <p class="prose-measure" style="color:#2a2926">
+          Educational and practitioner content is public. Open Chapter 1 with no account, email gate, or unlock step.
+        </p>
+        <a class="btn btn-primary" href={`/chapters/${pub.sampleChapterSlug || "ai-is-not-software"}`}>Open Chapter</a>
+      </div>
+      <aside class="sample-aside">
+        <p class="meta" style="color:#5c574f">You will learn</p>
+        <ul>
+          <li>Why deterministic security assumptions fail under inference</li>
+          <li>How quiet failure still produces action</li>
+          <li>Why authority and evidence must bind execution</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="author-title">
+    <div class="container author-grid">
+      <div>
+        <p class="eyebrow">08 · Authority</p>
+        <h2 id="author-title" class="section-title">Author and publisher</h2>
+        <p class="meta" style="margin-bottom:0.75rem">{author.role}</p>
+        <p><strong>{author.name}</strong></p>
+        <p><strong>{pub.publisher}</strong> · Publisher</p>
+        <div class="prose-measure author-home-bio" style="color:var(--dastor-text-muted)">
+          {author.paragraphs.slice(0, 3).map((para) => <p style="margin:0.85rem 0">{para}</p>)}
+          <p style="margin:0.85rem 0"><a href="/author">Read full biography →</a></p>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-ghost" href="/author">Author</a>
+          <a class="btn btn-ghost" href="/about">About</a>
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow">09 · Resources</p>
+        <h2 class="section-title">Field resources</h2>
+        <ul class="resource-list">
+          <li><a href="/resources">Practitioner resources</a></li>
+          <li><a href="/execution-stack">Execution-stack reference</a></li>
+          <li><a href="/resources#frameworks">Framework mapping</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bridge" aria-labelledby="bridge-title">
+    <div class="container">
+      <p class="eyebrow">10 · Doctrine and enforcement</p>
+      <h2 id="bridge-title" class="section-title">Read the doctrine. Assess the system. Govern the execution. Prove the decision.</h2>
+      <p class="prose-measure" style="color:var(--dastor-text-muted);margin-bottom:1.25rem">
+        {pub.boundaryStatement || "The doctrine is public. Production assessment, integration, enforcement, evidence operations, and enterprise support are delivered by BlockSiFr."}
+      </p>
+      <ol class="bridge-steps">
+        <li><span>IEG Field Manual</span> Defines the doctrine</li>
+        <li><span>Protected Actions</span> Consequences that require governance</li>
+        <li><span>CortexTrace</span> Discovers execution activity and evidence</li>
+        <li><span>Execution Exchange</span> Decides allow, constrain, step up, escalate, throttle, deny, or revoke</li>
+        <li><span>ModelMeter</span> Measures computational and business consequence</li>
+        <li><span>FrontDesk</span> Surfaces requests, decisions, approvals, and receipts</li>
+      </ol>
+      <a class="btn btn-primary" href="/assessment">Run the Self-Assessment</a>
+    </div>
+  </section>
+
+  <section class="section final-cta paper-panel" aria-labelledby="final-title">
+    <div class="container">
+      <h2 id="final-title" class="section-title" style="color:var(--dastor-ink)">Govern what systems may cause.</h2>
+      <p class="prose-measure" style="color:#2a2926;margin-bottom:1.25rem">
+        Free doctrine. Open knowledge. Paid enforcement.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/manual">Read the Manual</a>
+        <a class="btn btn-ink" href={`/chapters/${pub.sampleChapterSlug || "ai-is-not-software"}`}>Open Chapter 1</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-block: 4rem 3rem;
+    border-bottom: 1px solid var(--dastor-line-light);
+  }
+  .hero-grid {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+  .hero-title {
+    font-size: clamp(2.4rem, 7vw, 4.6rem);
+    margin: 0.4rem 0 0.5rem;
+    letter-spacing: 0.04em;
+  }
+  .hero-link {
+    margin: -0.75rem 0 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .hero-link a {
+    color: var(--dastor-text-muted);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+  .hero-tagline {
+    margin: 0 0 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dastor-paper-muted);
+  }
+  .hero-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 3vw, 2rem);
+    letter-spacing: -0.02em;
+    text-transform: none;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0 0 1.5rem;
+    color: var(--dastor-paper);
+  }
+  .hero-thesis {
+    font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+    max-width: 28ch;
+    margin: 0 0 1rem;
+  }
+  .hero-support {
+    color: var(--dastor-text-muted);
+    margin: 0 0 1.75rem;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.75rem;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dastor-text-muted);
+  }
+  .thesis-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+  blockquote {
+    margin: 0;
+    padding: 1.25rem 1.5rem;
+    border-left: 3px solid var(--dastor-signal);
+    background: rgba(14, 15, 15, 0.04);
+  }
+  blockquote p {
+    margin: 0.35rem 0;
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+  }
+  .shift {
+    margin-top: 2rem;
+    font-size: 1.15rem;
+  }
+  .contains-grid,
+  .audience-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 2rem;
+  }
+  .contains-grid article,
+  .audience-grid article {
+    border-top: 1px solid var(--dastor-line-light);
+    padding-top: 1rem;
+  }
+  .contains-grid h3,
+  .audience-grid h3 {
+    font-family: var(--font-display);
+    text-transform: none;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin: 0 0 0.5rem;
+  }
+  .stack-rail {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+  }
+  .stack-rail a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    text-decoration: none;
+    border: 1px solid var(--dastor-line-light);
+    padding: 1rem;
+    min-height: 5.5rem;
+  }
+  .stack-rail a:hover {
+    border-color: var(--dastor-signal);
+  }
+  .chapter-index {
+    list-style: none;
+    margin: 1.5rem 0 2rem;
+    padding: 0;
+    border-top: 1px solid var(--dastor-line-dark);
+  }
+  .chapter-index li a {
+    display: grid;
+    grid-template-columns: 3.5rem 1fr auto;
+    gap: 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--dastor-line-dark);
+    text-decoration: none;
+    color: var(--dastor-ink);
+  }
+  .chapter-index .num,
+  .chapter-index .part {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+  }
+  .chapter-index .ttl {
+    font-family: var(--font-serif);
+  }
+  .part-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .fw-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+  }
+  .fw-list li {
+    font-family: var(--font-mono);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--dastor-line-light);
+    padding: 0.75rem 1rem;
+  }
+  .sample-grid,
+  .author-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+  .sample-aside ul,
+  .resource-list {
+    margin: 0.75rem 0 0;
+    padding-left: 1.1rem;
+  }
+  .bridge-steps {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 2rem;
+    display: grid;
+    gap: 0.75rem;
+  }
+  .bridge-steps li {
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    gap: 1rem;
+    border-top: 1px solid var(--dastor-line-light);
+    padding-top: 0.75rem;
+  }
+  .bridge-steps span {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+    text-transform: none;
+    font-weight: 600;
+    color: var(--dastor-signal);
+  }
+  @media (max-width: 900px) {
+    .hero-grid,
+    .thesis-grid,
+    .sample-grid,
+    .author-grid {
+      grid-template-columns: 1fr;
+    }
+    .stack-rail,
+    .contains-grid,
+    .audience-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .bridge-steps li {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 560px) {
+    .stack-rail,
+    .contains-grid,
+    .audience-grid {
+      grid-template-columns: 1fr;
+    }
+    .chapter-index li a {
+      grid-template-columns: 2.5rem 1fr;
+    }
+    .chapter-index .part {
+      display: none;
+    }
+  }
+</style>

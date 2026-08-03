@@ -1,0 +1,31 @@
+{
+  "slug": "prompt-injection",
+  "number": 3,
+  "title": "Prompt Injection",
+  "partNumber": 1,
+  "partTitle": "The AI execution stack",
+  "executiveSummary": "Prompt injection is input-level control-plane compromise; indirect injection weaponizes retrieval and tool outputs.",
+  "thesis": "Prompt injection is input-level control-plane compromise; indirect injection weaponizes retrieval and tool outputs.",
+  "scenario": "An agent summarizes a document; hidden instructions hijack output and tool use.",
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "MITRE ATLAS",
+    "OWASP LLM Top 10"
+  ],
+  "executionLayers": [
+    "input",
+    "context-assembly"
+  ],
+  "riskTypes": [
+    "prompt-injection"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "prompt-injection",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

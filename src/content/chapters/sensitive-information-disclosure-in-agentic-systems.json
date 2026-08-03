@@ -1,0 +1,31 @@
+{
+  "slug": "sensitive-information-disclosure-in-agentic-systems",
+  "number": 21,
+  "title": "Sensitive Information Disclosure in Agentic Systems",
+  "partNumber": 4,
+  "partTitle": "Data boundaries, privacy, and compliance",
+  "executiveSummary": "Secrets and PII leak through answers, tools, and traces.",
+  "thesis": "Secrets and PII leak through answers, tools, and traces.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "OWASP LLM Top 10",
+    "NIST AI RMF"
+  ],
+  "executionLayers": [
+    "inference",
+    "execution"
+  ],
+  "riskTypes": [
+    "disclosure"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "disclosure",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

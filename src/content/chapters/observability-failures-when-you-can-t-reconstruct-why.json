@@ -1,0 +1,30 @@
+{
+  "slug": "observability-failures-when-you-can-t-reconstruct-why",
+  "number": 20,
+  "title": "Observability Failures: When You Can\u2019t Reconstruct Why",
+  "partNumber": 3,
+  "partTitle": "Planning, autonomy, and orchestration",
+  "executiveSummary": "Missing spans mean you cannot prove what executed.",
+  "thesis": "Missing spans mean you cannot prove what executed.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "NIST AI RMF"
+  ],
+  "executionLayers": [
+    "execution",
+    "memory"
+  ],
+  "riskTypes": [
+    "observability"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "observability",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

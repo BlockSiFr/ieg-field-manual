@@ -1,0 +1,30 @@
+{
+  "slug": "retrieval-poisoning-and-embedding-weaknesses",
+  "number": 11,
+  "title": "Retrieval Poisoning and Embedding Weaknesses",
+  "partNumber": 2,
+  "partTitle": "Input and context attacks",
+  "executiveSummary": "Vector and ranking attacks undermine similarity-as-trust assumptions.",
+  "thesis": "Vector and ranking attacks undermine similarity-as-trust assumptions.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "MITRE ATLAS",
+    "OWASP LLM Top 10"
+  ],
+  "executionLayers": [
+    "context-assembly"
+  ],
+  "riskTypes": [
+    "retrieval-poisoning"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "retrieval-poisoning",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

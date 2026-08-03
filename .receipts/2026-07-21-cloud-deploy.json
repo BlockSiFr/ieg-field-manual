@@ -1,0 +1,34 @@
+{
+  "receiptVersion": "DASTOR-BUILD-1.0",
+  "timestamp": "2026-07-21T19:55:38Z",
+  "actor": "agent:cursor",
+  "action": "cloud.deploy",
+  "target": "dastor.blocksifr.com",
+  "decision": "ALLOW",
+  "result": "swa_deployed_dns_pending",
+  "evidence": [
+    {
+      "executionId": "intent_60a593cd1ed500384c17217f",
+      "receiptId": "eer_1784663401522484165"
+    },
+    {
+      "swa": "swa-blocksifr-dastor-prod",
+      "hostname": "orange-forest-04055830f.7.azurestaticapps.net"
+    },
+    {
+      "rg": "rg-blocksifr-dastor-prod"
+    },
+    {
+      "storage": "stblocksifrdastorprod"
+    },
+    {
+      "appInsights": "appi-blocksifr-dastor-prod"
+    },
+    {
+      "customDomainStatus": "Validating"
+    },
+    {
+      "validationTokenPresent": true
+    }
+  ]
+}

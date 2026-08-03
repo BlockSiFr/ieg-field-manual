@@ -1,0 +1,29 @@
+{
+  "slug": "data-residency-retention-and-right-to-forget",
+  "number": 23,
+  "title": "Data Residency, Retention, and Right to Forget",
+  "partNumber": 4,
+  "partTitle": "Data boundaries, privacy, and compliance",
+  "executiveSummary": "Policy must bind memory, traces, and third-party tools.",
+  "thesis": "Policy must bind memory, traces, and third-party tools.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "NIST AI RMF"
+  ],
+  "executionLayers": [
+    "memory"
+  ],
+  "riskTypes": [
+    "residency"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "residency",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

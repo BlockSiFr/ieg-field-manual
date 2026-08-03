@@ -1,0 +1,108 @@
+---
+const links = [
+  { href: "/manual", label: "Manual" },
+  { href: "/chapters", label: "Chapters" },
+  { href: "/execution-stack", label: "Execution Stack" },
+  { href: "/manual#countermeasures", label: "Countermeasures" },
+  { href: "/manual#protected-actions", label: "Protected Actions" },
+  { href: "/resources#frameworks", label: "Frameworks" },
+  { href: "/resources", label: "Resources" },
+  { href: "/assessment", label: "Assessment" },
+  { href: "/about", label: "About" },
+];
+const github = "https://github.com/BlockSiFr/ieg-field-manual";
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="IEG Field Manual home">
+      <span class="brand-mark">IEG Field Manual</span>
+      <span class="brand-sub">Identity &amp; Execution Governance</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <ul>
+        {links.map((l) => (
+          <li><a href={l.href}>{l.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn-ghost" href={github} target="_blank" rel="noopener noreferrer">View on GitHub</a>
+      <a class="btn btn-primary" href="/manual">Read the Manual</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgba(14, 15, 15, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--dastor-line-light);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 4rem;
+  }
+  .brand {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    line-height: 1.1;
+  }
+  .brand-mark {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .brand-sub {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--dastor-text-muted);
+  }
+  .nav ul {
+    display: none;
+    list-style: none;
+    gap: 0.85rem;
+    margin: 0;
+    padding: 0;
+  }
+  .nav a {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--dastor-text-muted);
+  }
+  .nav a:hover {
+    color: var(--dastor-text-light);
+  }
+  .header-cta {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .header-cta .btn {
+    padding: 0.55rem 0.85rem;
+    min-height: 40px;
+  }
+  @media (min-width: 1100px) {
+    .nav ul {
+      display: flex;
+    }
+  }
+  @media (max-width: 640px) {
+    .header-cta .btn-ghost {
+      display: none;
+    }
+  }
+</style>

@@ -1,0 +1,30 @@
+{
+  "slug": "unbounded-consumption-cost-and-availability-attacks",
+  "number": 14,
+  "title": "Unbounded Consumption: Cost and Availability Attacks",
+  "partNumber": 2,
+  "partTitle": "Input and context attacks",
+  "executiveSummary": "Loops, long contexts, and retries become economic and availability weapons.",
+  "thesis": "Loops, long contexts, and retries become economic and availability weapons.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "OWASP LLM Top 10"
+  ],
+  "executionLayers": [
+    "inference",
+    "planning"
+  ],
+  "riskTypes": [
+    "unbounded-consumption"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "unbounded-consumption",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

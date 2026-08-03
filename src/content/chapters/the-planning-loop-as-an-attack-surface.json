@@ -1,0 +1,29 @@
+{
+  "slug": "the-planning-loop-as-an-attack-surface",
+  "number": 15,
+  "title": "The Planning Loop as an Attack Surface",
+  "partNumber": 3,
+  "partTitle": "Planning, autonomy, and orchestration",
+  "executiveSummary": "Threat modeling the orchestration loop itself.",
+  "thesis": "Threat modeling the orchestration loop itself.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "NIST AI RMF"
+  ],
+  "executionLayers": [
+    "planning"
+  ],
+  "riskTypes": [
+    "planning"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "planning",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

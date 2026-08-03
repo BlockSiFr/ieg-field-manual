@@ -1,0 +1,30 @@
+{
+  "slug": "tool-chaining-and-capability-gravity",
+  "number": 16,
+  "title": "Tool Chaining and Capability Gravity",
+  "partNumber": 3,
+  "partTitle": "Planning, autonomy, and orchestration",
+  "executiveSummary": "Available tools pull agent behavior toward higher blast radius.",
+  "thesis": "Available tools pull agent behavior toward higher blast radius.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "OWASP LLM Top 10"
+  ],
+  "executionLayers": [
+    "tool-selection",
+    "execution"
+  ],
+  "riskTypes": [
+    "tool-abuse"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "tool-abuse",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

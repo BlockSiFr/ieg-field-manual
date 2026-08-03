@@ -1,0 +1,39 @@
+{
+  "title": "The IEG Field Manual",
+  "shortTitle": "IEG Field Manual",
+  "formalTitle": "The Identity and Execution Governance Field Manual",
+  "subtitle": "Identity and Execution Governance for Autonomous Systems",
+  "taglineSecondary": "AI Security, Protected Actions, and Countermeasures",
+  "primaryTagline": "Govern what systems may cause.",
+  "publisher": "BlockSiFr LLC",
+  "author": "Maurice Witten",
+  "category": "Identity and Execution Governance",
+  "categoryShort": "I.E.G.",
+  "formerly": "DASTOR",
+  "version": "1.0",
+  "thesis": "AI systems do not fail loudly. They fail quietly, and still act.",
+  "thesisSupporting": "The public practitioner field manual for identifying, containing, governing, remediating, reversing, and proving failures across the AI execution stack.",
+  "supportingStatement": "The public field manual for governing consequential execution across AI agents, machine identities, software systems, tools, models, workflows, and infrastructure.",
+  "categoryExplanation": "Authentication establishes identity. Access control determines which systems an identity may reach. Identity and Execution Governance determines which consequences a human, AI agent, machine identity, software system, or autonomous workflow may cause, under whose authority, under what conditions, and with what proof.",
+  "operatingModel": "Free doctrine. Open knowledge. Paid enforcement.",
+  "boundaryStatement": "The doctrine is public. Production assessment, integration, enforcement, evidence operations, and enterprise support are delivered by BlockSiFr.",
+  "governingRules": [
+    "If it can execute, it can be exploited.",
+    "If it cannot be proven, it cannot be governed."
+  ],
+  "canonicalSite": "https://ieg.blocksifr.com",
+  "legacySite": "https://dastor.blocksifr.com",
+  "githubRepo": "https://github.com/BlockSiFr/ieg-field-manual",
+  "verifiedCounts": {
+    "chapters": 40,
+    "parts": 6,
+    "vulnerabilitiesLabel": "220+",
+    "frameworks": ["MITRE ATLAS", "OWASP LLM Top 10", "NIST AI RMF"],
+    "source": "cortextrace/docs/dastor-catalog.md; authoritative DOCX seal pending",
+    "discrepancies": [
+      "Site displays verified catalog count (40 chapters).",
+      "Display uses 220+ vulnerabilities until DOCX extraction confirms exact count."
+    ]
+  },
+  "sampleChapterSlug": "ai-is-not-software"
+}

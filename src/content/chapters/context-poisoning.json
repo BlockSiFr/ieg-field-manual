@@ -1,0 +1,31 @@
+{
+  "slug": "context-poisoning",
+  "number": 4,
+  "title": "Context Poisoning",
+  "partNumber": 1,
+  "partTitle": "The AI execution stack",
+  "executiveSummary": "Retrieved equals trusted is the default failure mode; poisoning attacks target the retrieval layer.",
+  "thesis": "Retrieved equals trusted is the default failure mode; poisoning attacks target the retrieval layer.",
+  "scenario": "Internal knowledge-base ingestion pulls malicious content; the assistant repeats attacker-chosen answers.",
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "MITRE ATLAS",
+    "OWASP LLM Top 10",
+    "NIST AI RMF"
+  ],
+  "executionLayers": [
+    "context-assembly"
+  ],
+  "riskTypes": [
+    "retrieval-poisoning"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "retrieval-poisoning",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

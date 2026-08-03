@@ -1,0 +1,30 @@
+{
+  "slug": "output-handling-when-text-becomes-code",
+  "number": 13,
+  "title": "Output Handling: When Text Becomes Code",
+  "partNumber": 2,
+  "partTitle": "Input and context attacks",
+  "executiveSummary": "Model output treated as trusted code or query language creates RCE and injection paths.",
+  "thesis": "Model output treated as trusted code or query language creates RCE and injection paths.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "OWASP LLM Top 10"
+  ],
+  "executionLayers": [
+    "inference",
+    "execution"
+  ],
+  "riskTypes": [
+    "output-handling"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "output-handling",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

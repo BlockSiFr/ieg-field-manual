@@ -1,0 +1,14 @@
+{
+  "number": 3,
+  "title": "Planning, autonomy, and orchestration",
+  "slug": "part-3-planning-autonomy-and-orchestration",
+  "chapterNumbers": [
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "summary": "Planning loops, multi-agent handoffs, and observability failures."
+}

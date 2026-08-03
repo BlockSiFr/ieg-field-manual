@@ -1,0 +1,29 @@
+{
+  "slug": "runtime-compromise-sandboxes-scripts-container-escapes",
+  "number": 31,
+  "title": "Runtime Compromise: Sandboxes, Scripts, Container Escapes",
+  "partNumber": 5,
+  "partTitle": "Model, tool, and supply chain security",
+  "executiveSummary": "Hardened runtimes and egress controls for code-executing agents.",
+  "thesis": "Hardened runtimes and egress controls for code-executing agents.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "MITRE ATLAS"
+  ],
+  "executionLayers": [
+    "execution"
+  ],
+  "riskTypes": [
+    "runtime"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "runtime",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

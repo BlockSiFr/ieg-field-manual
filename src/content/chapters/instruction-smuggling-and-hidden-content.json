@@ -1,0 +1,30 @@
+{
+  "slug": "instruction-smuggling-and-hidden-content",
+  "number": 10,
+  "title": "Instruction Smuggling and Hidden Content",
+  "partNumber": 2,
+  "partTitle": "Input and context attacks",
+  "executiveSummary": "Display text is not parse text; HTML, CSS, and Unicode hide instructions.",
+  "thesis": "Display text is not parse text; HTML, CSS, and Unicode hide instructions.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "MITRE ATLAS"
+  ],
+  "executionLayers": [
+    "input",
+    "tokenization"
+  ],
+  "riskTypes": [
+    "smuggling"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "smuggling",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

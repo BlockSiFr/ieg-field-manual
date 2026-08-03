@@ -1,0 +1,113 @@
+{
+  "slug": "ai-is-not-software",
+  "number": 1,
+  "title": "AI Is Not Software",
+  "partNumber": 1,
+  "partTitle": "The AI execution stack",
+  "executiveSummary": "Most enterprise security programs still treat AI assistants as software: deterministic products with fixed control surfaces and predictable failure modes. When an AI system is connected to tools, memory, and workflows, policy compliance becomes an inference problem under uncertainty. AI systems do not fail loudly. They fail quietly, and still act.",
+  "thesis": "If you design controls as if AI were software, you will build scanners, prompts, and dashboards while the real risk sits in execution: irreversible side effects that looked reasonable at the moment they were chosen.",
+  "scenario": "A regional operations team deploys an enterprise assistant with access to ticketing, vendor records, and a payment connector. A support lead pastes an ambiguous \"duplicate invoice\" thread. The assistant retrieves similar tickets, invents a complete credit workflow, and executes the credit. No malware ran. The model did not break. What failed was treating plausible language as authority to change money.",
+  "exploitPaths": [
+    {
+      "title": "Ambiguity to wrong action",
+      "content": "Ambiguous goals (\"fix this,\" \"make the customer happy\") invite the model to invent a complete irreversible workflow. Completeness without authority is how credits, deletes, and access grants happen."
+    },
+    {
+      "title": "Long-context constraint loss",
+      "content": "Safety instructions and policy snippets lose salience as context grows \u2014 long threads, retrieved docs, tool dumps. Early \"do not\u2026\" instructions never reappear in the final tool arguments."
+    },
+    {
+      "title": "Automation bias",
+      "content": "Operators rubber-stamp fluent proposals under ticket SLAs. Approvals cite the assistant's wording instead of an independent policy check."
+    }
+  ],
+  "rootCauses": [
+    {
+      "title": "Probabilistic instruction weighting",
+      "content": "Prompts and policies compete with user content, retrieved memory, and tool results. Security that depends on \"the model will obey the system prompt\" is theater."
+    },
+    {
+      "title": "Tool-calling expands blast radius",
+      "content": "Once the model can call APIs, edit tickets, or move money, a wrong inference is no longer a wrong paragraph \u2014 it is a system change."
+    },
+    {
+      "title": "Missing separation of inference and authority",
+      "content": "Many stacks let the same component that proposes an action also authorize it. Inference may suggest; authority must decide."
+    }
+  ],
+  "impacts": {
+    "financial": "Fraud, overpayment, unauthorized credits or transfers.",
+    "operational": "Data corruption, unintended workflow completion, irreversible infrastructure changes.",
+    "compliance": "Regulated data mishandled without a recoverable evidence trail."
+  },
+  "countermeasureGroups": [
+    {
+      "title": "Execution discipline",
+      "controls": [
+        {
+          "number": 1,
+          "text": "Gate irreversible actions with deterministic policy checks \u2014 if the gate cannot evaluate, fail closed."
+        },
+        {
+          "number": 2,
+          "text": "Require traceable evidence for consequential execution (who/what, resource, policy, decision, time)."
+        },
+        {
+          "number": 3,
+          "text": "Separate inference from authority to act \u2014 models draft; they do not mint authority."
+        },
+        {
+          "number": 4,
+          "text": "Bound blast radius by default: least privilege, allowlists, limits, and human approval for high-consequence classes."
+        },
+        {
+          "number": 5,
+          "text": "Design for quiet failure: instrument side effects and anomalous tool use, not only toxic text."
+        }
+      ]
+    }
+  ],
+  "detectionGuidance": [
+    "Plans that invent irreversible steps not present in the user request.",
+    "Tool arguments that omit early policy constraints after long context.",
+    "Approvals that cite assistant wording instead of an independent policy check."
+  ],
+  "remediationPlaybook": [
+    {
+      "number": 1,
+      "text": "List every production tool and mark irreversible / reversible / external."
+    },
+    {
+      "number": 2,
+      "text": "For each irreversible tool, name the non-model policy check that runs immediately before invocation."
+    },
+    {
+      "number": 3,
+      "text": "Produce example evidence records for deny and allow."
+    },
+    {
+      "number": 4,
+      "text": "Identify memory re-entry paths without provenance and define fail-closed behavior."
+    }
+  ],
+  "frameworks": [
+    "MITRE ATLAS",
+    "OWASP LLM Top 10",
+    "NIST AI RMF"
+  ],
+  "executionLayers": [
+    "input",
+    "inference",
+    "planning",
+    "execution"
+  ],
+  "riskTypes": [
+    "prompt-injection-adjacent",
+    "excessive-agency",
+    "quiet-execution-failure"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "prompt-injection-adjacent",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

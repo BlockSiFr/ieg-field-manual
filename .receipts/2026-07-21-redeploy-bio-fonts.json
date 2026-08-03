@@ -1,0 +1,15 @@
+{
+  "receiptVersion": "DASTOR-BUILD-1.0",
+  "timestamp": "2026-07-21T21:24:44Z",
+  "actor": "agent:cursor",
+  "action": "cloud.deploy",
+  "target": "dastor.blocksifr.com",
+  "decision": "ALLOW",
+  "result": "redeployed_bio_and_fonts",
+  "evidence": [
+    {
+      "executionId": "intent_39a82053d2b24968d82f550e",
+      "receiptId": "eer_1784668994608408273"
+    }
+  ]
+}

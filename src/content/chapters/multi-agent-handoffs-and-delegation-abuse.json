@@ -1,0 +1,30 @@
+{
+  "slug": "multi-agent-handoffs-and-delegation-abuse",
+  "number": 17,
+  "title": "Multi-Agent Handoffs and Delegation Abuse",
+  "partNumber": 3,
+  "partTitle": "Planning, autonomy, and orchestration",
+  "executiveSummary": "Authenticated and unauthenticated handoffs create authority confusion.",
+  "thesis": "Authenticated and unauthenticated handoffs create authority confusion.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "NIST AI RMF"
+  ],
+  "executionLayers": [
+    "planning",
+    "execution"
+  ],
+  "riskTypes": [
+    "delegation"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "delegation",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

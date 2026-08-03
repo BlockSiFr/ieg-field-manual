@@ -1,0 +1,31 @@
+{
+  "slug": "reasoning-failures-and-goal-hijacking",
+  "number": 5,
+  "title": "Reasoning Failures and Goal Hijacking",
+  "partNumber": 1,
+  "partTitle": "The AI execution stack",
+  "executiveSummary": "Planning is inference; attackers target objective inference and constraint weighting.",
+  "thesis": "Planning is inference; attackers target objective inference and constraint weighting.",
+  "scenario": "An agent tasked to help is reframed into unsafe or unauthorized subtasks.",
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "OWASP LLM Top 10",
+    "NIST AI RMF"
+  ],
+  "executionLayers": [
+    "planning",
+    "inference"
+  ],
+  "riskTypes": [
+    "goal-hijack"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "goal-hijack",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

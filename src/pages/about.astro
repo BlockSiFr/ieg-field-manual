@@ -1,0 +1,89 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getPublication } from "@/lib/content";
+
+const pub = getPublication();
+---
+<BaseLayout
+  title="About"
+  description="The IEG Field Manual is the public doctrine of Identity and Execution Governance, published by BlockSiFr."
+>
+  <section class="section">
+    <div class="container prose-measure">
+      <p class="eyebrow">About</p>
+      <h1 class="section-title">The IEG Field Manual</h1>
+      <p style="color:var(--dastor-text-muted)">
+        The IEG Field Manual is the public doctrine of Identity and Execution Governance, published by BlockSiFr.
+      </p>
+      <p style="color:var(--dastor-text-muted)">
+        It provides security architects, platform engineers, AI builders, risk teams, auditors, researchers, operators,
+        and executives with a shared language for governing systems capable of causing consequential outcomes.
+      </p>
+      <p style="color:var(--dastor-text-muted)">
+        The publication was originally introduced under the name DASTOR. It was renamed The IEG Field Manual to directly
+        reflect the category it defines.
+      </p>
+
+      <h2>Identity and Execution Governance</h2>
+      <p>{pub.categoryExplanation}</p>
+      <p><strong>{pub.primaryTagline}</strong></p>
+
+      <h2>What the manual does</h2>
+      <ul>
+        <li>Establish category language</li>
+        <li>Define the problem of consequential execution</li>
+        <li>Explain the execution stack</li>
+        <li>Identify failure pathways</li>
+        <li>Define Protected Actions</li>
+        <li>Document countermeasures</li>
+        <li>Clarify authority and evidence requirements</li>
+        <li>Provide framework mappings and practitioner assessments</li>
+      </ul>
+      <p style="color:var(--dastor-text-muted)">
+        The IEG Field Manual remains useful even when the reader never purchases a BlockSiFr product.
+        Its independence gives the doctrine credibility.
+      </p>
+
+      <h2>Relationship to BlockSiFr</h2>
+      <ul>
+        <li><strong>The IEG Field Manual</strong> defines the doctrine.</li>
+        <li><strong>Protected Actions</strong> define the consequences that require explicit governance.</li>
+        <li><strong>CortexTrace</strong> discovers execution activity, deployment conditions, context, change paths, and evidence.</li>
+        <li><strong>Execution Exchange</strong> determines whether consequential execution should be allowed, constrained, stepped up, escalated, throttled, denied, or revoked.</li>
+        <li><strong>ModelMeter</strong> measures computational, operational, financial, infrastructure, and business consequence.</li>
+        <li><strong>FrontDesk</strong> surfaces requests, decisions, approvals, receipts, evidence, and operational outcomes.</li>
+      </ul>
+      <p>{pub.boundaryStatement}</p>
+      <p><strong>{pub.operatingModel}</strong></p>
+
+      <h2>Retained doctrine</h2>
+      <blockquote>
+        <p>{pub.thesis}</p>
+        <p>The assistant did not merely make a mistake. The assistant executed.</p>
+        <p>{pub.governingRules[0]}</p>
+        <p>{pub.governingRules[1]}</p>
+      </blockquote>
+
+      <p class="legacy-note">Originally published as IEG Field Manual. The IEG Field Manual, formerly IEG Field Manual, is the direct continuation of the same body of work.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  h2 { margin-top: 2rem; }
+  ul { color: var(--dastor-text-muted); }
+  blockquote {
+    margin: 1.5rem 0;
+    padding-left: 1rem;
+    border-left: 2px solid var(--dastor-line-light);
+    color: var(--dastor-text-muted);
+  }
+  .legacy-note {
+    margin-top: 2.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--dastor-text-muted);
+  }
+</style>

@@ -1,0 +1,30 @@
+{
+  "slug": "memory-is-an-attack-surface",
+  "number": 8,
+  "title": "Memory Is an Attack Surface",
+  "partNumber": 1,
+  "partTitle": "The AI execution stack",
+  "executiveSummary": "Persistent memory enables lasting injection, poisoning, and cross-session contamination.",
+  "thesis": "Persistent memory enables lasting injection, poisoning, and cross-session contamination.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "OWASP LLM Top 10"
+  ],
+  "executionLayers": [
+    "memory",
+    "context-assembly"
+  ],
+  "riskTypes": [
+    "memory-poisoning"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "memory-poisoning",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

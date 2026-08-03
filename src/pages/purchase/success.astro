@@ -1,0 +1,34 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CheckoutButton from "@/components/commerce/CheckoutButton";
+
+const sessionId = Astro.url.searchParams.get("session_id") || "";
+---
+<BaseLayout title="Access is on its way" description="IEG Field Manual purchase confirmed. Check your email for the magic link and signed download.">
+  <section class="section">
+    <div class="container" style="max-width:40rem">
+      <p class="eyebrow">Purchase</p>
+      <h1 class="section-title">Access is on its way</h1>
+      <p style="color:var(--dastor-text-muted)">
+        Stripe confirmed payment. We are granting your entitlement and sending the magic link plus a time-limited download.
+        Open the email, or if you already have a token, continue to access.
+      </p>
+      {sessionId && <p class="meta">Session reference recorded for support: <code>{sessionId.slice(0, 18)}…</code></p>}
+      <div class="hero-actions" style="margin-top:1.5rem;display:flex;gap:.75rem;flex-wrap:wrap">
+        <a class="btn btn-primary" href="/access">Open access gate</a>
+        <a class="btn btn-ghost" href="/chapters">Browse chapters</a>
+      </div>
+      <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--dastor-line-light)">
+        <h2 class="eyebrow">Gift a seat</h2>
+        <p style="color:var(--dastor-text-muted);max-width:42ch">
+          One click starts Checkout for a teammate seat. They receive the same download + magic-link flow.
+        </p>
+        <CheckoutButton client:load commerceEnabled={import.meta.env.PUBLIC_COMMERCE_ENABLED === "true"} gift={true} />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+<script>
+  // Fire completion analytics without PII.
+  window.dispatchEvent(new CustomEvent("dastor:analytics", { detail: { event: "dastor_checkout_completed", props: {}, ts: Date.now() } }));
+</script>

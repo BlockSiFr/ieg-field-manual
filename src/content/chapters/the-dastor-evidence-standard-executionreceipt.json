@@ -1,0 +1,29 @@
+{
+  "slug": "the-dastor-evidence-standard-executionreceipt",
+  "number": 39,
+  "title": "The IEG Evidence Standard (ExecutionReceipt)",
+  "partNumber": 6,
+  "partTitle": "Countermeasures and safe design patterns",
+  "executiveSummary": "ExecutionReceipt as the evidence artifact for governed AI execution.",
+  "thesis": "ExecutionReceipt as the evidence artifact for governed AI execution.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "NIST AI RMF"
+  ],
+  "executionLayers": [
+    "execution"
+  ],
+  "riskTypes": [
+    "evidence"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "evidence",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

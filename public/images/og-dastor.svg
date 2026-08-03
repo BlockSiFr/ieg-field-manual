@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0e0f0f"/>
+  <rect x="80" y="80" width="420" height="470" fill="#eee8dc"/>
+  <rect x="500" y="100" width="40" height="430" fill="#242525"/>
+  <rect x="110" y="120" width="340" height="8" fill="#a92f27"/>
+  <text x="110" y="220" font-family="Arial Narrow, Arial, sans-serif" font-size="72" font-weight="700" fill="#0e0f0f">IEG Field Manual</text>
+  <text x="110" y="270" font-family="Georgia, serif" font-size="28" fill="#0e0f0f">Field Manual of AI Security</text>
+  <text x="110" y="310" font-family="Georgia, serif" font-size="28" fill="#0e0f0f">and Countermeasures</text>
+  <text x="620" y="280" font-family="Georgia, serif" font-size="36" fill="#f2ede4">AI systems do not fail loudly.</text>
+  <text x="620" y="330" font-family="Georgia, serif" font-size="36" fill="#f2ede4">They fail quietly, and still act.</text>
+  <text x="620" y="520" font-family="ui-monospace, monospace" font-size="18" fill="#a9a39a">BLOCK SIFR LLC  ·  ieg.blocksifr.com</text>
+</svg>

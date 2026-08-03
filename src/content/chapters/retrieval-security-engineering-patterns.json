@@ -1,0 +1,29 @@
+{
+  "slug": "retrieval-security-engineering-patterns",
+  "number": 35,
+  "title": "Retrieval Security Engineering Patterns",
+  "partNumber": 6,
+  "partTitle": "Countermeasures and safe design patterns",
+  "executiveSummary": "Provenance, sanitization, and poisoning detection.",
+  "thesis": "Provenance, sanitization, and poisoning detection.",
+  "scenario": null,
+  "exploitPaths": [],
+  "rootCauses": [],
+  "impacts": {},
+  "countermeasureGroups": [],
+  "detectionGuidance": [],
+  "remediationPlaybook": [],
+  "frameworks": [
+    "MITRE ATLAS"
+  ],
+  "executionLayers": [
+    "context-assembly"
+  ],
+  "riskTypes": [
+    "retrieval-security"
+  ],
+  "industries": [],
+  "vulnerabilityClass": "retrieval-security",
+  "controlType": "field-manual",
+  "publicExcerpt": true
+}

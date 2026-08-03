@@ -1,0 +1,18 @@
+{
+  "name": "The IEG Field Manual",
+  "short_name": "IEG Field Manual",
+  "description": "The public field manual for governing consequential execution across AI agents, machine identities, software systems, tools, and infrastructure.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0e0f0f",
+  "theme_color": "#0e0f0f",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "application/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

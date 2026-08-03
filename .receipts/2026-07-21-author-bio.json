@@ -1,0 +1,15 @@
+{
+  "receiptVersion": "DASTOR-BUILD-1.0",
+  "timestamp": "2026-07-21T20:46:55Z",
+  "actor": "agent:cursor",
+  "action": "file.write",
+  "target": "src/pages/author.astro + src/content/config/author.json",
+  "decision": "ALLOW",
+  "result": "author_bio_applied",
+  "evidence": [
+    {
+      "executionId": "intent_764b3172716f135854122d2f",
+      "receiptId": "eer_1784666803806076495"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import AssessmentRequestForm from "@/components/forms/AssessmentRequestForm";
+const outputs = [
+  "AI system inventory",
+  "AI execution-stack map",
+  "Agent and model inventory",
+  "Tool inventory",
+  "Identity and authority map",
+  "Protected-action map",
+  "Data-flow and egress analysis",
+  "Trust-boundary analysis",
+  "Vulnerability mapping",
+  "Blast-radius analysis",
+  "Reversal-readiness review",
+  "Evidence and receipt review",
+  "Framework alignment",
+  "Prioritized remediation plan",
+];
+---
+<BaseLayout title="IEG Assessment" description="IEG Field Manual AI Execution Security Assessment for organizations that need implementation support.">
+  <section class="section paper-panel">
+    <div class="container">
+      <p class="eyebrow" style="color:#5c574f">Enterprise</p>
+      <h1 class="section-title" style="color:var(--dastor-ink)">IEG Field Manual AI Execution Security Assessment</h1>
+      <p style="color:#2a2926;max-width:65ch">
+        For organizations that need implementation support beyond the manual. Pricing is not published here pending approved configuration.
+      </p>
+      <h2 style="color:var(--dastor-ink)">Potential outputs</h2>
+      <ul style="columns:2;color:#2a2926">{outputs.map((o) => <li>{o}</li>)}</ul>
+      <AssessmentRequestForm client:load />
+      <p class="meta" style="margin-top:1rem;color:#6a655c">If the API is unavailable, email assessments via your BlockSiFr contact channel.</p>
+    </div>
+  </section>
+</BaseLayout>

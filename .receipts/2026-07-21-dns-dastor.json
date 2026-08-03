@@ -1,0 +1,20 @@
+{
+  "receiptVersion": "DASTOR-BUILD-1.0",
+  "timestamp": "2026-07-21T20:46:12Z",
+  "actor": "agent:cursor",
+  "action": "production.modify",
+  "target": "blocksifr.com/dns/dastor",
+  "decision": "ALLOW",
+  "result": "dastor.blocksifr.com_ready",
+  "evidence": [
+    {
+      "executionId": "intent_f224c98a2edf8b5c44255cd7",
+      "receiptId": "eer_1784666058202993569"
+    },
+    {
+      "azureStatus": "Ready",
+      "https": 200,
+      "url": "https://dastor.blocksifr.com/"
+    }
+  ]
+}

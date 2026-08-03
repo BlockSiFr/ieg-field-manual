@@ -1,0 +1,15 @@
+{
+  "receiptVersion": "DASTOR-BUILD-1.0",
+  "timestamp": "2026-07-22T03:05:37Z",
+  "actor": "agent:cursor",
+  "action": "cloud.deploy",
+  "target": "https://dastor.blocksifr.com/assessment",
+  "decision": "ALLOW",
+  "executionId": "intent_276318f02b594ef16e05cda2",
+  "result": "assessment_form_fixed",
+  "evidence": [
+    "AssessmentRequestForm.tsx sha256=25677c7e817f323bdb264f858eca189a723cf9bc7972174c26c1d810f4dce53c",
+    "client JSON POST to /api/contact",
+    "scoped layout styles (no sample-form dependency)"
+  ]
+}
