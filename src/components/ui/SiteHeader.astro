@@ -1,33 +1,38 @@
 ---
+import BrandOperator from "./BrandOperator.astro";
+
 const links = [
   { href: "/manual", label: "Manual" },
   { href: "/chapters", label: "Chapters" },
   { href: "/execution-stack", label: "Execution Stack" },
-  { href: "/manual#countermeasures", label: "Countermeasures" },
   { href: "/manual#protected-actions", label: "Protected Actions" },
   { href: "/resources#frameworks", label: "Frameworks" },
   { href: "/resources", label: "Resources" },
   { href: "/assessment", label: "Assessment" },
-  { href: "/about", label: "About" },
 ];
 const github = "https://github.com/BlockSiFr/ieg-field-manual";
 ---
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="/" aria-label="IEG Field Manual home">
-      <span class="brand-mark">IEG Field Manual</span>
-      <span class="brand-sub">Identity &amp; Execution Governance</span>
+    <a class="brand" href="/" aria-label="BlockSiFr IEG home">
+      <span class="operator-shell"><BrandOperator size={34} /></span>
+      <span class="brand-copy">
+        <span class="brand-mark">BlockSiFr</span>
+        <span class="brand-sub">Identity &amp; Execution Governance</span>
+      </span>
     </a>
+
     <nav class="nav" aria-label="Primary">
       <ul>
-        {links.map((l) => (
-          <li><a href={l.href}>{l.label}</a></li>
+        {links.map((link) => (
+          <li><a href={link.href}>{link.label}</a></li>
         ))}
       </ul>
     </nav>
+
     <div class="header-cta">
-      <a class="btn btn-ghost" href={github} target="_blank" rel="noopener noreferrer">View on GitHub</a>
+      <a class="btn btn-ghost" href={github} target="_blank" rel="noopener noreferrer">GitHub</a>
       <a class="btn btn-primary" href="/manual">Read the Manual</a>
     </div>
   </div>
@@ -38,71 +43,85 @@ const github = "https://github.com/BlockSiFr/ieg-field-manual";
     position: sticky;
     top: 0;
     z-index: 40;
-    background: rgba(14, 15, 15, 0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--dastor-line-light);
+    background: rgba(9, 10, 11, 0.88);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(216, 182, 106, 0.12);
   }
   .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    min-height: 4rem;
+    min-height: 4.75rem;
   }
   .brand {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
     text-decoration: none;
-    line-height: 1.1;
+    line-height: 1.08;
+    min-width: 14.5rem;
+  }
+  .operator-shell {
+    width: 2.55rem;
+    height: 2.55rem;
+    display: grid;
+    place-items: center;
+    border-radius: 0.8rem;
+    border: 1px solid rgba(216, 182, 106, 0.15);
+    background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(216,182,106,0.02));
+  }
+  .brand-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.24rem;
   }
   .brand-mark {
     font-family: var(--font-display);
-    font-size: 1.05rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-size: 0.98rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--blocksifr-text-light);
   }
   .brand-sub {
     font-family: var(--font-mono);
-    font-size: 0.625rem;
-    letter-spacing: 0.16em;
+    font-size: 0.56rem;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--dastor-text-muted);
+    color: var(--blocksifr-gold);
   }
   .nav ul {
     display: none;
     list-style: none;
-    gap: 0.85rem;
+    gap: 0.9rem;
     margin: 0;
     padding: 0;
   }
   .nav a {
     font-family: var(--font-mono);
-    font-size: 0.625rem;
-    letter-spacing: 0.1em;
+    font-size: 0.59rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     text-decoration: none;
-    color: var(--dastor-text-muted);
+    color: var(--blocksifr-text-muted);
+    transition: color 160ms ease;
   }
-  .nav a:hover {
-    color: var(--dastor-text-light);
-  }
+  .nav a:hover { color: var(--blocksifr-text-light); }
   .header-cta {
     display: flex;
     gap: 0.5rem;
+    white-space: nowrap;
   }
   .header-cta .btn {
-    padding: 0.55rem 0.85rem;
+    padding: 0.55rem 0.9rem;
     min-height: 40px;
   }
-  @media (min-width: 1100px) {
-    .nav ul {
-      display: flex;
-    }
+  @media (min-width: 1160px) {
+    .nav ul { display: flex; }
   }
-  @media (max-width: 640px) {
-    .header-cta .btn-ghost {
-      display: none;
-    }
+  @media (max-width: 700px) {
+    .brand { min-width: 0; }
+    .brand-sub { display: none; }
+    .header-cta .btn-ghost { display: none; }
   }
 </style>
