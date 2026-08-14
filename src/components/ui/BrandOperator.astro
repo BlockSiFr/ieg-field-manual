@@ -1,0 +1,39 @@
+---
+interface Props {
+  size?: number;
+  label?: string;
+}
+
+const { size = 34, label = "BlockSiFr" } = Astro.props;
+---
+
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 64 64"
+  role="img"
+  aria-label={label}
+  class="blocksifr-operator"
+>
+  <defs>
+    <linearGradient id="ieg-gold-a" x1="6" y1="5" x2="42" y2="35" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F0D99C" />
+      <stop offset="0.42" stop-color="#D7B56A" />
+      <stop offset="1" stop-color="#9E7533" />
+    </linearGradient>
+    <linearGradient id="ieg-gold-b" x1="24" y1="26" x2="58" y2="59" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A77A35" />
+      <stop offset="0.55" stop-color="#D9B96F" />
+      <stop offset="1" stop-color="#F2DCA0" />
+    </linearGradient>
+  </defs>
+  <path d="M29 7 12 24.5 29 42h8L20 24.5 37 7h-8Z" fill="url(#ieg-gold-a)" />
+  <path d="m35 22 17 17.5L35 57h-8l17-17.5L27 22h8Z" fill="url(#ieg-gold-b)" />
+</svg>
+
+<style>
+  .blocksifr-operator {
+    display: block;
+    filter: drop-shadow(0 7px 18px rgba(0,0,0,0.2));
+  }
+</style>
