@@ -1,18 +1,25 @@
 ---
+import BrandOperator from "./BrandOperator.astro";
 const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
   <div class="container footer-grid">
-    <div>
-      <p class="display footer-brand">IEG Field Manual</p>
+    <div class="footer-intro">
+      <div class="footer-lockup">
+        <BrandOperator size={36} />
+        <div>
+          <p class="display footer-brand">BlockSiFr</p>
+          <p class="footer-kicker">Identity &amp; Execution Governance</p>
+        </div>
+      </div>
       <p class="footer-copy">
-        The Identity and Execution Governance Field Manual. Published openly by BlockSiFr LLC.
-        Govern what systems may cause.
+        The public practitioner discipline beneath Consequence Intelligence.
+        Govern who can act, what can execute, and what those actions can cause.
       </p>
     </div>
     <div>
-      <p class="eyebrow">Publication</p>
+      <p class="eyebrow">Field Manual</p>
       <ul>
         <li><a href="/manual">Manual</a></li>
         <li><a href="/chapters">Chapters</a></li>
@@ -24,10 +31,10 @@ const year = new Date().getFullYear();
     <div>
       <p class="eyebrow">BlockSiFr</p>
       <ul>
-        <li><a href="/about">About</a></li>
+        <li><a href="https://www.blocksifr.com">Use More AI. Safely.</a></li>
+        <li><a href="/about">About IEG</a></li>
         <li><a href="/author">Author</a></li>
         <li><a href="https://github.com/BlockSiFr/ieg-field-manual" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-        <li><a href="https://www.blocksifr.com">BlockSiFr</a></li>
       </ul>
     </div>
     <div>
@@ -41,74 +48,79 @@ const year = new Date().getFullYear();
     </div>
   </div>
   <div class="container footer-base">
-    <p class="meta">© {year} BlockSiFr LLC. Free doctrine. Open knowledge. Paid enforcement.</p>
+    <p class="meta">© {year} BlockSiFr LLC. Identity and Execution Governance.</p>
     <p class="meta">ieg.blocksifr.com</p>
   </div>
 </footer>
 
 <style>
   .site-footer {
-    border-top: 1px solid var(--dastor-line-light);
-    padding-block: 3.5rem 2rem;
-    background: var(--dastor-carbon);
+    border-top: 1px solid rgba(216, 182, 106, 0.12);
+    padding-block: 4rem 2rem;
+    background:
+      linear-gradient(145deg, rgba(255,255,255,0.018), transparent 36%),
+      var(--blocksifr-carbon);
   }
   .footer-grid {
     display: grid;
-    gap: 2rem;
-    grid-template-columns: 1.4fr repeat(3, 1fr);
+    gap: 2.25rem;
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+  }
+  .footer-lockup {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
   }
   .footer-brand {
-    font-size: 1.65rem;
-    margin: 0 0 0.75rem;
+    font-size: 1.55rem;
+    margin: 0;
+  }
+  .footer-kicker {
+    margin: 0.2rem 0 0;
+    color: var(--blocksifr-gold);
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
   }
   .footer-copy {
-    max-width: 36ch;
-    color: var(--dastor-text-muted);
-    margin: 0;
-    font-size: 0.95rem;
+    max-width: 42ch;
+    color: var(--blocksifr-text-muted);
+    margin: 1rem 0 0;
+    font-size: 0.92rem;
   }
   .site-footer ul {
     list-style: none;
     margin: 0.75rem 0 0;
     padding: 0;
   }
-  .site-footer li + li {
-    margin-top: 0.45rem;
-  }
+  .site-footer li + li { margin-top: 0.45rem; }
   .site-footer a {
     text-decoration: none;
-    color: var(--dastor-text-light);
+    color: var(--blocksifr-text-light);
   }
-  .site-footer a:hover {
-    color: var(--dastor-paper);
-  }
+  .site-footer a:hover { color: var(--blocksifr-gold-light); }
   .footer-base {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
-    margin-top: 2.5rem;
+    margin-top: 3rem;
     padding-top: 1.25rem;
-    border-top: 1px solid var(--dastor-line-light);
+    border-top: 1px solid rgba(216, 182, 106, 0.1);
   }
   .meta {
     margin: 0;
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 0.66rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--dastor-text-muted);
+    color: var(--blocksifr-text-muted);
   }
   @media (max-width: 900px) {
-    .footer-grid {
-      grid-template-columns: 1fr 1fr;
-    }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 560px) {
-    .footer-grid {
-      grid-template-columns: 1fr;
-    }
-    .footer-base {
-      flex-direction: column;
-    }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-base { flex-direction: column; }
   }
 </style>

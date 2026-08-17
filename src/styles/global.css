@@ -1,16 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
 
 :root {
-  --dastor-ink: #0e0f0f;
-  --dastor-carbon: #151616;
-  --dastor-graphite: #242525;
-  --dastor-paper: #eee8dc;
-  --dastor-paper-muted: #d5cec1;
-  --dastor-signal: #a92f27;
-  --dastor-text-light: #f2ede4;
-  --dastor-text-muted: #a9a39a;
-  --dastor-line-dark: rgba(14, 15, 15, 0.18);
-  --dastor-line-light: rgba(242, 237, 228, 0.16);
+  /* BlockSiFr digital identity. Legacy variable names remain as compatibility aliases. */
+  --blocksifr-obsidian: #090a0b;
+  --blocksifr-carbon: #111315;
+  --blocksifr-graphite: #242525;
+  --blocksifr-ivory: #f2ede2;
+  --blocksifr-ivory-muted: #d8d0c2;
+  --blocksifr-gold: #d8b66a;
+  --blocksifr-gold-deep: #9f7732;
+  --blocksifr-gold-light: #f0d99c;
+  --blocksifr-text-light: #f7f2e9;
+  --blocksifr-text-muted: #a79f92;
+  --blocksifr-line-dark: rgba(9, 10, 11, 0.16);
+  --blocksifr-line-light: rgba(216, 182, 106, 0.16);
+
+  --dastor-ink: var(--blocksifr-obsidian);
+  --dastor-carbon: var(--blocksifr-carbon);
+  --dastor-graphite: var(--blocksifr-graphite);
+  --dastor-paper: var(--blocksifr-ivory);
+  --dastor-paper-muted: var(--blocksifr-ivory-muted);
+  --dastor-signal: var(--blocksifr-gold);
+  --dastor-text-light: var(--blocksifr-text-light);
+  --dastor-text-muted: var(--blocksifr-text-muted);
+  --dastor-line-dark: var(--blocksifr-line-dark);
+  --dastor-line-light: var(--blocksifr-line-light);
+
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
@@ -35,12 +50,11 @@
 
 html {
   scroll-behavior: smooth;
+  background: var(--blocksifr-obsidian);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
   *,
   *::before,
   *::after {
@@ -52,12 +66,15 @@ html {
 
 body {
   margin: 0;
-  background: var(--dastor-ink);
-  color: var(--dastor-text-light);
+  color: var(--blocksifr-text-light);
   font-family: var(--font-serif);
   font-size: 1.0625rem;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  background:
+    radial-gradient(circle at 76% -10%, rgba(216, 182, 106, 0.06), transparent 28rem),
+    linear-gradient(180deg, #0b0c0d 0%, var(--blocksifr-obsidian) 44%, #08090a 100%);
+  background-attachment: fixed;
 }
 
 img {
@@ -66,12 +83,10 @@ img {
   display: block;
 }
 
-a {
-  color: inherit;
-}
+a { color: inherit; }
 
 :focus-visible {
-  outline: 2px solid var(--dastor-signal);
+  outline: 2px solid var(--blocksifr-gold);
   outline-offset: 3px;
 }
 
@@ -79,8 +94,8 @@ a {
   position: absolute;
   left: -9999px;
   top: 0;
-  background: var(--dastor-paper);
-  color: var(--dastor-ink);
+  background: var(--blocksifr-ivory);
+  color: var(--blocksifr-obsidian);
   padding: 0.75rem 1rem;
   z-index: 1000;
 }
@@ -97,42 +112,42 @@ a {
 
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--dastor-text-muted);
+  color: var(--blocksifr-gold);
 }
 
 .display {
   font-family: var(--font-display);
   font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
+  letter-spacing: -0.03em;
+  line-height: 1.03;
   text-transform: none;
 }
 
 .meta {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--dastor-text-muted);
+  color: var(--blocksifr-text-muted);
 }
 
 .paper-panel {
-  background: var(--dastor-paper);
-  color: var(--dastor-ink);
+  color: #171716;
+  background:
+    radial-gradient(circle at 72% -18%, rgba(255,255,255,0.7), transparent 25rem),
+    linear-gradient(180deg, #fbf8f1 0%, var(--blocksifr-ivory) 100%);
 }
 
 .rule {
   border: 0;
-  border-top: 1px solid var(--dastor-line-light);
+  border-top: 1px solid var(--blocksifr-line-light);
   margin: 0;
 }
 
-.rule-dark {
-  border-top-color: var(--dastor-line-dark);
-}
+.rule-dark { border-top-color: var(--blocksifr-line-dark); }
 
 .btn {
   display: inline-flex;
@@ -142,71 +157,75 @@ a {
   min-height: 44px;
   padding: 0.75rem 1.25rem;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
   text-decoration: none;
   border: 1px solid transparent;
+  border-radius: 999px;
   cursor: pointer;
-  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease, transform 160ms ease;
 }
+
+.btn:hover { transform: translateY(-1px); }
 
 .btn-primary {
-  background: var(--dastor-signal);
-  color: var(--dastor-text-light);
-  border-color: var(--dastor-signal);
+  color: var(--blocksifr-obsidian);
+  border-color: rgba(240, 217, 156, 0.34);
+  background: linear-gradient(120deg, var(--blocksifr-gold-deep) 0%, var(--blocksifr-gold) 38%, var(--blocksifr-gold-light) 52%, #cda858 72%, var(--blocksifr-gold-deep) 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 12px 32px rgba(0,0,0,0.22);
 }
 
-.btn-primary:hover {
-  background: #8f271f;
-}
+.btn-primary:hover { filter: brightness(1.04); }
 
 .btn-ghost {
-  background: transparent;
-  color: var(--dastor-text-light);
-  border-color: var(--dastor-line-light);
+  background: rgba(255,255,255,0.015);
+  color: var(--blocksifr-text-light);
+  border-color: rgba(216, 182, 106, 0.18);
 }
 
-.btn-ghost:hover {
-  border-color: var(--dastor-paper-muted);
-}
+.btn-ghost:hover { border-color: rgba(216, 182, 106, 0.42); }
 
 .btn-ink {
-  background: var(--dastor-ink);
-  color: var(--dastor-text-light);
-  border-color: var(--dastor-ink);
+  background: var(--blocksifr-obsidian);
+  color: var(--blocksifr-text-light);
+  border-color: var(--blocksifr-obsidian);
 }
 
-.section {
-  padding-block: clamp(3.5rem, 8vw, 7rem);
-}
+.section { padding-block: clamp(3.5rem, 8vw, 7rem); }
 
 .section-title {
   font-family: var(--font-display);
   font-size: clamp(1.85rem, 4.2vw, 3rem);
   line-height: 1.08;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.032em;
   text-transform: none;
   font-weight: 600;
   margin: 0 0 1rem;
 }
 
-.prose-measure {
-  max-width: 68ch;
-}
+.prose-measure { max-width: 68ch; }
 
 .reg-mark {
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.66rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--dastor-text-muted);
+  color: var(--blocksifr-gold);
 }
 
 .grid-bg {
   background-image:
-    linear-gradient(var(--dastor-line-light) 1px, transparent 1px),
-    linear-gradient(90deg, var(--dastor-line-light) 1px, transparent 1px);
-  background-size: 48px 48px;
+    linear-gradient(rgba(216,182,106,0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(216,182,106,0.055) 1px, transparent 1px);
+  background-size: 56px 56px;
   background-position: center top;
+}
+
+.gold-text {
+  background: linear-gradient(120deg, #ad823b 0%, #dec27d 42%, #f0d99c 53%, #cda552 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }

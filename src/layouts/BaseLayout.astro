@@ -21,14 +21,14 @@ const {
 
 const site = import.meta.env.PUBLIC_SITE_URL || "https://ieg.blocksifr.com";
 const canonical = new URL(canonicalPath, site).toString();
-const brand = "The IEG Field Manual";
+const brand = "BlockSiFr IEG Field Manual";
 const fullTitle =
   title.includes("IEG Field Manual") || title.includes("IEG FIELD MANUAL")
     ? title
     : `${title} | ${brand}`;
 const metaDescription =
   description ||
-  "The public field manual for governing consequential execution across AI agents, machine identities, software systems, tools, and infrastructure.";
+  "The public reference for Identity and Execution Governance, the operational discipline beneath BlockSiFr Consequence Intelligence.";
 ---
 
 <!doctype html>
@@ -40,13 +40,13 @@ const metaDescription =
     <meta name="description" content={metaDescription} />
     <meta name="author" content="BlockSiFr LLC" />
     <link rel="canonical" href={canonical} />
-    <meta name="theme-color" content="#0e0f0f" />
+    <meta name="theme-color" content="#090a0b" />
     <meta property="og:type" content={ogType} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={metaDescription} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:site_name" content="The IEG Field Manual" />
-    <meta property="og:image" content={`${site}/images/og-dastor.svg`} />
+    <meta property="og:site_name" content="BlockSiFr Identity & Execution Governance" />
+    <meta property="og:image" content={`${site}/images/og-blocksifr-ieg.svg`} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={metaDescription} />
@@ -64,7 +64,6 @@ const metaDescription =
     <script is:inline>
       (function () {
         try {
-          // Legacy domain permanent client redirect (SWA serves both hostnames).
           if (location.hostname === "dastor.blocksifr.com") {
             location.replace(
               "https://ieg.blocksifr.com" + location.pathname + location.search + location.hash

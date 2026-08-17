@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="BlockSiFr Identity and Execution Governance">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#090A0B"/>
+      <stop offset="1" stop-color="#111315"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="112" y1="92" x2="265" y2="240" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0D99C"/>
+      <stop offset="0.46" stop-color="#D8B66A"/>
+      <stop offset="1" stop-color="#9F7732"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="970" cy="-30" r="330" fill="#D8B66A" fill-opacity="0.045"/>
+  <path d="M180 104 112 174l68 70h32l-68-70 68-70h-32Z" fill="url(#gold)"/>
+  <path d="m204 164 68 70-68 70h-32l68-70-68-70h32Z" fill="url(#gold)"/>
+  <text x="112" y="376" fill="#F7F2E9" font-family="Arial, Helvetica, sans-serif" font-size="74" font-weight="600">Identity &amp; Execution Governance</text>
+  <text x="112" y="438" fill="#D8B66A" font-family="Arial, Helvetica, sans-serif" font-size="25" letter-spacing="4">THE DISCIPLINE BENEATH CONSEQUENCE INTELLIGENCE</text>
+  <text x="112" y="520" fill="#A79F92" font-family="Arial, Helvetica, sans-serif" font-size="28">BlockSiFr · Use More AI. Safely.</text>
+</svg>
