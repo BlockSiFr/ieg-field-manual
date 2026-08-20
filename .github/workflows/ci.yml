@@ -20,7 +20,18 @@ jobs:
       - run: npm run build
       - name: Secret scan (basic)
         run: |
-          if grep -RInE 'BEGIN (RSA |OPENSSH )?PRIVATE KEY|CLIENT_SECRET=|COMMERCE_WEBHOOK_SECRET=[^$]' --exclude-dir=node_modules --exclude-dir=.git . ; then
+          if grep -RInE 'BEGIN (RSA |OPENSSH )?PRIVATE KEY|CLIENT_SECRET=|COMMERCE_WEBHOOK_SECRET=[^$]' --exclude=ci.yml --exclude-dir=node_modules --exclude-dir=.git . ; then
             echo "Potential secret found"; exit 1;
           fi
       - run: npm audit --audit-level=high || true
+
+  guardrail-reference:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install 'pydantic>=2,<3'
+      - run: python -m py_compile reference/guardrails/ieg_guardrails.py reference/guardrails/openai_responses_pipeline.py reference/guardrails/test_guardrails.py
+      - run: python reference/guardrails/test_guardrails.py
