@@ -20,7 +20,7 @@ jobs:
       - run: npm run build
       - name: Secret scan (basic)
         run: |
-          if grep -RInE 'BEGIN (RSA |OPENSSH )?PRIVATE KEY|CLIENT_SECRET=|COMMERCE_WEBHOOK_SECRET=[^$]' --exclude-dir=node_modules --exclude-dir=.git . ; then
+          if grep -RInE 'BEGIN (RSA |OPENSSH )?PRIVATE KEY|CLIENT_SECRET=|COMMERCE_WEBHOOK_SECRET=[^$]' --exclude=ci.yml --exclude-dir=node_modules --exclude-dir=.git . ; then
             echo "Potential secret found"; exit 1;
           fi
       - run: npm audit --audit-level=high || true
