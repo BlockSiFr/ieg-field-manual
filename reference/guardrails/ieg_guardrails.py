@@ -233,7 +233,7 @@ def complete_execution(
         raise PermissionError("execution receipt cannot be created for a non-executable decision")
 
     result_hash = canonical_hash(execution_result)
-    body = {
+    hash_body = {
         "request_id": str(decision_receipt.request.request_id),
         "decision_receipt_id": str(decision_receipt.receipt_id),
         "decision_hash": decision_receipt.decision_hash,
@@ -244,10 +244,15 @@ def complete_execution(
         "signer_ref": signer_ref,
     }
     return ExecutionReceipt(
-        **body,
         request_id=decision_receipt.request.request_id,
         decision_receipt_id=decision_receipt.receipt_id,
-        receipt_hash=canonical_hash(body),
+        decision_hash=decision_receipt.decision_hash,
+        payload_hash=decision_receipt.request.payload_hash,
+        result_hash=result_hash,
+        execution_status=execution_status,
+        executor_id=executor_id,
+        signer_ref=signer_ref,
+        receipt_hash=canonical_hash(hash_body),
     )
 
 
