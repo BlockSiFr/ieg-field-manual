@@ -1,0 +1,113 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const sequence = [
+  { step: "01", title: "Understand", description: "Define the action, its possible consequences, the affected systems, and the evidence needed to judge it." },
+  { step: "02", title: "Protect", description: "Specify admissible outcomes, Protected Actions, authority boundaries, and required escalation." },
+  { step: "03", title: "Govern", description: "Evaluate authority and compute constraints at the point of decision, then enforce an allowable action." },
+  { step: "04", title: "Prove", description: "Record the decision and observe the actual result. Keep measured, modeled, and pending evidence distinct." },
+];
+const outcomes = [
+  { title: "Protected Consequences", text: "Translate critical business outcomes into explicit constraints on consequential actions." },
+  { title: "Governed Autonomy", text: "Determine which AI agents, software systems, and machine identities may execute which actions, under what conditions." },
+  { title: "Governed Compute", text: "Judge capacity and workload decisions against quality, resource constraints, and economic evidence." },
+  { title: "Proof", text: "Link decisions to receipts, provenance, limitations, and independently checkable outcomes." },
+];
+---
+<BaseLayout
+  title="Consequence Intelligence | BlockSiFr"
+  description="Consequence Intelligence is the discipline of understanding what autonomous systems can cause, governing what they may cause, and proving what occurred."
+  canonicalPath="/consequence-intelligence"
+>
+  <section class="section grid-bg ci-hero" aria-labelledby="ci-title">
+    <div class="container">
+      <p class="eyebrow">BlockSiFr / Category Thesis</p>
+      <h1 id="ci-title" class="display">CONSEQUENCE<br/><span class="gold-text">INTELLIGENCE.</span></h1>
+      <p class="ci-lead">Know what a system can cause. Govern what it may cause. Prove what happened.</p>
+      <p class="ci-intro">Every autonomous system consumes resources and can produce consequential effects. Identity, permission, alerts, and utilization metrics are necessary, but none independently establishes whether the outcome is permissible or valuable.</p>
+      <div class="ci-actions">
+        <a class="btn btn-primary" href="https://app.blocksifr.com/">Explore BlockSiFr Control</a>
+        <a class="btn btn-ghost" href="/manual">Read the IEG Field Manual</a>
+      </div>
+      <p class="ci-note">Category framework published by BlockSiFr. The wider concepts of consequence-based security and operational risk have established prior art.</p>
+    </div>
+  </section>
+  <section class="section paper-panel" aria-labelledby="definition-title">
+    <div class="container">
+      <p class="eyebrow" style="color:#61503a">01 / Definition</p>
+      <h2 id="definition-title" class="section-title" style="color:#111315">A decision discipline, not another dashboard.</h2>
+      <p class="ci-definition">Consequence Intelligence is the discipline of determining what actions and operational decisions can cause, which outcomes are admissible, how authorized decisions are enforced, and what evidence establishes their effects.</p>
+      <p class="ci-paper">It connects authority, security, physical and computational constraints, and economic outcomes. The objective is not to promise the absence of risk. It is to make consequential decisions bounded, inspectable, and accountable.</p>
+    </div>
+  </section>
+  <section class="section" aria-labelledby="method-title">
+    <div class="container">
+      <p class="eyebrow">02 / Operating Method</p>
+      <h2 id="method-title" class="section-title">One sequence. Different consequential environments.</h2>
+      <div class="ci-grid">
+        {sequence.map((item) => (
+          <article class="ci-card">
+            <span class="meta">{item.step}</span>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="section paper-panel" aria-labelledby="outcomes-title">
+    <div class="container">
+      <p class="eyebrow" style="color:#61503a">03 / Customer Outcomes</p>
+      <h2 id="outcomes-title" class="section-title" style="color:#111315">One category. Four outcomes.</h2>
+      <div class="ci-grid">
+        {outcomes.map((item) => (
+          <article class="ci-card ci-card-light">
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="section" aria-labelledby="proof-title">
+    <div class="container">
+      <p class="eyebrow">04 / Evidence Discipline</p>
+      <h2 id="proof-title" class="section-title">A claim is no stronger than its evidence.</h2>
+      <p class="ci-intro">Every material claim should disclose its scope, measurement boundary, baseline, quality or safety conditions, confidence, and limitations. Results may be modeled, tested, field-verified, independently verified, or still pending. Synthetic workloads do not establish facility-wide savings. Self-attestation is not independent verification.</p>
+      <div class="ci-actions">
+        <a class="btn btn-primary" href="https://www.blocksifr.com/">Review Current Evidence</a>
+        <a class="btn btn-ghost" href="/assessment">Assess Execution Governance</a>
+      </div>
+    </div>
+  </section>
+  <section class="section paper-panel" aria-labelledby="discipline-title">
+    <div class="container">
+      <p class="eyebrow" style="color:#61503a">05 / Open Doctrine and Commercial Platform</p>
+      <h2 id="discipline-title" class="section-title" style="color:#111315">The doctrine is public. Enforcement is a product.</h2>
+      <p class="ci-paper">Identity and Execution Governance (IEG) is the execution-authority discipline within Consequence Intelligence. The IEG Field Manual publishes practitioner guidance. BlockSiFr Control is the commercial point of entry; BLAKE and CortexTrace support consequence discovery and evidence, while IFC and TAVAN address compute and infrastructure decisions.</p>
+      <p class="ci-paper">These roles describe a strategic architecture, not a claim that every component is production-integrated or independently validated.</p>
+      <div class="ci-actions">
+        <a class="btn btn-ink" href="https://app.blocksifr.com/">Explore BlockSiFr Control</a>
+        <a class="btn btn-ink" href="/manual">Open the IEG Field Manual</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .ci-hero { padding-block:clamp(5rem,10vw,9rem); }
+  .ci-hero h1 { font-size:clamp(2.8rem,9vw,7.2rem); line-height:.98; margin:.75rem 0 1.75rem; overflow-wrap:break-word; }
+  .ci-lead { max-width:22ch; font-family:var(--font-display); font-size:clamp(1.5rem,3vw,2.5rem); line-height:1.22; margin:0 0 1.5rem; }
+  .ci-intro { max-width:70ch; color:var(--blocksifr-text-muted); line-height:1.7; }
+  .ci-actions { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:2rem; }
+  .ci-note { margin-top:2rem; max-width:75ch; font-family:var(--font-mono); color:var(--blocksifr-text-muted); font-size:.7rem; line-height:1.65; }
+  .ci-definition { max-width:54ch; font-family:var(--font-display); font-size:clamp(1.25rem,2.6vw,2rem); line-height:1.4; color:#171716; }
+  .ci-paper { color:#35332f; max-width:72ch; }
+  .ci-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-top:2rem; }
+  .ci-card { border:1px solid rgba(216,182,106,.22); padding:clamp(1.25rem,3vw,2rem); background:rgba(255,255,255,.02); }
+  .ci-card h3 { font-family:var(--font-display); font-size:1.4rem; margin:.8rem 0 .5rem; }
+  .ci-card p { color:var(--blocksifr-text-muted); margin:0; }
+  .ci-card-light { border-color:rgba(9,10,11,.15); background:rgba(255,255,255,.34); }
+  .ci-card-light h3 { color:#111315; }
+  .ci-card-light p { color:#35332f; }
+  @media (max-width:640px) { .ci-grid { grid-template-columns:1fr; } }
+</style>
