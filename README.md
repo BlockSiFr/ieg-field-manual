@@ -1,5 +1,13 @@
 # The IEG Field Manual
 
+**Category:** [Consequence Intelligence](https://ieg.blocksifr.com/consequence-intelligence)  
+**Discipline:** Identity and Execution Governance  
+**Commercial platform:** [BlockSiFr Control](https://app.blocksifr.com)
+
+Consequence Intelligence is the discipline of determining what actions and operational decisions can cause, which outcomes are admissible, how authorized decisions are enforced, and what evidence establishes their effects. IEG is the execution-governance discipline within this wider framework.
+
+
+
 **The Identity and Execution Governance Field Manual**
 
 > AI systems do not fail loudly. They fail quietly, and still act.
