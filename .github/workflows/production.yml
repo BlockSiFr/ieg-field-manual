@@ -45,7 +45,8 @@ jobs:
           set -euo pipefail
           url="https://ieg.blocksifr.com/consequence-intelligence"
           for attempt in $(seq 1 8); do
-            if curl --fail --location --silent --show-error --max-time 20 "$url" | grep -Fq "Know what a system can cause"; then
+            body=$(curl --fail --location --silent --show-error --max-time 20 "$url" || true)
+            if grep -Fq "Know what a system can cause" <<< "$body"; then
               echo "Verified Consequence Intelligence at $url"
               exit 0
             fi
