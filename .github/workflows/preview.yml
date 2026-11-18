@@ -1,10 +1,17 @@
 name: Preview
 on:
   pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   preview:
     runs-on: ubuntu-latest
     environment: preview
+    env:
+      SWA_DEPLOY_TOKEN: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -12,10 +19,16 @@ jobs:
           node-version: "20"
           cache: npm
       - run: npm ci
+      - run: npm run validate-content
+      - run: npm run verify-assets
+      - run: npm test
       - run: npm run build
+      - name: Report preview availability
+        if: ${{ env.SWA_DEPLOY_TOKEN == '' }}
+        run: echo "::warning::Preview not deployed because AZURE_STATIC_WEB_APPS_API_TOKEN is unavailable to this pull request."
       - name: Azure Static Web Apps Preview
         uses: Azure/static-web-apps-deploy@v1
-        if: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN != '' }}
+        if: ${{ env.SWA_DEPLOY_TOKEN != '' }}
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
