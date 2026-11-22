@@ -1,0 +1,106 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+const tools = [
+  {
+    title: "Consequence Brief Builder",
+    kicker: "Interactive / private by design",
+    description: "A practical worksheet to trace an initiating event to business impact, specify constraints, document proof gaps, and export a decision-ready draft.",
+    href: "/brief",
+    cta: "Build a brief",
+  },
+  {
+    title: "Consequence Brief Template",
+    kicker: "Open Markdown / reusable",
+    description: "An editable worksheet for scoping exposures, causal links, admissible boundaries, evidence, and authorized next steps.",
+    href: "/toolkit/consequence-brief-template.md",
+    cta: "Get template",
+  },
+  {
+    title: "Consequence Evidence Ladder",
+    kicker: "Open Markdown / methodology",
+    description: "Separate plausible hypotheses, simulations, operational observations, and independent verification. Includes a minimal evidence register.",
+    href: "/toolkit/evidence-classification-guide.md",
+    cta: "Get evidence guide",
+  },
+  {
+    title: "Seven Questions for the Board",
+    kicker: "Open Markdown / executive use",
+    description: "A practical checklist to examine whether proposed security, AI, or infrastructure spending creates defensible outcomes.",
+    href: "/toolkit/board-consequence-questions.md",
+    cta: "Get board checklist",
+  },
+  {
+    title: "IEG Field Manual",
+    kicker: "Open reference / practitioner",
+    description: "Explore the execution stack, failure pathways, Protected Actions, countermeasures, and evidence requirements across the existing manual.",
+    href: "/manual",
+    cta: "Read the manual",
+  },
+  {
+    title: "Consequence Intelligence Thesis",
+    kicker: "Open framework / shareable",
+    description: "Understand the general method connecting technical signals to admissible outcomes and evidence.",
+    href: "/consequence-intelligence",
+    cta: "Read the framework",
+  },
+];
+---
+<BaseLayout title="Free Consequence Intelligence Toolkit" description="Free consequence-analysis templates, evidence classification, executive questions, and an interactive brief builder. All resources are accessible without an email gate." canonicalPath="/toolkit">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Free Consequence Intelligence Toolkit",
+      url: "https://ieg.blocksifr.com/toolkit",
+      description: "Open worksheets and practical tools for business consequence analysis and evidence discipline.",
+      publisher: { "@type": "Organization", name: "BlockSiFr" },
+    })} />
+  </Fragment>
+  <section class="section grid-bg">
+    <div class="container">
+      <p class="eyebrow">Free / No login / Shareable</p>
+      <h1 class="display" style="font-size:clamp(2.8rem,7vw,5.5rem);margin:.5rem 0 1.3rem;max-width:14ch">TOOLS FOR BETTER <span class="gold-text">DECISIONS.</span></h1>
+      <p class="prose-measure" style="color:var(--blocksifr-text-muted);font-size:1.2rem">Do not merely report a problem. Explain what could happen, what it matters to, what decision follows, and what evidence would justify that decision. Use these tools with colleagues, customers, students, or boards.</p>
+      <div class="toolkit-actions">
+        <a class="btn btn-primary" href="/brief">Create a Consequence Brief</a>
+        <a class="btn btn-ghost" href="/assessment">Request a scoped assessment</a>
+      </div>
+    </div>
+  </section>
+  <section class="section paper-panel" aria-label="Open resources">
+    <div class="container">
+      <p class="eyebrow" style="color:#61503a">Use and share</p>
+      <h2 class="section-title" style="color:var(--dastor-ink)">Six useful starting points</h2>
+      <div class="toolkit-grid">
+        {tools.map((item) => (
+          <article class="toolkit-card">
+            <p class="meta" style="color:#62533f">{item.kicker}</p>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            <a href={item.href}>{item.cta}<span aria-hidden="true"> →</span></a>
+          </article>
+        ))}
+      </div>
+      <p class="license-note">Downloadable Markdown templates are free to use with attribution under CC BY 4.0. The tools are learning and decision aids, not security attestations or financial certifications.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">For organizations and educators</p>
+      <h2 class="section-title">Use the public method in your next decision meeting or training.</h2>
+      <p class="prose-measure" style="color:var(--blocksifr-text-muted)">The free materials are designed for repeatable peer review. They require no accounts and no case-data upload. For implementation support, field validation, or enterprise adoption, the next step is an authorized assessment through BlockSiFr.</p>
+      <div class="toolkit-actions"><a class="btn btn-primary" href="/assessment">Discuss an assessment</a><a class="btn btn-ghost" href="/consequences/security-spend">Read a consequence use case</a></div>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .toolkit-actions { display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem; }
+  .toolkit-grid { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:2rem; }
+  .toolkit-card { display:flex;flex-direction:column;align-items:flex-start;background:rgba(255,255,255,.55);border:1px solid rgba(10,10,10,.13);padding:1.5rem; }
+  .toolkit-card h3 { font:600 1.35rem/1.18 var(--font-display);color:var(--dastor-ink);margin:.7rem 0; }
+  .toolkit-card p:not(.meta) { color:#514a41;flex:1; }
+  .toolkit-card a { font:600 .85rem var(--font-display);color:var(--dastor-ink);text-decoration:underline;text-underline-offset:4px;margin-top:1rem; }
+  .license-note { color:#5d554b;font-size:.85rem;margin-top:2rem; }
+  @media(max-width:900px) { .toolkit-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media(max-width:570px) { .toolkit-grid { grid-template-columns:1fr; } }
+</style>
