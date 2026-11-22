@@ -4,7 +4,7 @@
 **Discipline:** Identity and Execution Governance  
 **Commercial platform:** [BlockSiFr Control](https://app.blocksifr.com)
 
-Consequence Intelligence is the discipline of determining what actions and operational decisions can cause, which outcomes are admissible, how authorized decisions are enforced, and what evidence establishes their effects. IEG is the execution-governance discipline within this wider framework.
+Consequence Intelligence connects possible failures, autonomous actions, and infrastructure decisions to reachable business outcomes, admissible boundaries, and evidence. It asks which damage a security investment prevents or which operational value a decision creates, without conflating hypotheses, simulations, observed outcomes, and independent verification. IEG is the identity-and-execution governance discipline within this wider framework.
 
 
 
@@ -43,7 +43,7 @@ Published openly by BlockSiFr.
 
 | Path | Purpose |
 |------|---------|
-| `/` | Field manual home |
+| `/` | Consequence-first homepage and field-manual entry |\n| `/consequence-intelligence` | Category definition, method, and evidence discipline |
 | `/manual` | Chapter index |
 | `/chapters/*` | Individual chapters |
 | `/execution-stack` | Execution-stack analysis |
