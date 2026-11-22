@@ -2,34 +2,33 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import AssessmentRequestForm from "@/components/forms/AssessmentRequestForm";
 const outputs = [
-  "AI system inventory",
-  "AI execution-stack map",
-  "Agent and model inventory",
-  "Tool inventory",
-  "Identity and authority map",
-  "Protected-action map",
-  "Data-flow and egress analysis",
-  "Trust-boundary analysis",
-  "Vulnerability mapping",
-  "Blast-radius analysis",
-  "Reversal-readiness review",
-  "Evidence and receipt review",
-  "Framework alignment",
-  "Prioritized remediation plan",
+  "Affected business services and critical assets",
+  "Plausible failure-to-consequence pathways",
+  "Verified versus hypothetical effect classification",
+  "Financial, operational, safety, and data exposure hypotheses",
+  "Evidence gaps and required authorization for testing",
+  "Identity, agent, and tool-to-action map",
+  "Protected Actions and consequence boundaries",
+  "Blast-radius and reversibility assessment",
+  "Energy and compute constraints where in scope",
+  "Priority decisions tied to expected consequence",
+  "Decision and execution evidence requirements",
+  "Framework and control mapping",
+  "Testable remediation and verification plan",
 ];
 ---
-<BaseLayout title="IEG Assessment" description="IEG Field Manual AI Execution Security Assessment for organizations that need implementation support.">
+<BaseLayout title="Consequence Intelligence Assessment" description="Map credible business consequences, assess exposure and action boundaries, and identify the evidence required to justify remediation decisions.">
   <section class="section paper-panel">
     <div class="container">
       <p class="eyebrow" style="color:#5c574f">Enterprise</p>
-      <h1 class="section-title" style="color:var(--dastor-ink)">IEG Field Manual AI Execution Security Assessment</h1>
+      <h1 class="section-title" style="color:var(--dastor-ink)">What could this failure cause, and what evidence would prove it?</h1>
       <p style="color:#2a2926;max-width:65ch">
-        For organizations that need implementation support beyond the manual. Pricing is not published here pending approved configuration.
+        A consequence-first scoping assessment for organizations that need to connect a finding, autonomous action, or infrastructure decision to its real-world effects. Outputs depend on authorized access and available evidence. Plausible impacts are not presented as verified losses.
       </p>
-      <h2 style="color:var(--dastor-ink)">Potential outputs</h2>
+      <h2 style="color:var(--dastor-ink)">Possible assessment outputs</h2>
       <ul style="columns:2;color:#2a2926">{outputs.map((o) => <li>{o}</li>)}</ul>
       <AssessmentRequestForm client:load />
-      <p class="meta" style="margin-top:1rem;color:#6a655c">If the API is unavailable, email assessments via your BlockSiFr contact channel.</p>
+      <p class="meta" style="margin-top:1rem;color:#6a655c">Submitting this form requests an assessment. It does not authorize testing or imply that a finding or savings claim has been verified.</p>
     </div>
   </section>
 </BaseLayout>
