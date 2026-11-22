@@ -43,7 +43,8 @@ Published openly by BlockSiFr.
 
 | Path | Purpose |
 |------|---------|
-| `/` | Consequence-first homepage and field-manual entry |\n| `/consequence-intelligence` | Category definition, method, and evidence discipline |
+| `/` | Consequence-first homepage and field-manual entry |
+| `/consequence-intelligence` | Category definition, method, and evidence discipline |
 | `/manual` | Chapter index |
 | `/chapters/*` | Individual chapters |
 | `/execution-stack` | Execution-stack analysis |
