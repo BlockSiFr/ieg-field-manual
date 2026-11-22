@@ -30,13 +30,13 @@ const audiences = [
 ];
 ---
 
-<BaseLayout title="The IEG Field Manual | Identity and Execution Governance" description={pub.supportingStatement || pub.thesisSupporting}>
+<BaseLayout title="Consequence Intelligence | The IEG Field Manual" description="Explore the business consequences of failures, AI actions, and infrastructure decisions. The IEG Field Manual provides open doctrine for authority, evidence, and protected outcomes.">
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Book",
       name: pub.formalTitle || pub.title,
-      alternateName: ["IEG Field Manual", "IEG Field Manual"],
+      alternateName: ["IEG Field Manual", "Formerly DASTOR"],
       author: { "@type": "Person", name: pub.author },
       publisher: { "@type": "Organization", name: pub.publisher },
       url: "https://ieg.blocksifr.com",
@@ -50,25 +50,25 @@ const audiences = [
   <section class="hero grid-bg" aria-labelledby="hero-title">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="reg-mark">Published openly by BlockSiFr · Identity and Execution Governance</p>
-        <h1 id="hero-title" class="display hero-title">THE IEG FIELD MANUAL</h1>
-        <p class="hero-subtitle">Identity and Execution Governance<br />for Autonomous Systems</p>
-        <p class="hero-thesis">{pub.thesis}</p>
-        <p class="hero-support prose-measure">{pub.thesisSupporting}</p>
+        <p class="reg-mark">Open doctrine · Consequence Intelligence · Published by BlockSiFr</p>
+        <h1 id="hero-title" class="display hero-title">KNOW WHAT<br /><span class="gold-text">IT CAN CAUSE.</span></h1>
+        <p class="hero-subtitle">A finding is not a consequence. Neither is a permission, a warning, or a utilization metric.</p>
+        <p class="hero-thesis">What damage could this failure cause? What value would preventing it protect?</p>
+        <p class="hero-support prose-measure">Consequence Intelligence connects technical events and autonomous decisions to affected people, operations, money, data, and infrastructure. The IEG Field Manual teaches how to identify failure pathways, establish action boundaries, and distinguish plausible outcomes from verified ones.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="/manual">Read the Manual</a>
-          <a class="btn btn-ghost" href="/execution-stack">Explore the Execution Stack</a>
+          <a class="btn btn-primary" href="/consequence-intelligence">Explore Consequence Intelligence</a>
+          <a class="btn btn-ghost" href="/manual">Read the Field Manual</a>
         </div>
         <p class="hero-link">
           <a href={pub.githubRepo || "https://github.com/BlockSiFr/ieg-field-manual"} target="_blank" rel="noopener noreferrer">View the public repository</a>
         </p>
-        <p class="hero-tagline">{pub.primaryTagline || "Govern what systems may cause."}</p>
+        <p class="hero-tagline">Find the causal path. Establish the boundary. Show the evidence.</p>
         <ul class="hero-meta" aria-label="Publication metrics">
           <li>{counts.chapters} chapters</li>
-          <li>{counts.vulnerabilitiesLabel} vulnerabilities</li>
+          <li>{counts.vulnerabilitiesLabel} vulnerabilities indexed</li>
           <li>Protected Actions</li>
-          <li>practitioner resources</li>
-          <li>publicly accessible</li>
+          <li>Consequence analysis</li>
+          <li>Open practitioner guidance</li>
         </ul>
       </div>
       <BookFigure />
@@ -77,17 +77,34 @@ const audiences = [
 
   <section class="section" aria-labelledby="ci-category-title">
     <div class="container">
-      <p class="eyebrow">BlockSiFr / Consequence Intelligence</p>
-      <h2 id="ci-category-title" class="section-title">The category is Consequence Intelligence. IEG is its execution-governance discipline.</h2>
-      <p class="prose-measure" style="color:var(--dastor-text-muted)">Understand what autonomous systems can cause, govern what they may cause, and prove what actually happened. This field manual provides the open practitioner foundation for execution authority and evidence.</p>
-      <a class="btn btn-primary" href="/consequence-intelligence">Read the Category Thesis</a>
+      <p class="eyebrow">The question behind the finding</p>
+      <h2 id="ci-category-title" class="section-title">We keep paying to find and fix problems. Can we explain the damage that spending prevents?</h2>
+      <p class="prose-measure" style="color:var(--dastor-text-muted)">A vulnerability score, a model evaluation, and a power-use chart are signals, not business consequences. Consequence Intelligence asks what can actually be reached, who or what could be affected, which outcomes are unacceptable, and what evidence justifies a decision.</p>
+      <div class="consequence-grid">
+        <article>
+          <p class="meta">Security / CFAV and BLAKE</p>
+          <h3>What damage can this weakness cause?</h3>
+          <p>Map the reachable effect and business exposure before claiming severity or avoided loss. A hypothesis is not a verified exploit.</p>
+        </article>
+        <article>
+          <p class="meta">AI and identity / IEG</p>
+          <h3>What is this system allowed to change?</h3>
+          <p>Connect identity and authority to protected outcomes, decision boundaries, reversibility, and execution evidence.</p>
+        </article>
+        <article>
+          <p class="meta">Compute and infrastructure</p>
+          <h3>What capacity and money are at stake?</h3>
+          <p>Compare workload, quality, energy, cooling, and infrastructure constraints, separating modeled value from measured results.</p>
+        </article>
+      </div>
+      <a class="btn btn-primary" href="/consequence-intelligence">Explore the consequence method</a>
     </div>
   </section>
 
   <section class="section paper-panel thesis" aria-labelledby="thesis-title">
     <div class="container">
       <p class="eyebrow" style="color: var(--dastor-text-muted)">01 · Thesis</p>
-      <h2 id="thesis-title" class="section-title" style="color: var(--dastor-ink)">The assistant did not merely make a mistake. The assistant executed.</h2>
+      <h2 id="thesis-title" class="section-title" style="color: var(--dastor-ink)">When an automated system makes a mistake, the consequence may be an action.</h2>
       <div class="thesis-grid">
         <p class="prose-measure">
           Classical software security assumes deterministic behavior: bounded inputs, explicit logic, and predictable execution paths.
@@ -100,8 +117,8 @@ const audiences = [
         </blockquote>
       </div>
       <p class="shift">
-        Shift from <em>Is the model safe?</em> to
-        <strong> Is this system authorized to cause this consequence under these exact conditions?</strong>
+        Shift from <em>What went wrong?</em> to
+        <strong> What can it cause, is that outcome acceptable, and can we demonstrate the effect?</strong>
       </p>
     </div>
   </section>
@@ -253,8 +270,8 @@ const audiences = [
 
   <section class="section bridge" aria-labelledby="bridge-title">
     <div class="container">
-      <p class="eyebrow">10 · Doctrine and enforcement</p>
-      <h2 id="bridge-title" class="section-title">Read the doctrine. Assess the system. Govern the execution. Prove the decision.</h2>
+      <p class="eyebrow">10 · From doctrine to evidence</p>
+      <h2 id="bridge-title" class="section-title">Understand the consequence. Bound the action. Verify the result.</h2>
       <p class="prose-measure" style="color:var(--dastor-text-muted);margin-bottom:1.25rem">
         {pub.boundaryStatement || "The doctrine is public. Production assessment, integration, enforcement, evidence operations, and enterprise support are delivered by BlockSiFr."}
       </p>
@@ -272,7 +289,7 @@ const audiences = [
 
   <section class="section final-cta paper-panel" aria-labelledby="final-title">
     <div class="container">
-      <h2 id="final-title" class="section-title" style="color:var(--dastor-ink)">Govern what systems may cause.</h2>
+      <h2 id="final-title" class="section-title" style="color:var(--dastor-ink)">Know what can happen. Govern what is allowed. Prove what occurred.</h2>
       <p class="prose-measure" style="color:#2a2926;margin-bottom:1.25rem">
         Free doctrine. Open knowledge. Paid enforcement.
       </p>
@@ -285,6 +302,29 @@ const audiences = [
 </BaseLayout>
 
 <style>
+  .consequence-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin: 2rem 0;
+  }
+  .consequence-grid article {
+    border-top: 1px solid var(--dastor-line-light);
+    padding: 1.25rem 0;
+  }
+  .consequence-grid h3 {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    line-height: 1.3;
+    margin: 0.6rem 0;
+  }
+  .consequence-grid p:not(.meta) {
+    color: var(--dastor-text-muted);
+    font-size: 0.95rem;
+  }
+  @media (max-width: 900px) {
+    .consequence-grid { grid-template-columns: 1fr; }
+  }
   .hero {
     min-height: 100vh;
     display: flex;

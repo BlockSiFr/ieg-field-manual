@@ -2,29 +2,29 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const sequence = [
-  { step: "01", title: "Understand", description: "Define the action, its possible consequences, the affected systems, and the evidence needed to judge it." },
-  { step: "02", title: "Protect", description: "Specify admissible outcomes, Protected Actions, authority boundaries, and required escalation." },
-  { step: "03", title: "Govern", description: "Evaluate authority and compute constraints at the point of decision, then enforce an allowable action." },
-  { step: "04", title: "Prove", description: "Record the decision and observe the actual result. Keep measured, modeled, and pending evidence distinct." },
+  { step: "01", title: "Trace", description: "Start with a failure, action, or decision. Follow the causal path to reachable people, data, systems, money, and physical resources." },
+  { step: "02", title: "Assess", description: "Estimate exposure, recoverable value, likelihood, and practical constraints. Keep an impact hypothesis separate from observed damage or savings." },
+  { step: "03", title: "Bound", description: "Define acceptable outcomes and irreversible boundaries. Identity and Execution Governance determines what is authorized to happen." },
+  { step: "04", title: "Verify", description: "Test the causal hypothesis where authorized, record what occurred, and distinguish modeled, observed, and independently confirmed evidence." },
 ];
 const outcomes = [
-  { title: "Protected Consequences", text: "Translate critical business outcomes into explicit constraints on consequential actions." },
-  { title: "Governed Autonomy", text: "Determine which AI agents, software systems, and machine identities may execute which actions, under what conditions." },
-  { title: "Governed Compute", text: "Judge capacity and workload decisions against quality, resource constraints, and economic evidence." },
-  { title: "Proof", text: "Link decisions to receipts, provenance, limitations, and independently checkable outcomes." },
+  { title: "Security investment", text: "Prioritize weaknesses by credible business damage rather than vulnerability counts or severity labels alone." },
+  { title: "Autonomous operations", text: "Connect permissions and agent behavior to what could change, who could be harmed, and how an action can be stopped or reversed." },
+  { title: "Compute, energy, and cooling", text: "Evaluate whether capacity recovery or workload changes create real value under quality, thermal, power, and safety constraints." },
+  { title: "Executive accountability", text: "Explain the consequence, the basis for the decision, the evidence obtained, and the uncertainties that remain." },
 ];
 ---
 <BaseLayout
   title="Consequence Intelligence | BlockSiFr"
-  description="Consequence Intelligence is the discipline of understanding what autonomous systems can cause, governing what they may cause, and proving what occurred."
+  description="Consequence Intelligence connects vulnerabilities, autonomous actions, and infrastructure decisions to business impact, admissible outcomes, and evidence."
   canonicalPath="/consequence-intelligence"
 >
   <section class="section grid-bg ci-hero" aria-labelledby="ci-title">
     <div class="container">
       <p class="eyebrow">BlockSiFr / Category Thesis</p>
       <h1 id="ci-title" class="display">CONSEQUENCE<br/><span class="gold-text">INTELLIGENCE.</span></h1>
-      <p class="ci-lead">Know what a system can cause. Govern what it may cause. Prove what happened.</p>
-      <p class="ci-intro">Every autonomous system consumes resources and can produce consequential effects. Identity, permission, alerts, and utilization metrics are necessary, but none independently establishes whether the outcome is permissible or valuable.</p>
+      <p class="ci-lead">Stop counting problems. Start explaining what those problems can cause.</p>
+      <p class="ci-intro">Organizations invest in security, automation, and infrastructure yet struggle to explain what damage that spending prevents or what value those systems actually create. A vulnerability rating does not establish loss. An access grant does not establish authority to cause every outcome. A compute metric does not establish savings.</p><p class="ci-intro"><strong>Consequence Intelligence starts with the outcome, works backward through credible causal paths, and makes uncertainty visible.</strong></p>
       <div class="ci-actions">
         <a class="btn btn-primary" href="https://app.blocksifr.com/">Explore BlockSiFr Control</a>
         <a class="btn btn-ghost" href="/manual">Read the IEG Field Manual</a>
@@ -35,15 +35,15 @@ const outcomes = [
   <section class="section paper-panel" aria-labelledby="definition-title">
     <div class="container">
       <p class="eyebrow" style="color:#61503a">01 / Definition</p>
-      <h2 id="definition-title" class="section-title" style="color:#111315">A decision discipline, not another dashboard.</h2>
-      <p class="ci-definition">Consequence Intelligence is the discipline of determining what actions and operational decisions can cause, which outcomes are admissible, how authorized decisions are enforced, and what evidence establishes their effects.</p>
-      <p class="ci-paper">It connects authority, security, physical and computational constraints, and economic outcomes. The objective is not to promise the absence of risk. It is to make consequential decisions bounded, inspectable, and accountable.</p>
+      <h2 id="definition-title" class="section-title" style="color:#111315">What could happen? What would it matter? How do we know?</h2>
+      <p class="ci-definition">Consequence Intelligence is the discipline of connecting a possible event or action to its reachable consequences, business significance, admissible boundaries, and observable results.</p>
+      <p class="ci-paper">It spans cybersecurity, identity, AI operations, software change, energy, cooling, and critical infrastructure. The objective is not a fabricated dollar figure or zero-risk promise. It is a defensible decision grounded in causal analysis, measurement, constraints, and evidence.</p>
     </div>
   </section>
   <section class="section" aria-labelledby="method-title">
     <div class="container">
       <p class="eyebrow">02 / Operating Method</p>
-      <h2 id="method-title" class="section-title">One sequence. Different consequential environments.</h2>
+      <h2 id="method-title" class="section-title">Follow the consequence. Do not stop at the finding.</h2>
       <div class="ci-grid">
         {sequence.map((item) => (
           <article class="ci-card">
@@ -58,7 +58,7 @@ const outcomes = [
   <section class="section paper-panel" aria-labelledby="outcomes-title">
     <div class="container">
       <p class="eyebrow" style="color:#61503a">03 / Customer Outcomes</p>
-      <h2 id="outcomes-title" class="section-title" style="color:#111315">One category. Four outcomes.</h2>
+      <h2 id="outcomes-title" class="section-title" style="color:#111315">Different sectors. The same missing answer.</h2>
       <div class="ci-grid">
         {outcomes.map((item) => (
           <article class="ci-card ci-card-light">
@@ -72,8 +72,8 @@ const outcomes = [
   <section class="section" aria-labelledby="proof-title">
     <div class="container">
       <p class="eyebrow">04 / Evidence Discipline</p>
-      <h2 id="proof-title" class="section-title">A claim is no stronger than its evidence.</h2>
-      <p class="ci-intro">Every material claim should disclose its scope, measurement boundary, baseline, quality or safety conditions, confidence, and limitations. Results may be modeled, tested, field-verified, independently verified, or still pending. Synthetic workloads do not establish facility-wide savings. Self-attestation is not independent verification.</p>
+      <h2 id="proof-title" class="section-title">Possible, observed, and proven are different things.</h2>
+      <p class="ci-intro">Every material consequence claim needs a causal path, scope, assumptions, relevant baseline, affected outcome, and evidence classification. A modeled loss is not an observed incident. A vulnerability hypothesis is not a confirmed exploit. Simulated energy savings are not measured facility savings. Self-attestation is not independent verification.</p>
       <div class="ci-actions">
         <a class="btn btn-primary" href="https://www.blocksifr.com/">Review Current Evidence</a>
         <a class="btn btn-ghost" href="/assessment">Assess Execution Governance</a>
@@ -83,8 +83,8 @@ const outcomes = [
   <section class="section paper-panel" aria-labelledby="discipline-title">
     <div class="container">
       <p class="eyebrow" style="color:#61503a">05 / Open Doctrine and Commercial Platform</p>
-      <h2 id="discipline-title" class="section-title" style="color:#111315">The doctrine is public. Enforcement is a product.</h2>
-      <p class="ci-paper">Identity and Execution Governance (IEG) is the execution-authority discipline within Consequence Intelligence. The IEG Field Manual publishes practitioner guidance. BlockSiFr Control is the commercial point of entry; BLAKE and CortexTrace support consequence discovery and evidence, while IFC and TAVAN address compute and infrastructure decisions.</p>
+      <h2 id="discipline-title" class="section-title" style="color:#111315">Consequence Intelligence is the category. IEG is the governance discipline.</h2>
+      <p class="ci-paper">Identity and Execution Governance (IEG) explains how identity, authority, and protected actions bound consequences in autonomous systems. This public IEG Field Manual provides practitioner guidance, not a product dashboard. BlockSiFr Control is the commercial point of entry; BLAKE/CFAV, CortexTrace, IFC, and TAVAN address distinct consequence-discovery, evidence, compute, and infrastructure questions.</p>
       <p class="ci-paper">These roles describe a strategic architecture, not a claim that every component is production-integrated or independently validated.</p>
       <div class="ci-actions">
         <a class="btn btn-ink" href="https://app.blocksifr.com/">Explore BlockSiFr Control</a>

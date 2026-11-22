@@ -46,7 +46,7 @@ jobs:
           url="https://ieg.blocksifr.com/consequence-intelligence"
           for attempt in $(seq 1 8); do
             body=$(curl --fail --location --silent --show-error --max-time 20 "$url" || true)
-            if grep -Fq "Know what a system can cause" <<< "$body"; then
+            if grep -Fq "Stop counting problems. Start explaining what those problems can cause." <<< "$body"; then
               echo "Verified Consequence Intelligence at $url"
               exit 0
             fi
@@ -55,3 +55,11 @@ jobs:
           done
           echo "::error::Published category page is not visible at $url"
           exit 1
+      - name: Verify consequence-first home page
+        shell: bash
+        run: |
+          set -euo pipefail
+          body=$(curl --fail --location --silent --show-error --max-time 20 "https://ieg.blocksifr.com/")
+          grep -Fq "KNOW WHAT" <<< "$body"
+          grep -Fq "IT CAN CAUSE." <<< "$body"
+          echo "Verified consequence-first home page"
