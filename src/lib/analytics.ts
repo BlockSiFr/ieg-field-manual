@@ -10,7 +10,13 @@ export type DastorEventName =
   | "dastor_access_unlocked"
   | "dastor_invite_accepted"
   | "dastor_gift_seat_started"
-  | "dastor_share_clicked";
+  | "dastor_share_clicked"
+  | "dastor_brief_started"
+  | "dastor_brief_example_loaded"
+  | "dastor_brief_copied"
+  | "dastor_brief_downloaded"
+  | "dastor_brief_tool_shared"
+  | "dastor_brief_assessment_clicked";
 
 /** Client analytics , never send PII or manuscript content. */
 export function track(event: DastorEventName, props?: Record<string, string | number | boolean>) {
