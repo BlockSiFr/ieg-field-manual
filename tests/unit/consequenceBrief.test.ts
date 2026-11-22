@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   briefAsMarkdown,
+  challengeQuestions,
   emptyDraft,
   examples,
   missingFields,
@@ -44,6 +45,14 @@ describe("Consequence Brief Builder", () => {
     expect(output).toContain("Causal pathway");
     expect(output).toContain("Known uncertainty");
     expect(output).toContain("not supplied");
+  });
+
+  it("generates domain-specific falsification questions", () => {
+    expect(challengeQuestions(examples.security).join(" ")).toMatch(/defenses/i);
+    expect(challengeQuestions(examples.infrastructure).join(" ")).toMatch(/baseline/i);
+    expect(challengeQuestions(examples.ai).join(" ")).toMatch(/authority/i);
+    expect(challengeQuestions(examples.change).join(" ")).toMatch(/rollback/i);
+    expect(briefAsMarkdown(examples.security)).toContain("Questions for independent challenge");
   });
 
   it("never promotes a modeled case to a verified outcome", () => {
