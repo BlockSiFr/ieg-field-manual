@@ -56,8 +56,8 @@ const audiences = [
         <p class="hero-thesis">What damage could this failure cause? What value would preventing it protect?</p>
         <p class="hero-support prose-measure">Consequence Intelligence connects technical events and autonomous decisions to affected people, operations, money, data, and infrastructure. The IEG Field Manual teaches how to identify failure pathways, establish action boundaries, and distinguish plausible outcomes from verified ones.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="/consequence-intelligence">Explore Consequence Intelligence</a>
-          <a class="btn btn-ghost" href="/manual">Read the Field Manual</a>
+          <a class="btn btn-primary" href="/brief">Build a free Consequence Brief</a>
+          <a class="btn btn-ghost" href="/consequence-intelligence">Explore the method</a>
         </div>
         <p class="hero-link">
           <a href={pub.githubRepo || "https://github.com/BlockSiFr/ieg-field-manual"} target="_blank" rel="noopener noreferrer">View the public repository</a>
@@ -75,6 +75,24 @@ const audiences = [
     </div>
   </section>
 
+  <section class="section paper-panel" aria-labelledby="start-here-title">
+    <div class="container">
+      <p class="eyebrow" style="color:#61503a">Start with a useful result</p>
+      <h2 id="start-here-title" class="section-title" style="color:var(--dastor-ink)">Put the business consequence on one page.</h2>
+      <p class="prose-measure" style="color:#35332f">Free, private-by-design, and ready to reuse. Choose a decision, trace its plausible impact, identify what has not been proven, and export a structured brief. No login or email gate.</p>
+      <div class="start-paths">
+        <a href="/brief?scenario=security"><span>Security investment</span><strong>What damage might this weakness cause?</strong><small>Build a brief</small></a>
+        <a href="/brief?scenario=ai"><span>Autonomous actions</span><strong>What should this AI be allowed to change?</strong><small>Build a brief</small></a>
+        <a href="/brief?scenario=infrastructure"><span>Compute and cooling</span><strong>Is this efficiency real facility value?</strong><small>Build a brief</small></a>
+        <a href="/brief?scenario=change"><span>Software delivery</span><strong>What could this release cause?</strong><small>Build a brief</small></a>
+      </div>
+      <div class="hero-actions" style="margin-top:2rem">
+        <a class="btn btn-ink" href="/brief">Open free Consequence Brief Builder</a>
+        <a class="btn btn-ink" href="/toolkit">Download free templates</a>
+      </div>
+    </div>
+  </section>
+
   <section class="section" aria-labelledby="ci-category-title">
     <div class="container">
       <p class="eyebrow">The question behind the finding</p>
@@ -84,17 +102,17 @@ const audiences = [
         <article>
           <p class="meta">Security / CFAV and BLAKE</p>
           <h3>What damage can this weakness cause?</h3>
-          <p>Map the reachable effect and business exposure before claiming severity or avoided loss. A hypothesis is not a verified exploit.</p>
+          <p>Map the reachable effect and business exposure before claiming severity or avoided loss. A hypothesis is not a verified exploit.</p><a href="/consequences/security-spend">Explore security consequences</a>
         </article>
         <article>
           <p class="meta">AI and identity / IEG</p>
           <h3>What is this system allowed to change?</h3>
-          <p>Connect identity and authority to protected outcomes, decision boundaries, reversibility, and execution evidence.</p>
+          <p>Connect identity and authority to protected outcomes, decision boundaries, reversibility, and execution evidence.</p><a href="/consequences/ai-agents">Explore autonomous consequences</a>
         </article>
         <article>
           <p class="meta">Compute and infrastructure</p>
           <h3>What capacity and money are at stake?</h3>
-          <p>Compare workload, quality, energy, cooling, and infrastructure constraints, separating modeled value from measured results.</p>
+          <p>Compare workload, quality, energy, cooling, and infrastructure constraints, separating modeled value from measured results.</p><a href="/consequences/data-center">Explore infrastructure consequences</a>
         </article>
       </div>
       <a class="btn btn-primary" href="/consequence-intelligence">Explore the consequence method</a>
@@ -302,6 +320,12 @@ const audiences = [
 </BaseLayout>
 
 <style>
+  .start-paths { display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem;margin:2rem 0; }
+  .start-paths a { color:var(--dastor-ink);text-decoration:none;border:1px solid rgba(0,0,0,.18);padding:1.2rem;display:flex;flex-direction:column;gap:.7rem; }
+  .start-paths a:hover { border-color:var(--blocksifr-gold-deep);background:rgba(255,255,255,.45); }
+  .start-paths span {font:500 .7rem var(--font-mono);text-transform:uppercase;letter-spacing:.07em;}
+  .start-paths strong {font:600 1.1rem/1.25 var(--font-display);flex:1;}
+  .start-paths small {font:500 .75rem var(--font-mono);text-decoration:underline;text-underline-offset:3px;}
   .consequence-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -324,6 +348,7 @@ const audiences = [
   }
   @media (max-width: 900px) {
     .consequence-grid { grid-template-columns: 1fr; }
+    .start-paths { grid-template-columns:repeat(2,minmax(0,1fr)); }
   }
   .hero {
     min-height: 100vh;
@@ -557,6 +582,7 @@ const audiences = [
     }
   }
   @media (max-width: 560px) {
+    .start-paths { grid-template-columns:1fr; }
     .stack-rail,
     .contains-grid,
     .audience-grid {

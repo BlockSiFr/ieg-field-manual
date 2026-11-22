@@ -1,0 +1,59 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import BriefBuilder from "@/components/consequence/BriefBuilder";
+import "@/styles/brief-builder.css";
+---
+<BaseLayout
+  title="Free Consequence Brief Builder"
+  description="Free private browser-based worksheet: trace a failure to its business consequence, identify evidence gaps, export a one-page consequence brief, and share the tool."
+  canonicalPath="/brief"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      name: "Consequence Brief Builder",
+      url: "https://ieg.blocksifr.com/brief",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+      isAccessibleForFree: true,
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      description: "A local-only consequence analysis worksheet for mapping causal paths, business impact, constraints and evidence gaps.",
+      publisher: { "@type": "Organization", name: "BlockSiFr" }
+    })} />
+  </Fragment>
+  <section class="section grid-bg" aria-labelledby="brief-title">
+    <div class="container">
+      <p class="eyebrow">Consequence Intelligence / Practical tools</p>
+      <h1 id="brief-title" class="display" style="font-size:clamp(2.4rem,6vw,4.8rem);max-width:15ch;margin:.5rem 0 1.5rem">FROM SIGNAL TO <span class="gold-text">CONSEQUENCE.</span></h1>
+      <p class="prose-measure" style="color:var(--blocksifr-text-muted);font-size:1.18rem">You found a weakness, an automation risk, a questionable change, or a capacity opportunity. Can you explain the consequence and defend the evidence? Build a structured brief without creating an account.</p>
+    </div>
+  </section>
+  <section class="section" style="padding-top:2rem" aria-label="Consequence Brief Builder">
+    <div class="container">
+      <BriefBuilder client:load />
+    </div>
+  </section>
+  <section class="section paper-panel">
+    <div class="container">
+      <p class="eyebrow" style="color:#61503a">Using the output</p>
+      <h2 class="section-title" style="color:var(--dastor-ink)">A useful brief is a question you can test, not a claim you cannot support.</h2>
+      <div class="brief-explainer">
+        <article><h3>Use in a decision meeting</h3><p>Put the outcome, causal path, conditions, evidence, and counterarguments on one page before funding a remediation or operational change.</p></article>
+        <article><h3>Send for independent challenge</h3><p>Export Markdown for peer review. Label unproven steps, simulations, and tests distinctly. Avoid forwarding credentials, private documents, or customer data.</p></article>
+        <article><h3>Move to measured proof</h3><p>When justified, request an authorized, scoped assessment to examine real execution boundaries or validate the economic impact.</p></article>
+      </div>
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.5rem">
+        <a class="btn btn-ink" href="/toolkit">Free templates and playbooks</a>
+        <a class="btn btn-ink" href="/assessment">Scope an assessment</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .brief-explainer { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;margin-top:2rem;color:#171716; }
+  .brief-explainer article { border-top:1px solid rgba(0,0,0,.18); }
+  .brief-explainer h3 { font:600 1.15rem var(--font-display); }
+  .brief-explainer p { color:#4a463f;font-size:.95rem; }
+  @media(max-width:720px) { .brief-explainer { grid-template-columns:1fr; } }
+</style>

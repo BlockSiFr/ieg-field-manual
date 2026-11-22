@@ -1,13 +1,12 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import SampleRequestForm from "@/components/forms/SampleRequestForm";
 
 const resources = [
   {
     id: "sample-chapter-1",
     title: "Sample chapter",
-    access: "Gated",
-    href: "/sample?resource=sample-chapter-1",
+    access: "Public",
+    href: "/chapters/ai-is-not-software",
     body: "Chapter 1 - AI Is Not Software",
   },
   {
@@ -49,7 +48,13 @@ const resources = [
   <section class="section paper-panel">
     <div class="container">
       <p class="eyebrow" style="color:#5c574f">Resources</p>
-      <h1 class="section-title" style="color:var(--dastor-ink)">Publication resources</h1>
+      <h1 class="section-title" style="color:var(--dastor-ink)">Practical resources for better consequence decisions</h1>
+      <p style="color:#45403a;max-width:65ch">Start with free self-service tools: trace a failure to the outcome that matters, document uncertainty, and export the decision. No login or email required.</p>
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin:1.5rem 0 2rem">
+        <a class="btn btn-ink" href="/brief">Build a free Consequence Brief</a>
+        <a class="btn btn-ink" href="/toolkit">Open templates and guides</a>
+      </div>
+      <h2 style="color:var(--dastor-ink)">Additional publication resources</h2>
       <ul style="list-style:none;padding:0;margin:2rem 0 0">
         {resources.map((r) => (
           <li style="border-top:1px solid var(--dastor-line-dark);padding:1rem 0;display:grid;grid-template-columns:1fr auto;gap:1rem;color:var(--dastor-ink)">
@@ -63,7 +68,7 @@ const resources = [
         ))}
       </ul>
       <p class="meta" style="margin-top:1.5rem;color:#6a655c">
-        Need implementation support beyond these resources? <a href="/assessment">Request a IEG Assessment</a>.
+        Need implementation support beyond these resources? <a href="/assessment">Request a consequence assessment</a>.
       </p>
     </div>
   </section>

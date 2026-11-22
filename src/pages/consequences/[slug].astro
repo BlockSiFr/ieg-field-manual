@@ -1,0 +1,194 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+type Case = {
+  slug: string;
+  scenario: "security" | "ai" | "infrastructure" | "change";
+  eyebrow: string;
+  title: string;
+  description: string;
+  central: string;
+  steps: string[];
+  requirements: string[];
+  misconceptions: string[];
+  takeaway: string;
+};
+export function getStaticPaths() {
+  const cases: Case[] = [
+  {
+    slug: "security-spend",
+    scenario: "security",
+    eyebrow: "Security investment / CFAV",
+    title: "What damage is your security spending actually preventing?",
+    description: "Turn vulnerability reports into evidence-based conversations about reachable business impact, control effectiveness, and remediation decisions.",
+    central: "A scanner can report a weakness. It cannot, on its own, prove what a customer would lose or what a remediation saves.",
+    steps: [
+      "Name the service, data, financial operation, or other business outcome that needs protection.",
+      "Connect the reported weakness to a reachable effect. Identify prerequisites, current defenses, attacker assumptions, and counterexamples.",
+      "Separate severity and hypothetical exposure from tested execution and observed consequences. Decide what evidence would justify action.",
+    ],
+    requirements: [
+      "Reproducible issue with affected versions and stated permissions, if testing is authorized",
+      "Reachability, exploitation prerequisites, and protective controls",
+      "Business context, blast-radius boundaries, and plausible counterfactuals",
+      "Receipt or artifact trail for any actually demonstrated effect",
+    ],
+    misconceptions: [
+      "CVSS severity does not equal realized business loss.",
+      "A suspicious source pattern is not proof that a protected consequence is reachable.",
+      "An avoided-loss estimate requires assumptions and a defensible counterfactual.",
+    ],
+    takeaway: "A useful security finding tells the buyer why it matters, exactly what has been established, and what to verify next.",
+  },
+  {
+    slug: "ai-agents",
+    scenario: "ai",
+    eyebrow: "AI operations / IEG",
+    title: "Your AI has credentials. What consequences may it actually cause?",
+    description: "Map agent tool use to admissible outcomes, approval boundaries, reversibility, and verifiable execution evidence.",
+    central: "The ability to call a tool is not authority to perform every action the tool exposes.",
+    steps: [
+      "Map the machine identity, its reachable tools, data, and environment.",
+      "Identify which tool actions can modify records, deploy software, send data, move money, or affect customers.",
+      "Establish protected actions, required approval, denial conditions, reversibility, and evidence needed for each decision.",
+    ],
+    requirements: [
+      "Identity and tool capabilities under a precisely scoped policy",
+      "Action and context that triggered the authority decision",
+      "Deny, step-up, allow, and revocation behavior under authorized tests",
+      "Decision receipts, outcome observations, and reversal evidence",
+    ],
+    misconceptions: [
+      "Authentication and access control are necessary but are not consequence authorization.",
+      "A model assurance score cannot establish that runtime actions are bounded.",
+      "A decision receipt alone does not prove a downstream effect was safely realized.",
+    ],
+    takeaway: "Govern the consequence boundary, not only the identity that invokes a tool.",
+  },
+  {
+    slug: "data-center",
+    scenario: "infrastructure",
+    eyebrow: "Compute / Power / Cooling",
+    title: "Can compute efficiency become verified facility value?",
+    description: "Connect GPU scheduling and workload efficiency to electrical demand, cooling constraints, quality, capacity, and site economics.",
+    central: "A reduction in tokens or GPU time is not automatically a reduction in facility energy, peak demand, or total cost.",
+    steps: [
+      "Set a baseline for throughput, service quality, workload mix, time interval, and facility conditions.",
+      "Model the possible compute, electrical, and thermal pathways; identify the limiting constraint and any rebound effects.",
+      "Measure the intervention under instrumentation and quality constraints before claiming power, cooling, or financial value.",
+    ],
+    requirements: [
+      "Comparable workload and quality guardrails",
+      "Metered IT energy or power and relevant cooling measurements",
+      "Tariff, peak-demand, reserve, and operating constraints",
+      "Economic model with sensitivity and evidence-state labeling",
+    ],
+    misconceptions: [
+      "Token savings are not proof of data-center electricity savings.",
+      "Cooling simulation is not a metered plant result.",
+      "Modeled net present value is not an authorized payment or verified project return.",
+    ],
+    takeaway: "The decision is not merely whether compute became cheaper; it is whether constraints were respected and incremental value was observed.",
+  },
+  {
+    slug: "software-change",
+    scenario: "change",
+    eyebrow: "Engineering / CortexTrace",
+    title: "What can this code change cause in production?",
+    description: "Connect a proposed release to operational consequences, test gates, rollback conditions, and decision evidence.",
+    central: "Passing a build means code was buildable. It does not establish every consequential dependency of the release.",
+    steps: [
+      "Identify changed services, permissions, data contracts, dependencies, and customer paths.",
+      "Trace each plausible failure pathway from change to outage, integrity failure, leakage, cost, or operational disruption.",
+      "Specify tests, authorization, rollout gates, monitors, rollback criteria, and what evidence would justify a safe release.",
+    ],
+    requirements: [
+      "Diff-to-impact map and operational dependencies",
+      "Relevant regression tests, staging behavior, and known exclusions",
+      "Approvals, deployment authority, and rollback rehearsal",
+      "Production observations and post-release evidence",
+    ],
+    misconceptions: [
+      "A green build is not a guarantee of safe deployment.",
+      "A model-generated PR summary is not an executed regression test.",
+      "A rollback plan is not proof that rollback succeeds.",
+    ],
+    takeaway: "Require evidence about the consequence of change, not merely confidence that the code is plausible.",
+  },
+];
+  return cases.map((item) => ({ params: { slug: item.slug }, props: { caseItem: item } }));
+}
+const { caseItem } = Astro.props as { caseItem: Case };
+---
+<BaseLayout title={caseItem.title} description={caseItem.description} canonicalPath={"/consequences/" + caseItem.slug}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: caseItem.title,
+      description: caseItem.description,
+      author: { "@type": "Organization", name: "BlockSiFr" },
+      publisher: { "@type": "Organization", name: "BlockSiFr" },
+      mainEntityOfPage: "https://ieg.blocksifr.com/consequences/" + caseItem.slug,
+    })} />
+  </Fragment>
+  <section class="section grid-bg">
+    <div class="container">
+      <p class="eyebrow">{caseItem.eyebrow}</p>
+      <h1 class="display case-headline">{caseItem.title}</h1>
+      <p class="case-lead">{caseItem.central}</p>
+      <p class="prose-measure" style="color:var(--blocksifr-text-muted)">{caseItem.description}</p>
+      <div class="case-actions">
+        <a class="btn btn-primary" href={"/brief?scenario=" + caseItem.scenario}>Build a free consequence brief</a>
+        <a class="btn btn-ghost" href="/toolkit">Get the free toolkit</a>
+      </div>
+    </div>
+  </section>
+  <section class="section paper-panel" aria-labelledby="method">
+    <div class="container">
+      <p class="eyebrow" style="color:#61503a">The consequence method</p>
+      <h2 id="method" class="section-title" style="color:var(--dastor-ink)">Three moves toward a defensible decision</h2>
+      <ol class="case-steps">
+        {caseItem.steps.map((step,i) => (<li><span class="case-num">{String(i+1).padStart(2,"0")}</span><p>{step}</p></li>))}
+      </ol>
+    </div>
+  </section>
+  <section class="section" aria-labelledby="evidence">
+    <div class="container case-grid">
+      <div>
+        <p class="eyebrow">Required evidence</p>
+        <h2 id="evidence" class="section-title">What to examine before making a claim</h2>
+        <ul class="case-list">{caseItem.requirements.map((item) => <li>{item}</li>)}</ul>
+      </div>
+      <div>
+        <p class="eyebrow">Avoid false confidence</p>
+        <h2 class="section-title">What this does not prove</h2>
+        <ul class="case-list">{caseItem.misconceptions.map((item) => <li>{item}</li>)}</ul>
+      </div>
+    </div>
+  </section>
+  <section class="section paper-panel" aria-labelledby="next">
+    <div class="container">
+      <p class="eyebrow" style="color:#61503a">Practical takeaway</p>
+      <h2 id="next" class="section-title" style="color:var(--dastor-ink)">{caseItem.takeaway}</h2>
+      <p style="color:#35332f;max-width:65ch">Put your own hypothesis, evidence gaps, and action boundaries into an editable brief. The free browser-based tool does not transmit your case content. If authorized testing or facility measurement is required, discuss scope with BlockSiFr before collecting sensitive evidence.</p>
+      <div class="case-actions">
+        <a class="btn btn-ink" href={"/brief?scenario=" + caseItem.scenario}>Create a Consequence Brief</a>
+        <a class="btn btn-ink" href="/assessment">Scope an assessment</a>
+      </div>
+      <p style="margin-top:2rem;font-size:.85rem;color:#685b49">Methodology article only. Scenarios are illustrative. No exploit, harm, savings, or certification is asserted without evidence.</p>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+.case-headline { font-size:clamp(2.5rem,6.5vw,5.3rem);line-height:1.03;max-width:20ch;margin:.6rem 0 1.3rem; }
+.case-lead { font:600 clamp(1.35rem,2.4vw,2rem)/1.35 var(--font-display);max-width:38ch; }
+.case-actions { display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem; }
+.case-steps { list-style:none;margin:2rem 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem; }
+.case-steps li { border-top:1px solid rgba(0,0,0,.2);padding-top:1rem;color:#24211d; }
+.case-num { font:500 .78rem var(--font-mono);color:#86652d; }
+.case-steps p { font-size:1.05rem; }
+.case-grid { display:grid;grid-template-columns:1fr 1fr;gap:4rem; }
+.case-list { padding-left:1.2rem;color:var(--blocksifr-text-muted); }
+.case-list li { margin-bottom:1rem; }
+@media(max-width:720px) { .case-steps,.case-grid { grid-template-columns:1fr;gap:1.25rem; } }
+</style>

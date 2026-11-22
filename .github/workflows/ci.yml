@@ -18,6 +18,17 @@ jobs:
       - run: npm run verify-assets
       - run: npm test
       - run: npm run build
+      - name: Verify public distribution pages and templates
+        run: |
+          set -euo pipefail
+          for route in brief toolkit consequences/security-spend consequences/ai-agents consequences/data-center consequences/software-change; do
+            test -s "dist/$route/index.html"
+          done
+          for name in consequence-brief-template.md evidence-classification-guide.md board-consequence-questions.md; do
+            test -s "dist/toolkit/$name"
+          done
+          test -s "dist/manual/index.html"
+          test -s "dist/chapters/ai-is-not-software/index.html"
       - name: Secret scan (basic)
         run: |
           if grep -RInE 'BEGIN (RSA |OPENSSH )?PRIVATE KEY|CLIENT_SECRET=|COMMERCE_WEBHOOK_SECRET=[^$]' --exclude=ci.yml --exclude-dir=node_modules --exclude-dir=.git . ; then

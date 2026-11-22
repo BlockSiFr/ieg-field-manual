@@ -63,3 +63,14 @@ jobs:
           grep -Fq "KNOW WHAT" <<< "$body"
           grep -Fq "IT CAN CAUSE." <<< "$body"
           echo "Verified consequence-first home page"
+      - name: Verify free distribution resources
+        shell: bash
+        run: |
+          set -euo pipefail
+          for route in brief toolkit consequences/security-spend consequences/ai-agents consequences/data-center consequences/software-change; do
+            curl --fail --location --silent --show-error --max-time 20 "https://ieg.blocksifr.com/$route" > /dev/null
+          done
+          for file in consequence-brief-template.md evidence-classification-guide.md board-consequence-questions.md; do
+            curl --fail --location --silent --show-error --max-time 20 "https://ieg.blocksifr.com/toolkit/$file" > /dev/null
+          done
+          echo "Verified public consequence routes and downloads"
