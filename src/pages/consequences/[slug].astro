@@ -12,7 +12,8 @@ type Case = {
   misconceptions: string[];
   takeaway: string;
 };
-const cases: Case[] = [
+export function getStaticPaths() {
+  const cases: Case[] = [
   {
     slug: "security-spend",
     scenario: "security",
@@ -114,7 +115,6 @@ const cases: Case[] = [
     takeaway: "Require evidence about the consequence of change, not merely confidence that the code is plausible.",
   },
 ];
-export function getStaticPaths() {
   return cases.map((item) => ({ params: { slug: item.slug }, props: { caseItem: item } }));
 }
 const { caseItem } = Astro.props as { caseItem: Case };
