@@ -26,10 +26,21 @@ const outcomes = [
       <p class="ci-lead">Stop counting problems. Start explaining what those problems can cause.</p>
       <p class="ci-intro">Organizations invest in security, automation, and infrastructure yet struggle to explain what damage that spending prevents or what value those systems actually create. A vulnerability rating does not establish loss. An access grant does not establish authority to cause every outcome. A compute metric does not establish savings.</p><p class="ci-intro"><strong>Consequence Intelligence starts with the outcome, works backward through credible causal paths, and makes uncertainty visible.</strong></p>
       <div class="ci-actions">
-        <a class="btn btn-primary" href="https://app.blocksifr.com/">Explore BlockSiFr Control</a>
-        <a class="btn btn-ghost" href="/manual">Read the IEG Field Manual</a>
+        <a class="btn btn-primary" href="/brief">Build a free consequence brief</a>\n        <a class="btn btn-ghost" href="/toolkit">Get the practical toolkit</a>
       </div>
       <p class="ci-note">Category framework published by BlockSiFr. The wider concepts of consequence-based security and operational risk have established prior art.</p>
+    </div>
+  </section>
+  <section class="section" aria-labelledby="apply-title">
+    <div class="container">
+      <p class="eyebrow">Apply the method</p>
+      <h2 id="apply-title" class="section-title">Four questions worth sharing with your team</h2>
+      <div class="ci-grid">
+        <article class="ci-card"><h3>What damage does security spending prevent?</h3><p>Go beyond a severity score to a plausible business effect.</p><a href="/consequences/security-spend">Explore the security case</a></article>
+        <article class="ci-card"><h3>What can an AI agent actually cause?</h3><p>Examine the action boundary, not only the credential.</p><a href="/consequences/ai-agents">Explore the AI case</a></article>
+        <article class="ci-card"><h3>What value does compute efficiency really create?</h3><p>Distinguish a workload reduction from measured facility savings.</p><a href="/consequences/data-center">Explore the data-center case</a></article>
+        <article class="ci-card"><h3>What could this release change?</h3><p>Connect code diffs to operations, rollback, and proof.</p><a href="/consequences/software-change">Explore the software case</a></article>
+      </div>
     </div>
   </section>
   <section class="section paper-panel" aria-labelledby="definition-title">
@@ -105,7 +116,7 @@ const outcomes = [
   .ci-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-top:2rem; }
   .ci-card { border:1px solid rgba(216,182,106,.22); padding:clamp(1.25rem,3vw,2rem); background:rgba(255,255,255,.02); }
   .ci-card h3 { font-family:var(--font-display); font-size:1.4rem; margin:.8rem 0 .5rem; }
-  .ci-card p { color:var(--blocksifr-text-muted); margin:0; }
+  .ci-card p { color:var(--blocksifr-text-muted); margin:0 0 1rem; }\n  .ci-card a { color:var(--blocksifr-gold-light);font-family:var(--font-display);font-weight:600;font-size:.9rem;text-underline-offset:4px; }
   .ci-card-light { border-color:rgba(9,10,11,.15); background:rgba(255,255,255,.34); }
   .ci-card-light h3 { color:#111315; }
   .ci-card-light p { color:#35332f; }
