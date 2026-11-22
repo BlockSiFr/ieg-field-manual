@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { track } from "@/lib/analytics";
 import {
   briefAsMarkdown,
+  challengeQuestions,
   emptyDraft,
   evidenceLabels,
   examples,
@@ -209,6 +210,10 @@ export default function BriefBuilder() {
           ) : (
             <p className="brief-note">All required fields have text. This does not establish that the claims are correct or verified.</p>
           )}
+          <div className="brief-challenges">
+            <h4>Challenge the claim before acting</h4>
+            <ol>{challengeQuestions(draft).map((question) => <li key={question}>{question}</li>)}</ol>
+          </div>
           <div className="brief-actions">
             <button type="button" className="btn btn-primary" onClick={downloadBrief}>Download Markdown brief</button>
             <button type="button" className="btn btn-ghost" onClick={copyBrief}>Copy brief</button>
