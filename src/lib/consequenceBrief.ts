@@ -140,6 +140,45 @@ export function readinessLabel(draft: ConsequenceDraft): string {
   return "Review-ready brief: claims require evidence review";
 }
 
+export const sectorReviewQuestions: Record<ConsequenceSector, string[]> = {
+  security: [
+    "Which precise preconditions connect the reported weakness to the protected consequence?",
+    "Which existing defenses, permission checks, or platform behavior could break that path?",
+    "What authorized, non-destructive observation would establish reachability and effect?",
+  ],
+  ai: [
+    "Did the action require a scoped authority grant at the point of execution?",
+    "What happens when the request is denied, stepped up, revoked, or replayed?",
+    "Does the evidence establish what the tool actually changed, not just what was approved?",
+  ],
+  infrastructure: [
+    "What measured baseline captures equivalent workload quality and time conditions?",
+    "Which power, cooling, reserve, tariff, or resilience constraint could negate the apparent benefit?",
+    "Were facility energy and financial effects measured, or only inferred from compute metrics?",
+  ],
+  change: [
+    "Which changed dependency or privilege could expose a critical customer outcome?",
+    "Which regression or staging test actually exercised the hypothesized failure pathway?",
+    "Has rollback or containment been demonstrated under a realistic failure condition?",
+  ],
+};
+
+export function challengeQuestions(draft: ConsequenceDraft): string[] {
+  const questions = [...sectorReviewQuestions[draft.sector]];
+  if (!draft.pathway.trim()) {
+    questions.unshift("What causal steps are missing between the initiating event and the claimed outcome?");
+  }
+  if (!draft.uncertainty.trim()) {
+    questions.push("What observation or vendor defense would falsify the conclusion?");
+  }
+  if (draft.evidenceState === "hypothesis" || draft.evidenceState === "modeled") {
+    questions.push("What next authorized test or instrumented observation could advance this beyond " + evidenceLabels[draft.evidenceState].toLowerCase() + "?");
+  } else {
+    questions.push("Who can independently examine the underlying artifacts, scope, and counterarguments?");
+  }
+  return questions.slice(0, 6);
+}
+
 export function briefAsMarkdown(draft: ConsequenceDraft): string {
   const safe = (value: string) => value.trim() || "[not supplied]";
   return [
@@ -179,6 +218,9 @@ export function briefAsMarkdown(draft: ConsequenceDraft): string {
     "",
     "## Completeness gaps",
     missingFields(draft).length ? missingFields(draft).map((x) => "- " + x).join("\n") : "No required fields omitted. Evidence still requires independent review.",
+    "",
+    "## Questions for independent challenge",
+    ...challengeQuestions(draft).map((question) => "- " + question),
     "",
     "## Evidence caveat",
     "All contents are user-authored or clearly labeled examples. This document is not a vulnerability verification, audit opinion, impact measurement, authority grant, certification, or independent attestation.",
