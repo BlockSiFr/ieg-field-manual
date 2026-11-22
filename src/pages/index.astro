@@ -320,7 +320,13 @@ const audiences = [
 </BaseLayout>
 
 <style>
-  .start-paths { display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem;margin:2rem 0; }\n  .start-paths a { color:var(--dastor-ink);text-decoration:none;border:1px solid rgba(0,0,0,.18);padding:1.2rem;display:flex;flex-direction:column;gap:.7rem; }\n  .start-paths a:hover { border-color:var(--blocksifr-gold-deep);background:rgba(255,255,255,.45); }\n  .start-paths span {font:500 .7rem var(--font-mono);text-transform:uppercase;letter-spacing:.07em;}\n  .start-paths strong {font:600 1.1rem/1.25 var(--font-display);flex:1;}\n  .start-paths small {font:500 .75rem var(--font-mono);text-decoration:underline;text-underline-offset:3px;}\n  .consequence-grid {
+  .start-paths { display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem;margin:2rem 0; }
+  .start-paths a { color:var(--dastor-ink);text-decoration:none;border:1px solid rgba(0,0,0,.18);padding:1.2rem;display:flex;flex-direction:column;gap:.7rem; }
+  .start-paths a:hover { border-color:var(--blocksifr-gold-deep);background:rgba(255,255,255,.45); }
+  .start-paths span {font:500 .7rem var(--font-mono);text-transform:uppercase;letter-spacing:.07em;}
+  .start-paths strong {font:600 1.1rem/1.25 var(--font-display);flex:1;}
+  .start-paths small {font:500 .75rem var(--font-mono);text-decoration:underline;text-underline-offset:3px;}
+  .consequence-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.25rem;
@@ -341,7 +347,8 @@ const audiences = [
     font-size: 0.95rem;
   }
   @media (max-width: 900px) {
-    .consequence-grid { grid-template-columns: 1fr; }\n    .start-paths { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .consequence-grid { grid-template-columns: 1fr; }
+    .start-paths { grid-template-columns:repeat(2,minmax(0,1fr)); }
   }
   .hero {
     min-height: 100vh;
@@ -574,7 +581,8 @@ const audiences = [
       grid-template-columns: 1fr;
     }
   }
-  @media (max-width: 560px) {\n    .start-paths { grid-template-columns:1fr; }
+  @media (max-width: 560px) {
+    .start-paths { grid-template-columns:1fr; }
     .stack-rail,
     .contains-grid,
     .audience-grid {
